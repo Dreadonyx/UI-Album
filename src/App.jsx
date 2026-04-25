@@ -15,6 +15,11 @@ import InteractiveTimeline from './components/InteractiveTimeline';
 import ProductGrid from './components/ProductGrid';
 import FloatingMusicPlayer from './components/FloatingMusicPlayer';
 import ArticleDetail from './components/ArticleDetail';
+import SplitHero from './components/SplitHero';
+import BentoGrid from './components/BentoGrid';
+import ExpandableFAB from './components/ExpandableFAB';
+import NewsletterCard from './components/NewsletterCard';
+import MinimalFooter from './components/MinimalFooter';
 
 const CATEGORIES = [
   'All', 'Navigation', 'Hero', 'Dashboard', 'Forms',
@@ -197,6 +202,61 @@ const SEED_CARDS = [
     prompt: 'Design a clean, high-readability article view on #fcfcf9. Use Lora for body text and Playfair Display for the headline. Include a purple category label in DM Mono, an author row with a placeholder avatar, and a highlighted pull-quote with a left border.',
     code: `.article { font-family: 'Lora', serif; color: #1a1a1a; }\n.headline { font-family: 'Playfair Display', serif; font-size: 32px; }\n.pull-quote { border-left: 3px solid #8b5cf6; padding-left: 20px; font-style: italic; }`,
     usage: 'Best for blogs, news portals, or documentation sites that prioritize reading experience.'
+  },
+  {
+    id: 17, title: 'Minimal Split Hero', category: 'Hero',
+    accent: '#8b5cf6',
+    palette: ['#ffffff', '#1a1a1a', '#8b5cf6', '#ec4899', '#f3f4f6'],
+    tags: ['Hero', 'Minimal', 'Split'],
+    fonts: ['Fraunces', 'Inter', 'Space Grotesk'],
+    component: SplitHero,
+    prompt: 'Design a high-contrast split hero section. Left side: white background with elegant serif typography (Fraunces), a small uppercase label, and a primary CTA. Right side: light gray background with an abstract geometric shape or product placeholder with subtle shadows and gradients.',
+    code: `.hero { display: flex; }\n.title { font-family: 'Fraunces', serif; }\n.right-pane { background: #f3f4f6; position: relative; }`,
+    usage: 'Perfect for lifestyle brands, fashion, or modern e-commerce homepages.'
+  },
+  {
+    id: 18, title: 'Feature Bento Grid', category: 'Cards',
+    accent: '#10b981',
+    palette: ['#0a0a0a', '#8b5cf6', '#10b981', '#3b82f6', '#f59e0b'],
+    tags: ['Bento', 'Grid', 'Features'],
+    fonts: ['Inter'],
+    component: BentoGrid,
+    prompt: 'Create a modern Bento-style feature grid on a dark background. Use 4-5 cards of varying sizes (large, medium, small) with subtle 1px borders and low-opacity tinted backgrounds. Each card should feature a large icon/emoji, a clear heading, and concise descriptive text.',
+    code: `.grid { display: grid; grid-template-columns: repeat(3, 1fr); }\n.card { border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }`,
+    usage: 'Ideal for "Features" or "Why Us" sections on tech and SaaS landing pages.'
+  },
+  {
+    id: 19, title: 'Expandable Action Button', category: 'Motion',
+    accent: '#3b82f6',
+    palette: ['#f3f4f6', '#1a1a1a', '#3b82f6', '#10b981', '#f59e0b'],
+    tags: ['FAB', 'Animation', 'Menu'],
+    fonts: ['Inter'],
+    component: ExpandableFAB,
+    prompt: 'Build an expandable Floating Action Button (FAB). The main button should rotate 45 degrees on click to become a "close" icon, while a vertical list of secondary actions slides up with a staggered animation. Each action includes a labeled tooltip and a colored circular icon.',
+    code: `.fab { border-radius: 50%; transition: transform 0.3s ease; }\n.menu { display: flex; flex-direction: column; gap: 12px; }`,
+    usage: 'Use in mobile-first web apps or dashboards to consolidate secondary actions.'
+  },
+  {
+    id: 20, title: 'Glass Newsletter Signup', category: 'Forms',
+    accent: '#8b5cf6',
+    palette: ['#07070f', '#8b5cf6', '#ffffff', 'rgba(255,255,255,0.05)'],
+    tags: ['Newsletter', 'Form', 'Glassmorphism'],
+    fonts: ['Space Grotesk', 'Inter'],
+    component: NewsletterCard,
+    prompt: 'Create a glassmorphic newsletter signup card. Use a dark background with a subtle gradient blur orb. The card should have a 1px white border at 10% opacity, an input field with a low-opacity background, and a vibrant primary button with a glow effect.',
+    code: `.card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); }\n.btn { background: #8b5cf6; box-shadow: 0 4px 12px rgba(139,92,246,0.3); }`,
+    usage: 'A high-conversion element for footers or middle-of-page lead magnets.'
+  },
+  {
+    id: 21, title: 'Professional Minimal Footer', category: 'Navigation',
+    accent: '#ffffff',
+    palette: ['#0a0a14', '#ffffff', 'rgba(255,255,255,0.3)', 'rgba(255,255,255,0.05)'],
+    tags: ['Footer', 'Navigation', 'Links'],
+    fonts: ['Space Grotesk', 'Inter'],
+    component: MinimalFooter,
+    prompt: 'Design a clean, professional footer with a dark navy background. Left side: brand logo and a short description. Right side: multiple columns for categorized navigation links. Bottom: copyright text and small utility links separated by a subtle top border.',
+    code: `.footer { background: #0a0a14; color: #fff; }\n.links-column { display: flex; flex-direction: column; gap: 10px; }`,
+    usage: 'The standard for SaaS, corporate, or professional portfolio sites.'
   },
 ];
 
