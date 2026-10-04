@@ -25,6 +25,8 @@ const ButtonStates = lazy(() => import('./components/ButtonStates'));
 const ShinyButtons = lazy(() => import('./components/ShinyButtons'));
 const NeumorphicForm = lazy(() => import('./components/NeumorphicForm'));
 const NewsletterCard = lazy(() => import('./components/NewsletterCard'));
+const MultiStepWizard = lazy(() => import('./components/MultiStepWizard'));
+const SettingsPanel = lazy(() => import('./components/SettingsPanel'));
 const DashboardWidget = lazy(() => import('./components/DashboardWidget'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
@@ -304,6 +306,26 @@ const ENTRIES = [
     prompt: 'Create a glassmorphic newsletter signup card. Use a dark background with a subtle gradient blur orb. The card should have a 1px white border at 10% opacity, an input field with a low-opacity background, and a vibrant primary button with a glow effect.',
     code: `.card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); }\n.btn { background: #8b5cf6; box-shadow: 0 4px 12px rgba(139,92,246,0.3); }`,
     usage: 'A high-conversion element for footers or middle-of-page lead magnets.',
+  },
+  {
+    title: 'Multi-step Wizard', category: 'Forms', component: MultiStepWizard,
+    accent: '#0f766e',
+    palette: ['#0f766e', '#f5f5f4', '#ccfbf1', '#1c1917', '#a8a29e'],
+    tags: ['Stepper', 'Onboarding', 'Validation'],
+    fonts: ['Inter'],
+    prompt: 'Build a 4-step onboarding wizard (Account → Workspace → Plan → Done) on #f5f5f4. A horizontal stepper at the top: numbered 26px circles that become teal (#0f766e) check marks when complete, the current step outlined with a soft teal focus ring, and connector lines that fill teal as you progress. The white step card animates in on every change. Workspace step: a URL field with an "app.co/" prefix addon that slugifies input and shows "is available". Plan step: three selectable plan tiles. Done step: success icon and summary. Footer: Back (disabled on step 1) and Continue / Start over.',
+    code: `.step-dot { width: 26px; height: 26px; border-radius: 50%; }\n.step-dot.current { border: 2px solid #0f766e; box-shadow: 0 0 0 4px rgba(15,118,110,.12); }\n.step-dot.done { background: #0f766e; color: #fff; }\n.connector > span { background: #0f766e; transition: width .4s ease; }`,
+    usage: 'Onboarding, checkout, account setup and any long form split into digestible steps.',
+  },
+  {
+    title: 'Settings with Save Bar', category: 'Forms', component: SettingsPanel,
+    accent: '#3b82f6',
+    palette: ['#0a0c11', '#161b25', '#3b82f6', '#e6e8ee', '#6b7385'],
+    tags: ['Settings', 'Dirty State', 'Dark'],
+    fonts: ['Inter'],
+    prompt: 'Design a dark (#0a0c11) settings screen with a 160px left nav (Profile, Security, Notifications, Billing with icons; active item #161b25). The Profile pane has a gradient initial avatar with "Change avatar", a Display name input and a Bio textarea with an 80-character counter, all with #0d1017 fields and #2a2f3a borders. When any field differs from the saved value, a floating "Unsaved changes" bar slides up from the bottom (translateY + opacity) with Reset and a blue Save button; saving or resetting slides it away.',
+    code: `.save-bar { position: absolute; bottom: 18px; transform: translate(-50%, 80px); opacity: 0; transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .3s; }\n.save-bar.dirty { transform: translate(-50%, 0); opacity: 1; }\n.field { background: #0d1017; border: 1px solid #2a2f3a; border-radius: 9px; }`,
+    usage: 'Account and app settings where accidental navigation should not lose edits.',
   },
 
   // ─── Dashboard ────────────────────────────────────────────
