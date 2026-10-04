@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 const ThemeNeumorphism = lazy(() => import('./components/ThemeNeumorphism'));
 const ThemeClaymorphism = lazy(() => import('./components/ThemeClaymorphism'));
+const ThemeGlassmorphism = lazy(() => import('./components/ThemeGlassmorphism'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -113,6 +114,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in claymorphism on a pink-to-periwinkle pastel gradient. Elements look like inflated clay: very large radii (38px card, 20–24px inner pieces), pastel fills (#c8b6ff card, #ffd6a5 icon tile, #a0e7e5 button, #9bf6c5 progress, #ffadad active toggle) and a triple shadow on each piece: a soft colored outer drop shadow (0 18px 30px -10px) plus an inner dark shadow bottom-right and an inner white highlight top-left. Include an emoji icon tile, a white clay panel with the progress bar, a square clay toggle button (🔕/🔔) and a chunky "Start session" button that squishes (scale 0.97) while running. Space Grotesk bold, deep purple text #3b2f63.',
     code: `.clay { border-radius: 38px; background: #c8b6ff; box-shadow: 0 18px 30px -10px rgba(124,92,230,.45), inset -6px -8px 14px rgba(0,0,0,.12), inset 6px 8px 14px rgba(255,255,255,.65); }\n.clay-btn { border-radius: 20px; background: #a0e7e5; }\n.clay-btn:active { transform: scale(.97); }`,
     usage: 'Playful consumer apps, kids and education products, onboarding illustrations and 3D-ish landing pages.',
+  },
+  {
+    title: 'Glassmorphism', category: 'Themes', component: ThemeGlassmorphism,
+    accent: '#38bdf8',
+    palette: ['#4f46e5', '#0ea5e9', '#f472b6', '#facc15', '#ffffff'],
+    tags: ['Frosted Glass', 'Blur', 'Translucent'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget in glassmorphism. Background: an indigo-to-sky gradient with bold solid shapes behind the card (a pink circle, a yellow circle, a rotated cyan square) so the blur has something to show. The card is rgba(255,255,255,0.14) with backdrop-filter: blur(18px) saturate(160%), a 1px rgba(255,255,255,0.35) border, a 1px inner top highlight and a soft indigo shadow. White Inter text, a big 40px percentage, a glowing white progress bar, a translucent switch row and a glass button that turns solid white with indigo text while running. Add a second smaller glass panel for the caption.',
+    code: `.glass { background: rgba(255,255,255,.14); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,.35); border-radius: 24px; box-shadow: 0 8px 32px rgba(31,38,135,.25), inset 0 1px 0 rgba(255,255,255,.4); }`,
+    usage: 'Overlays on rich imagery: music players, weather, OS-style widgets and hero cards. Ensure text contrast over busy areas.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
