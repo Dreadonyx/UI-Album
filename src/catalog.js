@@ -4,6 +4,7 @@ const ThemeNeumorphism = lazy(() => import('./components/ThemeNeumorphism'));
 const ThemeClaymorphism = lazy(() => import('./components/ThemeClaymorphism'));
 const ThemeGlassmorphism = lazy(() => import('./components/ThemeGlassmorphism'));
 const ThemeSkeuomorphism = lazy(() => import('./components/ThemeSkeuomorphism'));
+const ThemeFlat = lazy(() => import('./components/ThemeFlat'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -135,6 +136,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in skeuomorphism, imitating physical hardware on a leather desk (radial brown gradient with a fine diagonal stitch texture). The device is a brushed-metal panel (vertical silver gradient, beveled edges, inner highlights, deep drop shadow) with: a glowing LED that turns green when running, a recessed LCD screen showing the percentage in green VT323 digits with a glow, a glossy two-tone blue progress bar in a sunken track, an iOS-6-style ON/OFF slider switch with a metal knob, and a glossy gel button (green → red while running) with an embossed label. Next to it, a lined-paper sticky note rotated 2° explaining the style.',
     code: `.metal { background: linear-gradient(180deg, #f2f2f2, #cfcfcf 45%, #e6e6e6); border: 1px solid #8a8a8a; box-shadow: 0 14px 28px rgba(0,0,0,.55), inset 0 1px 0 #fff; }\n.lcd { background: linear-gradient(#1a2a12, #2d4220); box-shadow: inset 0 3px 8px rgba(0,0,0,.8); color: #9cff6b; text-shadow: 0 0 8px rgba(156,255,107,.7); }\n.gel { background: linear-gradient(180deg, #7ed957, #3fa521 50%, #2e8c14 51%, #4cbb2a); text-shadow: 0 -1px 0 rgba(0,0,0,.5); }`,
     usage: 'Audio plugins, games, retro tributes and anywhere tactile realism adds delight.',
+  },
+  {
+    title: 'Flat Design', category: 'Themes', component: ThemeFlat,
+    accent: '#e67e22',
+    palette: ['#3498db', '#2c3e50', '#2ecc71', '#e67e22', '#e74c3c'],
+    tags: ['Flat', 'Solid Color', 'No Shadows'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget in classic flat design on a solid #3498db background. Absolutely no gradients, shadows or textures. The card has a dark #2c3e50 header with an orange circular check icon, then an #ecf0f1 body: a big bold percentage, a square-ended progress bar (#2ecc71 on #bdc3c7), a simple pill switch, and an uppercase orange (#e67e22) button that turns red (#e74c3c) while running. Small 4–6px radii, bold Inter. Show the flat palette as five square swatches next to the card.',
+    code: `.card { background: #ecf0f1; border-radius: 6px; }\n.card-header { background: #2c3e50; color: #fff; }\n.progress { background: #bdc3c7; } .progress > span { background: #2ecc71; }\n.btn { background: #e67e22; color: #fff; border: 0; border-radius: 4px; text-transform: uppercase; }`,
+    usage: 'Fast-loading interfaces, infographics, icon systems and products that need maximum clarity.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
