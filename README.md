@@ -1,6 +1,6 @@
 # UI Album
 
-A curated library of **102 live, interactive UI components** across **20 categories**, including a **Themes** collection of 20 design styles, presented in a dark editorial gallery. Every component comes with a copy-ready **AI prompt**, a color palette, font pairing, reference CSS and usage notes, so you can recreate it in any stack or hand it straight to an AI coding tool.
+A curated library of **112 live, interactive UI components** across **20 categories**, including a **Themes** collection of 30 design styles, presented in a dark editorial gallery. Every component comes with a copy-ready **AI prompt**, a color palette, font pairing, reference CSS and usage notes, so you can recreate it in any stack or hand it straight to an AI coding tool.
 
 ## Features
 
@@ -16,7 +16,7 @@ A curated library of **102 live, interactive UI components** across **20 categor
 
 | Category | Components |
 | --- | --- |
-| Themes | Neumorphism, claymorphism, glassmorphism, skeuomorphism, flat design, Material Design, minimalism, neo-brutalism, Swiss style, Bauhaus, Memphis, Art Deco, Y2K chrome, vaporwave, pixel art, cyberpunk HUD, maximalism, organic biomorphism, Frutiger Aero, retro OS (Win95). All render the same focus widget so the styles can be compared side by side. |
+| Themes | Neumorphism, claymorphism, glassmorphism, skeuomorphism, flat design, Material Design, minimalism, neo-brutalism, Swiss style, Bauhaus, Memphis, Art Deco, Y2K chrome, vaporwave, pixel art, cyberpunk HUD, maximalism, organic biomorphism, Frutiger Aero, retro OS (Win95), Liquid Glass, aurora mesh gradient, Dark Academia, monochrome, grainy gradient, Corporate Memphis, psychedelic, synthwave, steampunk, kawaii. All render the same focus widget so the styles can be compared side by side. |
 | Navigation | Neon navbar, minimal footer, collapsible sidebar, ⌘K command palette, breadcrumbs & pagination, morphing pill tabs |
 | Hero | Glassmorphism, minimal split, aurora gradient, waitlist launch |
 | Landing | Brutalist landing, SaaS pricing, infinite testimonial wall, plan comparison table, logo cloud marquee, FAQ accordion |
