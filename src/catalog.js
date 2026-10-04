@@ -36,7 +36,7 @@ const SidebarNav = lazy(() => import('./components/SidebarNav'));
 const CommandPalette = lazy(() => import('./components/CommandPalette'));
 const BreadcrumbPagination = lazy(() => import('./components/BreadcrumbPagination'));
 const MorphingTabs = lazy(() => import('./components/MorphingTabs'));
-const GlassHero = lazy(() => import('./components/GlassHero'));
+const HeroProductShot = lazy(() => import('./components/HeroProductShot'));
 const SplitHero = lazy(() => import('./components/SplitHero'));
 const AuroraHero = lazy(() => import('./components/AuroraHero'));
 const LaunchHero = lazy(() => import('./components/LaunchHero'));
@@ -487,14 +487,14 @@ const ENTRIES = [
 
   // ─── Hero ─────────────────────────────────────────────────
   {
-    title: 'Glassmorphism Hero', category: 'Hero', component: GlassHero,
-    accent: '#8b5cf6',
-    palette: ['#8b5cf6', '#06b6d4', '#ec4899', '#1a0533', '#0d1b3e'],
-    tags: ['Glass', 'Backdrop-blur', 'CTA'],
-    fonts: ['Playfair Display', 'DM Mono', 'Lora'],
-    prompt: 'Create a hero section with a deep purple-to-navy gradient background and 3 blurred gradient orbs (violet, cyan, pink) positioned at corners. Center a frosted glass card using backdrop-filter: blur(20px), background: rgba(255,255,255,0.06), border: 1px solid rgba(255,255,255,0.12). Inside the card: a small uppercase label in DM Mono, a headline "The Future of Design Systems" in Playfair Display 28px, body text in Lora, and a gradient CTA button (#8b5cf6 → #6d28d9) with a purple glow shadow.',
-    code: `.glass-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }\n.cta { background: linear-gradient(135deg, #8b5cf6, #6d28d9); box-shadow: 0 4px 20px rgba(139,92,246,0.4); }`,
-    usage: 'Perfect for landing pages that want to convey a modern, "next-gen" feeling with depth.',
+    title: 'SaaS Product Hero', category: 'Hero', component: HeroProductShot,
+    accent: '#5e6ad2',
+    palette: ['#08090a', '#f7f8f8', '#8a8f98', '#5e6ad2', '#4cb782'],
+    tags: ['Product-led', 'Screenshot', 'Dark'],
+    fonts: ['Inter', 'JetBrains Mono'],
+    prompt: 'Design a product-led SaaS hero for "Relay", an issue tracker, on near-black #08090a. A 44px nav with a two-square logo mark, five muted links (#8a8f98), "Log in" and a small white "Sign up" button, separated from the page by a 1px #1c1d1f rule. Centered: a quiet outlined pill linking to release notes, a two-line 38px Inter semibold headline with -1.6px tracking ("Plan, build and ship without the busywork."), one sentence of gray supporting copy, a white primary button and an outlined secondary with a chevron. Below the fold line, an honest product screenshot rendered in HTML: a #0f1011 app window with a sidebar of views (one selectable), a header with filter icons and five issue rows (mono IDs, status circles, titles, assignee initials), cropped by the bottom edge and faded into the background. No gradients, glows or decorative blobs.',
+    code: `.nav { height: 44px; border-bottom: 1px solid #1c1d1f; }\nh1 { font: 600 38px/1.06 Inter, sans-serif; letter-spacing: -1.6px; color: #f7f8f8; }\n.btn-primary { background: #f7f8f8; color: #08090a; border-radius: 7px; }\n.screenshot { border: 1px solid #232427; border-bottom: 0; border-radius: 10px 10px 0 0; background: #0f1011; }\n.fold-fade { background: linear-gradient(transparent, #08090a); }`,
+    usage: 'B2B SaaS homepages where the product itself is the strongest selling point.',
   },
   {
     title: 'Minimal Split Hero', category: 'Hero', component: SplitHero,
