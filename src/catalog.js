@@ -16,6 +16,7 @@ const ThemeY2K = lazy(() => import('./components/ThemeY2K'));
 const ThemeVaporwave = lazy(() => import('./components/ThemeVaporwave'));
 const ThemePixel = lazy(() => import('./components/ThemePixel'));
 const ThemeCyberpunk = lazy(() => import('./components/ThemeCyberpunk'));
+const ThemeMaximalism = lazy(() => import('./components/ThemeMaximalism'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -267,6 +268,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget as a cyberpunk HUD on #0a0a12 with a faint cyan grid and horizontal scanlines. The panel uses clip-path polygons to cut two opposite corners, with a 2px acid-yellow (#fcee0a) frame made by nesting a slightly smaller clipped panel. Content in uppercase JetBrains Mono: "// SYS.FOCUS / NODE_07", a "DEEP_WORK" title with red/cyan chromatic-aberration text shadows, a yellow zero-padded percentage labelled "SYNC RATE", a 25-segment skewed cyan meter with glow, a clipped "> NEURAL_MUTE [ACTIVE]" toggle and a clipped yellow "▶ JACK IN" button that turns red "■ ABORT SESSION" while running.',
     code: `.cut { clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px)); }\n.frame { padding: 2px; background: #fcee0a; } .frame > div { background: #0d0d18; }\n.glitch { text-shadow: 2px 0 #00f0ff, -2px 0 #ff003c; }\n.scanlines { background: repeating-linear-gradient(180deg, rgba(0,240,255,.04) 0 1px, transparent 1px 3px); }`,
     usage: 'Games, sci-fi brands, developer tools with attitude and esports overlays.',
+  },
+  {
+    title: 'Maximalism', category: 'Themes', component: ThemeMaximalism,
+    accent: '#ff3d7f',
+    palette: ['#ff3d7f', '#ff8c42', '#2b59ff', '#ffe14d', '#00d1a0'],
+    tags: ['More is More', 'Patterns', 'Mixed Type'],
+    fonts: ['Fraunces', 'Bungee', 'Instrument Serif', 'Syne'],
+    prompt: 'Design a "Deep Work" focus widget in maximalism: more is more. Background of bold pink/orange vertical stripes with a blue polka-dot circle and a rotated black-and-white checkerboard square cropped at the corners. The card is cream with asymmetric radii (30px/4px alternating), a 5px double border and two stacked offset shadows (blue then yellow). Mix typefaces deliberately: Fraunces black italic, Bungee, Instrument Serif and Syne. Add a tilted green "WOW!" sticker, a huge blue numeral beside a candy-striped progress track with a rainbow fill, a dashed pill toggle with italic serif answers ("yes, please" / "nope"), and a gradient Bungee button.',
+    code: `.stage { background: repeating-linear-gradient(90deg, #ff3d7f 0 30px, #ff8c42 30px 60px); }\n.card { border: 5px double #1b0a3c; border-radius: 30px 4px 30px 4px; box-shadow: 12px 12px 0 #2b59ff, 24px 24px 0 #ffe14d; }\n.dots { background: radial-gradient(#ffe14d 30%, transparent 31%) 0 0 / 20px 20px, #2b59ff; }\n.checker { background: conic-gradient(#000 25%, #fff 0 50%, #000 0 75%, #fff 0) 0 0 / 30px 30px; }`,
+    usage: 'Fashion, editorial campaigns, creative agencies and brands that want to be unforgettable.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
