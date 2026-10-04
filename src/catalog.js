@@ -26,6 +26,7 @@ const ThemeDarkAcademia = lazy(() => import('./components/ThemeDarkAcademia'));
 const ThemeMonochrome = lazy(() => import('./components/ThemeMonochrome'));
 const ThemeGrainy = lazy(() => import('./components/ThemeGrainy'));
 const ThemeCorporateMemphis = lazy(() => import('./components/ThemeCorporateMemphis'));
+const ThemePsychedelic = lazy(() => import('./components/ThemePsychedelic'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -377,6 +378,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in Corporate Memphis (Alegria) style on a pale lavender background with flat pastel blobs and doodles. On the left, an inline SVG flat illustration of a person: tiny purple-skinned head with dark hair, a yellow torso, absurdly long navy legs with coral shoes, long purple arms (one waving, which lifts when the session runs) and a white laptop. On the right, a friendly white card with 24px radius: a mint "You’re doing great! 🎉" pill, bold title, a purple progress bar, a coral switch and a dark navy CTA "Let’s get started →" that turns coral ("Take a break") while running.',
     code: `.card { background: #fff; border-radius: 24px; box-shadow: 0 16px 40px rgba(91,87,134,.15); }\n.pill { background: #c9f2e3; color: #0f7a55; border-radius: 999px; }\n.cta { background: #1f1b4d; color: #fff; border-radius: 14px; }\n/* Illustration: flat SVG shapes, no outlines, oversized limbs, non-realistic skin (#7b6cf6) */`,
     usage: 'Tech marketing, onboarding, HR and fintech explainers. Pair with real photography to avoid feeling generic.',
+  },
+  {
+    title: 'Psychedelic', category: 'Themes', component: ThemePsychedelic,
+    accent: '#ff3cac',
+    palette: ['#ff3cac', '#ffb800', '#2bd2ff', '#7cff6b', '#784ba0'],
+    tags: ['60s', 'Swirl', 'Hue Shift'],
+    fonts: ['Fraunces', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget as 60s psychedelic poster art. Background: an oversized repeating-conic-gradient of rainbow rays (pink, gold, cyan, green, purple) slowly rotating while a hue-rotate animation cycles the colors, overlaid with white concentric ripple rings. The card is a melting blob (asymmetric border-radius) in cream with a 5px dark purple border and a purple offset shadow. "GROOVY" is set letter by letter in heavy Fraunces, each letter a different color with a dark stroke, bobbing in a staggered wave. The percentage sits inside a rainbow conic ring that spins while running; a peace-sign toggle and a pink-gold gradient pill button ("turn on" / "come down").',
+    code: `.rays { background: repeating-conic-gradient(#ff3cac 0 15deg, #ffb800 15deg 30deg, #2bd2ff 30deg 45deg, #7cff6b 45deg 60deg, #784ba0 60deg 75deg); animation: swirl 40s linear infinite, hue 12s linear infinite; }\n@keyframes hue { to { filter: hue-rotate(360deg); } }\n.letter { display: inline-block; -webkit-text-stroke: 1.5px #2a0a3d; animation: wave 1.6s ease-in-out infinite; animation-delay: calc(var(--i) * .12s); }\n.blob { border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; }`,
+    usage: 'Festivals, music releases, merch drops and anything that should feel joyful and wild.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
