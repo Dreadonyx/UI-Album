@@ -27,6 +27,7 @@ const ThemeMonochrome = lazy(() => import('./components/ThemeMonochrome'));
 const ThemeGrainy = lazy(() => import('./components/ThemeGrainy'));
 const ThemeCorporateMemphis = lazy(() => import('./components/ThemeCorporateMemphis'));
 const ThemePsychedelic = lazy(() => import('./components/ThemePsychedelic'));
+const ThemeSynthwave = lazy(() => import('./components/ThemeSynthwave'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -388,6 +389,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget as 60s psychedelic poster art. Background: an oversized repeating-conic-gradient of rainbow rays (pink, gold, cyan, green, purple) slowly rotating while a hue-rotate animation cycles the colors, overlaid with white concentric ripple rings. The card is a melting blob (asymmetric border-radius) in cream with a 5px dark purple border and a purple offset shadow. "GROOVY" is set letter by letter in heavy Fraunces, each letter a different color with a dark stroke, bobbing in a staggered wave. The percentage sits inside a rainbow conic ring that spins while running; a peace-sign toggle and a pink-gold gradient pill button ("turn on" / "come down").',
     code: `.rays { background: repeating-conic-gradient(#ff3cac 0 15deg, #ffb800 15deg 30deg, #2bd2ff 30deg 45deg, #7cff6b 45deg 60deg, #784ba0 60deg 75deg); animation: swirl 40s linear infinite, hue 12s linear infinite; }\n@keyframes hue { to { filter: hue-rotate(360deg); } }\n.letter { display: inline-block; -webkit-text-stroke: 1.5px #2a0a3d; animation: wave 1.6s ease-in-out infinite; animation-delay: calc(var(--i) * .12s); }\n.blob { border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; }`,
     usage: 'Festivals, music releases, merch drops and anything that should feel joyful and wild.',
+  },
+  {
+    title: 'Synthwave', category: 'Themes', component: ThemeSynthwave,
+    accent: '#ff2a6d',
+    palette: ['#0d0221', '#ff2a6d', '#05d9e8', '#2d0a4e', '#d6c8ff'],
+    tags: ['Outrun', 'Neon', '80s'],
+    fonts: ['Syne', 'VT323', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget in synthwave / outrun style. A midnight purple sky with tiny stars, a wireframe mountain range (SVG polygon with a cyan stroke) and pink horizon lines at the bottom. The card is a neon tube: 2px hot pink (#ff2a6d) border with layered pink glows outside and inside. Content: a cyan "NIGHT DRIVE" eyebrow with neon glow, an uppercase italic chrome-gradient title (white to pink with a hard horizon split), a flickering cyan VT323 percentage, a glowing cyan progress bar, an outlined toggle that lights up cyan, and a pink neon "PRESS PLAY" button that switches to cyan while running.',
+    code: `.neon-pink { border: 2px solid #ff2a6d; box-shadow: 0 0 4px #ff2a6d, 0 0 12px #ff2a6d, 0 0 28px #ff2a6d, inset 0 0 18px rgba(255,42,109,.35); }\n.chrome { background: linear-gradient(180deg, #fff, #ffd1e8 45%, #ff2a6d 55%, #ffb3d1); -webkit-background-clip: text; color: transparent; }\n.flicker { animation: flicker 4s infinite; } @keyframes flicker { 20%, 61% { opacity: .55; } }`,
+    usage: 'Music, gaming, night-time and retro-futurist brands, event and festival sites.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
