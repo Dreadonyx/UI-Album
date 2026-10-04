@@ -18,6 +18,8 @@ const LogoMarquee = lazy(() => import('./components/LogoMarquee'));
 const FAQAccordion = lazy(() => import('./components/FAQAccordion'));
 const EditorialGrid = lazy(() => import('./components/EditorialGrid'));
 const BentoGrid = lazy(() => import('./components/BentoGrid'));
+const ProfileCard = lazy(() => import('./components/ProfileCard'));
+const TiltCard = lazy(() => import('./components/TiltCard'));
 const GradientButtons = lazy(() => import('./components/GradientButtons'));
 const NeumorphicForm = lazy(() => import('./components/NeumorphicForm'));
 const NewsletterCard = lazy(() => import('./components/NewsletterCard'));
@@ -226,6 +228,26 @@ const ENTRIES = [
     prompt: 'Create a modern Bento-style feature grid on a dark background. Use 4-5 cards of varying sizes (large, medium, small) with subtle 1px borders and low-opacity tinted backgrounds. Each card should feature a large icon/emoji, a clear heading, and concise descriptive text.',
     code: `.grid { display: grid; grid-template-columns: repeat(3, 1fr); }\n.card { border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }`,
     usage: 'Ideal for "Features" or "Why Us" sections on tech and SaaS landing pages.',
+  },
+  {
+    title: 'Social Profile Card', category: 'Cards', component: ProfileCard,
+    accent: '#ec4899',
+    palette: ['#6366f1', '#ec4899', '#f59e0b', '#ffffff', '#18181b'],
+    tags: ['Profile', 'Follow', 'Stats'],
+    fonts: ['Inter', 'Fraunces'],
+    prompt: 'Design a 300px white profile card on a soft indigo-to-pink background. Top: an 86px gradient cover (#6366f1 → #ec4899 → #f59e0b) with a subtle white dot pattern. The 72px avatar overlaps the cover with a 4px white ring and a green online dot. Right-aligned "Follow" pill button toggles to an outlined "Following" state with a check icon and bumps the follower count. Below: name, @handle · role, a two-line bio, skill chips, and a 3-column stats row (Posts, Followers, Following) separated by a hairline.',
+    code: `.cover { height: 86px; background: linear-gradient(120deg, #6366f1, #ec4899 60%, #f59e0b); }\n.avatar { width: 72px; height: 72px; margin-top: -36px; border: 4px solid #fff; border-radius: 50%; }\n.follow { border-radius: 999px; background: #18181b; color: #fff; }\n.follow[aria-pressed="true"] { background: #fff; color: #18181b; border: 1px solid #e4e4e7; }`,
+    usage: 'Community apps, team directories, creator platforms and author bios.',
+  },
+  {
+    title: '3D Holographic Tilt Card', category: 'Cards', component: TiltCard,
+    accent: '#a855f7',
+    palette: ['#1e1b4b', '#4c1d95', '#be185d', '#22d3ee', '#f0abfc'],
+    tags: ['3D', 'Tilt', 'Holographic'],
+    fonts: ['Space Grotesk'],
+    prompt: 'Build a collectible-style card that tilts in 3D following the cursor. Wrap it in perspective: 900px. On mousemove compute the pointer position and set rotateX/rotateY up to ±11°, scale to 1.04 and move the drop shadow opposite to the tilt. Layer two overlays: a radial white glare that follows the cursor (mix-blend-mode: overlay) and a cyan/pink holographic stripe whose angle shifts with tilt (mix-blend-mode: color-dodge). Card body: violet-to-pink gradient, "HOLO · 07 / ★ RARE" header, a glowing conic-gradient orb, and the title "Prism Core". Spring back smoothly on mouse leave.',
+    code: `.scene { perspective: 900px; }\n.card { transform: rotateX(var(--rx)) rotateY(var(--ry)); transform-style: preserve-3d; transition: transform .6s cubic-bezier(.16,1,.3,1); }\n.glare { background: radial-gradient(circle at var(--gx) var(--gy), rgba(255,255,255,.55), transparent 55%); mix-blend-mode: overlay; }\n.content { transform: translateZ(40px); }`,
+    usage: 'NFT/collectible showcases, product highlights and playful portfolio pieces.',
   },
 
   // ─── Buttons ──────────────────────────────────────────────
