@@ -34,6 +34,9 @@ const DatePicker = lazy(() => import('./components/DatePicker'));
 const ColorPicker = lazy(() => import('./components/ColorPicker'));
 const FileDropzone = lazy(() => import('./components/FileDropzone'));
 const StarRating = lazy(() => import('./components/StarRating'));
+const LoginCard = lazy(() => import('./components/LoginCard'));
+const PasswordStrength = lazy(() => import('./components/PasswordStrength'));
+const OTPVerify = lazy(() => import('./components/OTPVerify'));
 const DashboardWidget = lazy(() => import('./components/DashboardWidget'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
@@ -405,6 +408,38 @@ const ENTRIES = [
     prompt: 'Create a review widget on a deep plum background (#1a1625). Left: "Rate your stay" in Fraunces, a hint line, and five 34px star buttons in a radiogroup. Hovering previews the rating (stars fill amber #fbbf24 with a drop-shadow glow) and the hovered star bounces with scale(1.25) rotate(-8deg); a label below changes from "Terrible" to "Amazing!". Right: a summary card with the average "4.6 / 5 · 1,920 reviews" and 5→1 star distribution bars in amber with percentage labels.',
     code: `.star { transition: transform .2s cubic-bezier(.34,1.56,.64,1); }\n.star:hover { transform: scale(1.25) rotate(-8deg); }\n.star.on svg { fill: #fbbf24; filter: drop-shadow(0 0 10px rgba(251,191,36,.55)); }\n.bar > span { background: #fbbf24; border-radius: 4px; }`,
     usage: 'Product reviews, post-purchase surveys, app feedback and NPS-style prompts.',
+  },
+
+  // ─── Auth ─────────────────────────────────────────────────
+  {
+    title: 'Split Login Card', category: 'Auth', component: LoginCard,
+    accent: '#2563eb',
+    palette: ['#111827', '#1e3a8a', '#60a5fa', '#ffffff', '#ef4444'],
+    tags: ['Login', 'Validation', 'Social Auth'],
+    fonts: ['Inter', 'Instrument Serif'],
+    prompt: 'Design a split sign-in screen. Left 230px panel: dark navy gradient (#111827 → #1e3a8a) with a logo, a large decorative ring, and a customer quote in Instrument Serif. Right: white form with "Welcome back", a "Create an account" link, two social buttons (Google, GitHub), an OR divider, then email and password fields with leading icons and a show/hide password toggle. On submit, invalid fields get a red border, a soft red focus ring and inline error text ("Enter a valid email address", "At least 8 characters"). A full-width dark "Sign in" button and a "Forgot password?" link.',
+    code: `.field { display: flex; align-items: center; gap: 8px; height: 40px; border: 1px solid #e5e7eb; border-radius: 10px; }\n.field[aria-invalid="true"] { border-color: #f87171; box-shadow: 0 0 0 3px rgba(248,113,113,.15); }\n.error { font-size: 10px; color: #ef4444; }`,
+    usage: 'Login and sign-up pages for SaaS products and internal tools.',
+  },
+  {
+    title: 'Password Strength Meter', category: 'Auth', component: PasswordStrength,
+    accent: '#10b981',
+    palette: ['#0c1222', '#ef4444', '#eab308', '#22c55e', '#10b981'],
+    tags: ['Password', 'Validation', 'Live Feedback'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Build a "Set a password" card on a dark navy gradient. The input uses DM Mono with wide letter-spacing when masked, a lock icon and a show/hide toggle; its border tints with the current strength color. Below: a 4-segment meter that fills from red (Too weak) through orange, yellow, green to emerald (Strong), a live-announced strength label (aria-live="polite"), and a checklist of rules (10+ characters, uppercase, number, symbol) whose icons switch from a dash to an emerald check as each rule passes.',
+    code: `.meter { display: flex; gap: 5px; }\n.meter > span { flex: 1; height: 5px; border-radius: 4px; background: rgba(255,255,255,.08); transition: background .3s; }\n.meter > span.on { background: var(--strength-color); }\n.rule.ok { color: #cbd5e1; } .rule.ok .icon { background: rgba(16,185,129,.15); color: #10b981; }`,
+    usage: 'Sign-up, password reset and security settings screens.',
+  },
+  {
+    title: 'OTP Verification', category: 'Auth', component: OTPVerify,
+    accent: '#4f46e5',
+    palette: ['#fafafa', '#4f46e5', '#a5b4fc', '#22c55e', '#ef4444'],
+    tags: ['2FA', 'One-time Code', 'Auto-advance'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a 6-digit one-time-code screen on #fafafa. Shield icon tile, "Check your phone", masked phone number. Six 48×56 single-digit inputs in DM Mono (gap after the third) with inputMode="numeric" and autocomplete="one-time-code". Typing auto-advances, Backspace moves back, arrow keys navigate, and pasting a full code fills all boxes. Filled boxes get an indigo border; a complete correct code turns all borders green and swaps the icon to a check ("Verified!"); a wrong code shakes the row with red borders and an error message. A resend link counts down from 0:30.',
+    code: `.otp input { width: 48px; height: 56px; text-align: center; font: 600 22px 'DM Mono', monospace; border: 2px solid #e4e4e7; border-radius: 12px; }\n.otp input:not(:placeholder-shown) { border-color: #a5b4fc; }\n.otp.error { animation: shake .4s ease; } .otp.error input { border-color: #ef4444; }`,
+    usage: 'Two-factor authentication, phone verification and passwordless login.',
   },
 
   // ─── Dashboard ────────────────────────────────────────────
