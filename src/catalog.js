@@ -2,6 +2,10 @@ import { lazy } from 'react';
 
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
+const SidebarNav = lazy(() => import('./components/SidebarNav'));
+const CommandPalette = lazy(() => import('./components/CommandPalette'));
+const BreadcrumbPagination = lazy(() => import('./components/BreadcrumbPagination'));
+const MorphingTabs = lazy(() => import('./components/MorphingTabs'));
 const GlassHero = lazy(() => import('./components/GlassHero'));
 const SplitHero = lazy(() => import('./components/SplitHero'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
@@ -50,6 +54,46 @@ const ENTRIES = [
     prompt: 'Design a clean, professional footer with a dark navy background. Left side: brand logo and a short description. Right side: multiple columns for categorized navigation links. Bottom: copyright text and small utility links separated by a subtle top border.',
     code: `.footer { background: #0a0a14; color: #fff; }\n.links-column { display: flex; flex-direction: column; gap: 10px; }`,
     usage: 'The standard for SaaS, corporate, or professional portfolio sites.',
+  },
+  {
+    title: 'Collapsible Sidebar', category: 'Navigation', component: SidebarNav,
+    accent: '#6366f1',
+    palette: ['#6366f1', '#22d3ee', '#11141b', '#0b0d12', '#c7d2fe'],
+    tags: ['Sidebar', 'App Shell', 'Collapsible'],
+    fonts: ['Inter'],
+    prompt: 'Build an app shell with a collapsible left sidebar on #0b0d12. The sidebar (#11141b, 200px wide, 68px when collapsed) has a gradient logo tile (#6366f1 → #22d3ee), grouped nav sections with 10px uppercase group labels, and icon + label rows. The active row gets rgba(99,102,241,0.14) background, #c7d2fe text and a 3px glowing indigo bar on its left edge. Show a count badge on Inbox. A "Collapse" button at the bottom animates width with cubic-bezier(0.16,1,0.3,1) and fades labels out. The main area shows a breadcrumb, page title and skeleton list rows.',
+    code: `.sidebar { width: 200px; background: #11141b; border-right: 1px solid rgba(255,255,255,0.06); transition: width .35s cubic-bezier(.16,1,.3,1); }\n.sidebar.collapsed { width: 68px; }\n.nav-item.active { background: rgba(99,102,241,.14); color: #c7d2fe; }\n.nav-item.active::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; background: #6366f1; box-shadow: 0 0 10px #6366f1; }`,
+    usage: 'The backbone of dashboards, admin panels and productivity apps with many sections.',
+  },
+  {
+    title: 'Command Palette', category: 'Navigation', component: CommandPalette,
+    accent: '#a78bfa',
+    palette: ['#a78bfa', '#1e1b4b', '#18181b', '#09090b', '#fafafa'],
+    tags: ['⌘K', 'Search', 'Keyboard'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a ⌘K command palette floating over a dark radial gradient (#1e1b4b → #09090b). The 440px panel uses rgba(24,24,27,0.92) with backdrop-filter: blur(16px), 14px radius and a large soft shadow. Top row: search icon, borderless input "Type a command or search…" and an ESC keycap. Results are grouped under small headers (Suggestions, Navigation); each row has an icon, label and keyboard shortcut keycaps in DM Mono. Arrow keys move a violet highlight (rgba(139,92,246,0.16)); typing filters live and shows an empty state. Footer shows "↑↓ navigate · ↵ select" and the result count.',
+    code: `.palette { background: rgba(24,24,27,.92); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; box-shadow: 0 24px 60px rgba(0,0,0,.55); }\n.item[aria-selected="true"] { background: rgba(139,92,246,.16); color: #ede9fe; }\nkbd { font: 10px 'DM Mono', monospace; padding: 2px 5px; border-radius: 4px; background: rgba(255,255,255,.06); }`,
+    usage: 'Power-user navigation for SaaS apps, docs sites and developer tools.',
+  },
+  {
+    title: 'Breadcrumbs & Pagination', category: 'Navigation', component: BreadcrumbPagination,
+    accent: '#a8a29e',
+    palette: ['#1c1917', '#fafaf9', '#e7e5e4', '#78716c', '#a8a29e'],
+    tags: ['Breadcrumb', 'Pagination', 'Light'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Design a light (#fafaf9) navigation utilities panel with two sections, each labelled in 10px uppercase DM Mono. 1) Breadcrumb: Home (with a house icon) › Library › Components › Navigation, chevron separators in #d6d3d1, and the current page shown as a white pill with a 1px #e7e5e4 border and aria-current="page". 2) Pagination for 12 pages: Prev/Next buttons with chevrons (disabled state greyed out), numbered 36px square buttons, ellipsis gaps that adapt to the current page, and the active page filled #1c1917 with light text.',
+    code: `.crumb[aria-current="page"] { background: #fff; border: 1px solid #e7e5e4; border-radius: 8px; font-weight: 600; }\n.page-btn { width: 36px; height: 36px; border-radius: 10px; }\n.page-btn[aria-current="page"] { background: #1c1917; color: #fafaf9; }`,
+    usage: 'Deep content hierarchies, search results, tables and e-commerce listings.',
+  },
+  {
+    title: 'Morphing Pill Tabs', category: 'Navigation', component: MorphingTabs,
+    accent: '#c2410c',
+    palette: ['#1f1d1a', '#f4f1ea', '#e7e2d6', '#c2410c', '#fffdf8'],
+    tags: ['Tabs', 'Spring', 'Segmented'],
+    fonts: ['Space Grotesk', 'Fraunces'],
+    prompt: 'Build segmented tabs on a warm #f4f1ea background. The tab track is a #e7e2d6 pill with an inset shadow; a dark #1f1d1a pill indicator slides between four 104px tabs (Overview, Activity, Billing, Members) using a springy cubic-bezier(0.34,1.56,0.64,1). Active label turns cream. Below, a #fffdf8 content card fades and slides up on each change, showing "01 / 04" in burnt orange (#c2410c), the tab name in Fraunces 26px and a sentence of body copy. Use role="tablist", role="tab" and aria-selected.',
+    code: `.track { display: flex; padding: 5px; border-radius: 999px; background: #e7e2d6; position: relative; }\n.indicator { position: absolute; width: 104px; border-radius: 999px; background: #1f1d1a; transition: transform .45s cubic-bezier(.34,1.56,.64,1); }\n.tab[aria-selected="true"] { color: #f4f1ea; }`,
+    usage: 'Settings sections, pricing toggles and any view switcher with 2–5 options.',
   },
 
   // ─── Hero ─────────────────────────────────────────────────
