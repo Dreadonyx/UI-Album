@@ -29,6 +29,7 @@ const ThemeCorporateMemphis = lazy(() => import('./components/ThemeCorporateMemp
 const ThemePsychedelic = lazy(() => import('./components/ThemePsychedelic'));
 const ThemeSynthwave = lazy(() => import('./components/ThemeSynthwave'));
 const ThemeSteampunk = lazy(() => import('./components/ThemeSteampunk'));
+const ThemeKawaii = lazy(() => import('./components/ThemeKawaii'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -410,6 +411,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget as a Victorian steampunk machine. Dark leather-brown background with brass gears (repeating-conic-gradient teeth around a brass hub) cropped at the corners that rotate while the session runs. The panel is dark wood framed by a double brass/bronze border with a riveted brass dot in each corner. The progress is shown on a round pressure gauge: brass bezel, cream dial with tick marks, a red needle that swings to the value with a springy ease and a copper hub. Controls: a brass lever toggle that tilts left/right for the silence setting, and a brass "Engage the Engine" button that turns copper ("Release the Steam") while running.',
     code: `.brass { background: linear-gradient(145deg, #f3d38a, #b8862b 40%, #7a5418 70%, #d6a94c); }\n.gear { border-radius: 50%; background: repeating-conic-gradient(#8a6420 0 15deg, transparent 15deg 30deg); animation: cog 6s linear infinite; }\n.needle { transform-origin: 50% 100%; transform: translateY(-100%) rotate(calc(-120deg + var(--p) * 2.4deg)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }\n.rivet { border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff2c4, #9a6b1e 60%, #4a300a); }`,
     usage: 'Games, escape rooms, craft breweries, maker brands and fantasy storytelling.',
+  },
+  {
+    title: 'Kawaii', category: 'Themes', component: ThemeKawaii,
+    accent: '#ff8fb3',
+    palette: ['#fff0f6', '#ff8fb3', '#ffc2d6', '#9cc7ff', '#5b3a4a'],
+    tags: ['Cute', 'Pastel', 'Mascot'],
+    fonts: ['Fredoka'],
+    prompt: 'Design a "Deep Work" focus widget in kawaii (cute) style on a pink-to-baby-blue background with a pink polka-dot pattern and twinkling ✿ ★ ♡ ✧ symbols. The white card has 32px radius, a pastel pink border and a solid pink "3D" bottom edge. At the top, a bouncing CSS mascot with round ears, shiny dot eyes (they become happy ^ ^ eyes while running), pink blush and a tiny smile. Rounded Fredoka type: "Deep Work ♡", an encouraging line, a five-heart progress meter, a "Shh, sleepy mode" pill toggle showing kaomoji, and a candy-pink pill button with a chunky drop edge ("let’s go! ٩(◕‿◕)۶") that turns baby blue and presses down while running.',
+    code: `.card { border-radius: 32px; border: 3px solid #ffc2d6; box-shadow: 0 10px 0 #ffc2d6; }\n.btn { border-radius: 999px; background: #ff8fb3; box-shadow: 0 5px 0 #e86a95; } .btn.active { transform: translateY(3px); }\n.mascot { animation: bounce 1.8s ease-in-out infinite; } @keyframes bounce { 50% { transform: translateY(-6px) scale(1.03,.97); } }\nbody { font-family: 'Fredoka', sans-serif; }`,
+    usage: 'Kids and lifestyle apps, stickers, games, social features and friendly empty states.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
