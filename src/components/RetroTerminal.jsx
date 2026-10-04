@@ -17,6 +17,7 @@ export default function RetroTerminal() {
       display: 'flex', flexDirection: 'column',
       overflow: 'hidden',
     }}>
+      <style>{`@keyframes uaCursorBlink { 50% { opacity: 0; } }`}</style>
       <div style={{
         display: 'flex', alignItems: 'center', gap: '8px',
         padding: '10px 16px', background: '#1a1a1a',
@@ -32,10 +33,9 @@ export default function RetroTerminal() {
           <div key={i} style={{
             fontSize: '12px', lineHeight: 1.8,
             color: l.color || (l.isOutput ? 'rgba(255,255,255,0.5)' : '#00ff88'),
-            animation: l.blink ? 'pulseGlow 1s ease-in-out infinite' : undefined,
           }}>
             {l.prefix && <span style={{ color: '#8b5cf6', marginRight: '8px' }}>{l.prefix} $</span>}
-            {l.cmd}
+            {l.blink ? <span style={{ animation: 'uaCursorBlink 1s steps(1) infinite', textShadow: '0 0 8px #00ff88' }}>{l.cmd}</span> : l.cmd}
           </div>
         ))}
       </div>

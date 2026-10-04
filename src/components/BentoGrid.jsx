@@ -1,11 +1,4 @@
 export default function BentoGrid() {
-  const items = [
-    { title: 'Fast', desc: 'Optimized speed', size: 'large', color: '#8b5cf6', icon: '⚡' },
-    { title: 'Secure', desc: 'End-to-end encryption', size: 'small', color: '#10b981', icon: '🔒' },
-    { title: 'Global', desc: 'Anywhere access', size: 'small', color: '#3b82f6', icon: '🌍' },
-    { title: 'Scalable', desc: 'Grows with you', size: 'medium', color: '#f59e0b', icon: '📈' },
-  ];
-
   return (
     <div style={{
       width: '600px', height: '400px',

@@ -31,7 +31,7 @@ export default function ProductGrid() {
           <button style={{
             background: '#1a1a1a', color: '#fff', border: 'none',
             padding: '8px 20px', borderRadius: '20px', fontSize: '10px',
-            textTransform: 'uppercase', letterSpacing: '1px', cursor: 'pointer',
+            textTransform: 'uppercase', letterSpacing: '1px', cursor: 'pointer', fontFamily: 'inherit',
           }}>Buy</button>
         </div>
       ))}

@@ -16,8 +16,8 @@ export default function SplitHero() {
           Discover a curated selection of minimalist essentials for the modern creator.
         </p>
         <div style={{ display: 'flex', gap: '16px' }}>
-          <button style={{ padding: '12px 24px', background: '#1a1a1a', color: '#fff', border: 'none', borderRadius: '4px', fontSize: '13px', fontWeight: 500, cursor: 'pointer' }}>Shop Now</button>
-          <button style={{ padding: '12px 24px', background: 'transparent', color: '#1a1a1a', border: '1px solid #1a1a1a', borderRadius: '4px', fontSize: '13px', fontWeight: 500, cursor: 'pointer' }}>Lookbook</button>
+          <button style={{ padding: '12px 24px', background: '#1a1a1a', color: '#fff', border: 'none', borderRadius: '4px', fontSize: '13px', fontWeight: 500, fontFamily: 'inherit', cursor: 'pointer' }}>Shop Now</button>
+          <button style={{ padding: '12px 24px', background: 'transparent', color: '#1a1a1a', border: '1px solid #1a1a1a', borderRadius: '4px', fontSize: '13px', fontWeight: 500, fontFamily: 'inherit', cursor: 'pointer' }}>Lookbook</button>
         </div>
       </div>
       <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>

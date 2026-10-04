@@ -18,7 +18,7 @@ export default function ExpandableFAB() {
     }}>
       <div style={{ position: 'relative' }}>
         <div style={{
-          position: 'absolute', bottom: '70px', left: '50%', transform: 'translateX(-50%)',
+          position: 'absolute', bottom: '70px', left: '50%',
           display: 'flex', flexDirection: 'column', gap: '12px',
           opacity: isOpen ? 1 : 0, pointerEvents: isOpen ? 'auto' : 'none',
           transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',

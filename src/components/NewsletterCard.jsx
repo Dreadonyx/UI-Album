@@ -21,8 +21,11 @@ export default function NewsletterCard() {
         </p>
         <div style={{ display: 'flex', gap: '8px' }}>
           <input 
+            type="email"
             placeholder="your@email.com"
+            aria-label="Email address"
             style={{
+              fontFamily: 'inherit',
               flex: 1, padding: '12px 16px', borderRadius: '12px',
               background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)',
               color: '#fff', outline: 'none', fontSize: '14px',
@@ -30,7 +33,7 @@ export default function NewsletterCard() {
           />
           <button style={{
             padding: '12px 24px', background: '#8b5cf6', color: '#fff',
-            border: 'none', borderRadius: '12px', fontWeight: 600,
+            border: 'none', borderRadius: '12px', fontWeight: 600, fontFamily: 'inherit',
             cursor: 'pointer', boxShadow: '0 4px 12px rgba(139,92,246,0.3)',
           }}>Subscribe</button>
         </div>
