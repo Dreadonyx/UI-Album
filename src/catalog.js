@@ -80,6 +80,8 @@ const MobileAppScreen = lazy(() => import('./components/MobileAppScreen'));
 const OnboardingFlow = lazy(() => import('./components/OnboardingFlow'));
 const WeatherWidget = lazy(() => import('./components/WeatherWidget'));
 const ArticleDetail = lazy(() => import('./components/ArticleDetail'));
+const DocsLayout = lazy(() => import('./components/DocsLayout'));
+const Changelog = lazy(() => import('./components/Changelog'));
 
 // Display order of the category filter. Every entry's `category` must be listed here.
 export const CATEGORIES = [
@@ -925,6 +927,26 @@ const ENTRIES = [
     prompt: 'Design a clean, high-readability article view on #fcfcf9. Use Lora for body text and Playfair Display for the headline. Include a purple category label in DM Mono, an author row with a placeholder avatar, and a highlighted pull-quote with a left border.',
     code: `.article { font-family: 'Lora', serif; color: #1a1a1a; }\n.headline { font-family: 'Playfair Display', serif; font-size: 32px; }\n.pull-quote { border-left: 3px solid #8b5cf6; padding-left: 20px; font-style: italic; }`,
     usage: 'Best for blogs, news portals, or documentation sites that prioritize reading experience.',
+  },
+  {
+    title: 'Documentation Layout', category: 'Content', component: DocsLayout,
+    accent: '#7c3aed',
+    palette: ['#ffffff', '#7c3aed', '#f5f3ff', '#18181b', '#fde68a'],
+    tags: ['Docs', 'Three-column', 'TOC'],
+    fonts: ['Inter', 'JetBrains Mono', 'DM Mono'],
+    prompt: 'Build a three-column docs layout on white. Header: book-icon logo "Prism UI", a version chip and a "Search docs ⌘K" field. Left nav: grouped page links where the current page is highlighted violet (#6d28d9 on #f5f3ff) with aria-current. Main column: breadcrumb, H1, intro paragraph, a live preview area on a subtle checkerboard with Primary/Secondary buttons, a dark code snippet with syntax colors, and an amber callout. Right rail: "On this page" table of contents with a violet left-border indicator on the active section.',
+    code: `.layout { display: grid; grid-template-columns: 140px 1fr 112px; }\n.nav a[aria-current="page"] { background: #f5f3ff; color: #6d28d9; font-weight: 600; }\n.preview { background: repeating-conic-gradient(#fafafa 0 25%, #fff 0 50%) 0 0 / 14px 14px; }\n.toc a.active { border-left: 2px solid #7c3aed; color: #6d28d9; }`,
+    usage: 'Component library docs, API references and knowledge bases.',
+  },
+  {
+    title: 'Release Changelog', category: 'Content', component: Changelog,
+    accent: '#16a34a',
+    palette: ['#fcfcfb', '#1c1917', '#16a34a', '#1e40af', '#991b1b'],
+    tags: ['Changelog', 'Timeline', 'Filters'],
+    fonts: ['Fraunces', 'Inter', 'DM Mono'],
+    prompt: 'Create a product changelog on #fcfcfb. Header: "Changelog" in Fraunces with filter pills (All, New, Improved, Fixed, Breaking) where the active pill is filled dark. Releases sit on a vertical timeline: left column shows the version in DM Mono and the date, a dot on the line (the latest one green with a halo), and on the right the release title with a list of changes, each prefixed by a colored uppercase tag (New green, Improved blue, Fixed amber, Breaking red). Filtering hides non-matching changes and empty releases.',
+    code: `.timeline::before { content: ''; position: absolute; left: 91.5px; top: 6px; bottom: 0; width: 1px; background: #e7e5e4; }\n.tag { font-size: 9px; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; }\n.tag.new { background: #dcfce7; color: #166534; } .tag.breaking { background: #fee2e2; color: #991b1b; }`,
+    usage: 'Product update pages, release notes and "What’s new" sections.',
   },
 ];
 
