@@ -30,7 +30,7 @@ export default function ShinyButtons() {
           <button style={{
             position: 'relative', padding: '12px 26px', borderRadius: '11px', border: 'none',
             background: '#09090b', color: '#e4e4e7', fontFamily: 'inherit', fontSize: '14px', fontWeight: 500, cursor: 'pointer',
-          }}>✦ Upgrade to Pro</button>
+          }}>Upgrade to Pro</button>
         </div>
       </Cell>
 

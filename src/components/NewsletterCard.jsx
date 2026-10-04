@@ -1,3 +1,5 @@
+import Icon from './Icon';
+
 export default function NewsletterCard() {
   return (
     <div style={{
@@ -14,7 +16,7 @@ export default function NewsletterCard() {
       }}>
         <div style={{ position: 'absolute', width: '100px', height: '100px', background: '#8b5cf6', borderRadius: '50%', filter: 'blur(60px)', top: '-20px', left: '-20px', opacity: 0.2 }} />
         
-        <div style={{ fontSize: '42px', marginBottom: '20px' }}>📬</div>
+        <div style={{ width: '48px', height: '48px', margin: '0 auto 20px', borderRadius: '14px', background: 'rgba(139,92,246,0.15)', color: '#a78bfa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icon name="mail" size={22} /></div>
         <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '24px', fontWeight: 700, color: '#fff', marginBottom: '12px' }}>Join the Newsletter</h3>
         <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.6, marginBottom: '24px' }}>
           Weekly insights on UI/UX trends, direct to your inbox. No spam, ever.

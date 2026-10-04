@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import Icon from './Icon';
 
 export default function ExpandableFAB() {
   const [isOpen, setIsOpen] = useState(false);
   
   const actions = [
-    { label: 'Chat', icon: '💬', color: '#3b82f6' },
-    { label: 'Call', icon: '📞', color: '#10b981' },
-    { label: 'Mail', icon: '✉️', color: '#f59e0b' },
+    { label: 'Chat', icon: 'message', color: '#3b82f6' },
+    { label: 'Schedule', icon: 'calendar', color: '#10b981' },
+    { label: 'Mail', icon: 'mail', color: '#f59e0b' },
   ];
 
   return (
@@ -27,7 +28,7 @@ export default function ExpandableFAB() {
           {actions.map((a, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'flex-end' }}>
               <span style={{ fontSize: '12px', fontWeight: 500, color: '#1a1a1a', background: '#fff', padding: '4px 12px', borderRadius: '8px', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>{a.label}</span>
-              <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: a.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '18px', boxShadow: '0 8px 16px rgba(0,0,0,0.1)', cursor: 'pointer' }}>{a.icon}</div>
+              <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: a.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 8px 16px rgba(0,0,0,0.1)', cursor: 'pointer' }}><Icon name={a.icon} size={18} /></div>
             </div>
           ))}
         </div>

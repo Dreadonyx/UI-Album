@@ -40,7 +40,7 @@ export default function KineticText() {
         <div style={{ display: 'flex', width: 'max-content', animation: 'uaMarquee 16s linear infinite' }}>
           {[0, 1].map(k => (
             <span key={k} style={{ fontSize: '14px', fontWeight: 700, color: '#f2efe6', letterSpacing: '1px', whiteSpace: 'nowrap', paddingRight: '24px' }}>
-              DESIGN ✦ BUILD ✦ SHIP ✦ ITERATE ✦ DESIGN ✦ BUILD ✦ SHIP ✦ ITERATE ✦{' '}
+              DESIGN / BUILD / SHIP / ITERATE / DESIGN / BUILD / SHIP / ITERATE /{' '}
             </span>
           ))}
         </div>

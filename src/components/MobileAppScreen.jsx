@@ -31,7 +31,7 @@ export default function MobileAppScreen() {
 
           <div style={{ flex: 1, padding: '14px 14px 0', overflow: 'hidden' }}>
             <div style={{ fontSize: '9px', color: '#a8a29e' }}>Sunday, Oct 4</div>
-            <div style={{ fontSize: '17px', fontWeight: 700, color: '#1c1917', marginBottom: '10px' }}>Hi, Sam 👋</div>
+            <div style={{ fontSize: '17px', fontWeight: 700, color: '#1c1917', marginBottom: '10px' }}>Good morning, Sam</div>
             <div style={{ padding: '12px', borderRadius: '16px', background: '#1c1917', color: '#fff', marginBottom: '10px' }}>
               <div style={{ fontSize: '9px', opacity: 0.6 }}>Today’s progress</div>
               <div style={{ fontSize: '20px', fontWeight: 700 }}>{doneCount}/{habits.length} <span style={{ fontSize: '10px', fontWeight: 400, opacity: 0.6 }}>habits</span></div>
@@ -44,7 +44,7 @@ export default function MobileAppScreen() {
                 <span style={{ width: '22px', height: '22px', borderRadius: '7px', background: h.done ? h.color : `${h.color}22`, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}>{h.done && <Icon name="check" size={12} strokeWidth={3} />}</span>
                 <span style={{ flex: 1 }}>
                   <span style={{ display: 'block', fontSize: '10px', fontWeight: 600, color: '#1c1917', textDecoration: h.done ? 'line-through' : 'none' }}>{h.name}</span>
-                  <span style={{ display: 'block', fontSize: '8px', color: '#a8a29e' }}>🔥 {h.streak} day streak</span>
+                  <span style={{ display: 'block', fontSize: '8px', color: '#a8a29e' }}>{h.streak}-day streak</span>
                 </span>
               </button>
             ))}

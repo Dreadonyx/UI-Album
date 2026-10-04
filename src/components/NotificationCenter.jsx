@@ -50,7 +50,7 @@ export default function NotificationCenter() {
               {n.unread && <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4f46e5', marginTop: '6px', flexShrink: 0 }} />}
             </div>
           ))}
-          {list.length === 0 && <div style={{ padding: '40px', textAlign: 'center', fontSize: '12px', color: '#94a3b8' }}>You’re all caught up ✨</div>}
+          {list.length === 0 && <div style={{ padding: '40px', textAlign: 'center', fontSize: '12px', color: '#94a3b8' }}>You’re all caught up.</div>}
         </div>
       </div>
     </div>

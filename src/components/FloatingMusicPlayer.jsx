@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Icon from './Icon';
 
 export default function FloatingMusicPlayer() {
   const [playing, setPlaying] = useState(false);
@@ -31,14 +32,15 @@ export default function FloatingMusicPlayer() {
           <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '11px', color: 'rgba(255,255,255,0.4)', marginTop: '2px' }}>M83 — Hurry Up, We're Dreaming</div>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '14px' }}>
-            <span style={{ cursor: 'pointer', opacity: 0.6 }}>⏮</span>
-            <span 
+            <button aria-label="Previous track" style={{ display: 'flex', border: 'none', background: 'none', padding: 0, cursor: 'pointer', color: 'rgba(255,255,255,0.6)' }}><Icon name="skipBack" size={14} fill="currentColor" /></button>
+            <button
               onClick={() => setPlaying(!playing)}
-              style={{ cursor: 'pointer', fontSize: '24px', color: '#f472b6' }}
+              aria-label={playing ? 'Pause' : 'Play'}
+              style={{ width: '34px', height: '34px', borderRadius: '50%', border: 'none', background: '#f472b6', color: '#0f172a', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
-              {playing ? '⏸' : '▶'}
-            </span>
-            <span style={{ cursor: 'pointer', opacity: 0.6 }}>⏭</span>
+              <Icon name={playing ? 'pause' : 'play'} size={14} fill="currentColor" style={{ marginLeft: playing ? 0 : '2px' }} />
+            </button>
+            <button aria-label="Next track" style={{ display: 'flex', border: 'none', background: 'none', padding: 0, cursor: 'pointer', color: 'rgba(255,255,255,0.6)' }}><Icon name="skipForward" size={14} fill="currentColor" /></button>
           </div>
         </div>
       </div>

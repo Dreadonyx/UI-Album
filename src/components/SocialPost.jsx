@@ -47,7 +47,7 @@ export default function SocialPost() {
             </button>
           </div>
           <div style={{ fontSize: '12px', fontWeight: 600, color: '#111', marginBottom: '4px' }}>{(2481 + (liked ? 1 : 0)).toLocaleString('en-US')} likes</div>
-          <div style={{ fontSize: '12px', color: '#222', lineHeight: 1.45 }}><b>studio.kin</b> Golden hour palettes for the new collection 🌅 Double-tap the photo.</div>
+          <div style={{ fontSize: '12px', color: '#222', lineHeight: 1.45 }}><b>studio.kin</b> Golden hour palettes for the new collection. Double-tap the photo.</div>
           <div style={{ fontSize: '10px', color: '#999', marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.4px' }}>2 hours ago</div>
         </div>
       </article>

@@ -1,14 +1,15 @@
 import { useState } from 'react';
+import Icon from './Icon';
 
 export default function MacOSDock() {
   const [hovered, setHovered] = useState(null);
   
   const icons = [
-    { id: 1, color: '#f59e0b', emoji: '📁' },
-    { id: 2, color: '#3b82f6', emoji: '🌐' },
-    { id: 3, color: '#ef4444', emoji: '✉️' },
-    { id: 4, color: '#10b981', emoji: '💬' },
-    { id: 5, color: '#8b5cf6', emoji: '🎵' },
+    { id: 1, color: '#f59e0b', icon: 'folder' },
+    { id: 2, color: '#3b82f6', icon: 'globe' },
+    { id: 3, color: '#ef4444', icon: 'mail' },
+    { id: 4, color: '#10b981', icon: 'message' },
+    { id: 5, color: '#8b5cf6', icon: 'image' },
   ];
 
   return (
@@ -46,7 +47,7 @@ export default function MacOSDock() {
                 borderRadius: '12px',
                 background: `linear-gradient(135deg, ${icon.color}, ${icon.color}aa)`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '24px', cursor: 'pointer',
+                color: '#fff', cursor: 'pointer',
                 transform: `scale(${scale}) translateY(${scale === 1 ? 0 : -8}px)`,
                 transformOrigin: 'bottom center',
                 margin: `0 ${margin}px`,
@@ -55,7 +56,7 @@ export default function MacOSDock() {
                 border: '1px solid rgba(255,255,255,0.2)',
               }}
             >
-              {icon.emoji}
+              <Icon name={icon.icon} size={22} />
             </div>
           );
         })}

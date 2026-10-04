@@ -36,7 +36,7 @@ export default function DrawerSheet() {
         </div>
 
         <div style={{ padding: '12px 18px', borderBottom: '1px solid #f0ece4' }}>
-          <div style={{ fontSize: '11px', color: '#57534e', marginBottom: '6px' }}>{subtotal >= freeShipAt ? '🎉 You unlocked free shipping' : `$${freeShipAt - subtotal} away from free shipping`}</div>
+          <div style={{ fontSize: '11px', color: '#57534e', marginBottom: '6px' }}>{subtotal >= freeShipAt ? 'Free shipping unlocked' : `$${freeShipAt - subtotal} away from free shipping`}</div>
           <div style={{ height: '4px', borderRadius: '4px', background: '#f0ece4' }}><div style={{ height: '100%', width: `${Math.min(100, (subtotal / freeShipAt) * 100)}%`, borderRadius: '4px', background: '#65a30d', transition: 'width 0.3s' }} /></div>
         </div>
 

@@ -435,7 +435,7 @@ export default function App() {
           />
           <kbd className="album-kbd">/</kbd>
         </label>
-        <button type="button" className="album-btn" onClick={surprise}>✦ Surprise me</button>
+        <button type="button" className="album-btn" onClick={surprise}>Surprise me</button>
       </div>
 
       <CategoryFilter active={activeCategory} onChange={setActiveCategory} counts={counts} savedCount={saved.length} />

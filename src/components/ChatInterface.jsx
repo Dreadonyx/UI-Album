@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Icon from './Icon';
 
-const REPLIES = ['Love that idea 🙌', 'Can you share the Figma link?', 'Let’s sync tomorrow at 10.', 'Shipping it! 🚀'];
+const REPLIES = ['Love that idea.', 'Can you share the Figma link?', 'Let’s sync tomorrow at 10.', 'Shipping it this afternoon.'];
 
 export default function ChatInterface() {
   const [messages, setMessages] = useState([

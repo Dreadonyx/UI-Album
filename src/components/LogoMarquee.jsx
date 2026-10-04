@@ -1,6 +1,6 @@
 const ROW_A = ['Lumen', 'Northwind', 'Patchwork', 'Orbit', 'Koi', 'Fable', 'Vertex', 'Halcyon'];
 const ROW_B = ['Quartz', 'Monolith', 'Kestrel', 'Arcadia', 'Nimbus', 'Sable', 'Tandem', 'Ember'];
-const MARKS = ['◆', '●', '▲', '■', '✦', '◐', '⬢', '✶'];
+const MARKS = ['◆', '●', '▲', '■', '◼', '◐', '⬢', '▼'];
 
 function Row({ names, reverse, speed }) {
   return (
