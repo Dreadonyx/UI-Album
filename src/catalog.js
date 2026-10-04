@@ -21,6 +21,8 @@ const BentoGrid = lazy(() => import('./components/BentoGrid'));
 const ProfileCard = lazy(() => import('./components/ProfileCard'));
 const TiltCard = lazy(() => import('./components/TiltCard'));
 const GradientButtons = lazy(() => import('./components/GradientButtons'));
+const ButtonStates = lazy(() => import('./components/ButtonStates'));
+const ShinyButtons = lazy(() => import('./components/ShinyButtons'));
 const NeumorphicForm = lazy(() => import('./components/NeumorphicForm'));
 const NewsletterCard = lazy(() => import('./components/NewsletterCard'));
 const DashboardWidget = lazy(() => import('./components/DashboardWidget'));
@@ -260,6 +262,26 @@ const ENTRIES = [
     prompt: 'Build a button system showcase on #0a0a14 dark background. Display 3 rows of 4 buttons each (Primary/purple, Success/green, Danger/red, Warning/amber). Row 1: solid gradient buttons with glow shadow, active button lifts with translateY(-2px). Row 2: outline variants with colored borders and transparent background. Row 3: ghost variants with tinted rgba backgrounds. All buttons use DM Mono font, border-radius 10-12px. Active solid button gets box-shadow: 0 6px 24px with the color at 40% opacity.',
     code: `.btn-solid { background: linear-gradient(135deg, #8b5cf6, #6d28d9); box-shadow: 0 6px 24px rgba(139,92,246,0.4); }\n.btn-outline { border: 1px solid rgba(139,92,246,0.4); background: transparent; }\n.btn-ghost { background: rgba(139,92,246,0.08); }\n.btn-success { background: linear-gradient(135deg, #10b981, #059669); }\n.btn-danger { background: linear-gradient(135deg, #ef4444, #dc2626); }\n.btn-warning { background: linear-gradient(135deg, #f59e0b, #d97706); }`,
     usage: 'Foundation for any dark-themed application requiring clear, vibrant call-to-actions.',
+  },
+  {
+    title: 'Async Button States', category: 'Buttons', component: ButtonStates,
+    accent: '#2563eb',
+    palette: ['#2563eb', '#16a34a', '#dc2626', '#f8fafc', '#0f172a'],
+    tags: ['Loading', 'Success', 'Error'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a single action button that walks through idle → loading → success/error states on #f8fafc. Idle: blue (#2563eb) "Deploy to production" with a lightning icon and a matching colored glow. Click: a 16px spinner appears and the label becomes "Deploying…" with aria-busy. After 1.6s it turns green with a popping check icon and "Deployed", then resets after 2.2s. If failure is simulated (checkbox below), it turns red, shakes horizontally and reads "Retry deploy". Below the button show a 4-step state legend with colored dots.',
+    code: `.btn { transition: background .35s, box-shadow .35s; }\n.btn[aria-busy="true"] .spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }\n.btn.error { background: #dc2626; animation: shake .4s ease; }\n@keyframes shake { 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }`,
+    usage: 'Any action that talks to a server: saving, deploying, paying, submitting forms.',
+  },
+  {
+    title: 'Premium Button Effects', category: 'Buttons', component: ShinyButtons,
+    accent: '#a78bfa',
+    palette: ['#09090b', '#a78bfa', '#22d3ee', '#f43f5e', '#ec4899'],
+    tags: ['Shimmer', 'Border Beam', '3D Press'],
+    fonts: ['Inter', 'Space Grotesk', 'DM Mono'],
+    prompt: 'Showcase four premium button effects in a 2×2 grid on #09090b, each labelled in tiny DM Mono caps. 1) Shimmer: dark button with a moving light sweep (linear-gradient at 110deg, background-size 200%, animated background-position). 2) Border beam: a 1px wrapper with overflow hidden whose ::before is a spinning conic-gradient (violet → cyan) that reveals a travelling light along the border. 3) 3D pressable: rose (#f43f5e) button with a solid 6px darker bottom shadow that collapses as it translates down on press. 4) Gradient ring: pill button with a transparent border painted via a padding-box/border-box double background (orange → pink → violet).',
+    code: `.shimmer { background: linear-gradient(110deg, #18181b 40%, #3f3f46 50%, #18181b 60%) 0 0 / 200% 100%; animation: shimmer 2.4s linear infinite; }\n.beam::before { content: ''; position: absolute; inset: -150%; background: conic-gradient(transparent 0 300deg, #a78bfa 330deg, #22d3ee 360deg); animation: spin 3s linear infinite; }\n.press { box-shadow: 0 6px 0 #9f1239; } .press:active { transform: translateY(5px); box-shadow: 0 1px 0 #9f1239; }\n.ring { border: 2px solid transparent; background: linear-gradient(#09090b,#09090b) padding-box, linear-gradient(90deg,#f97316,#ec4899,#8b5cf6) border-box; }`,
+    usage: 'Hero CTAs and upgrade prompts where one button needs to stand out.',
   },
 
   // ─── Forms ────────────────────────────────────────────────
