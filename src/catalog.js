@@ -25,6 +25,7 @@ const ThemeAurora = lazy(() => import('./components/ThemeAurora'));
 const ThemeDarkAcademia = lazy(() => import('./components/ThemeDarkAcademia'));
 const ThemeMonochrome = lazy(() => import('./components/ThemeMonochrome'));
 const ThemeGrainy = lazy(() => import('./components/ThemeGrainy'));
+const ThemeCorporateMemphis = lazy(() => import('./components/ThemeCorporateMemphis'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -366,6 +367,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in the grainy-gradient style. Background: warm orange-to-magenta radial gradients covered with an SVG feTurbulence fractal-noise texture (inline data URI) at 45% opacity using mix-blend-mode: overlay. The card is a peach gradient with its own noise layer (multiply) and 24px radius. Typography in Fraunces: a semibold title and a huge light-italic percentage. The progress fill and the dark button also blend the noise texture into their colors with background-blend-mode: overlay, so every surface feels like printed film.',
     code: `.grain::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,...feTurbulence type='fractalNoise' baseFrequency='0.85'..."); opacity: .45; mix-blend-mode: overlay; pointer-events: none; }\n.fill { background: var(--noise), linear-gradient(90deg, #ff8a5c, #c2457a); background-blend-mode: overlay; }`,
     usage: 'Editorial sites, music artists, lifestyle brands and posters wanting an analog feel.',
+  },
+  {
+    title: 'Corporate Memphis', category: 'Themes', component: ThemeCorporateMemphis,
+    accent: '#7b6cf6',
+    palette: ['#f6f5ff', '#7b6cf6', '#ff7a59', '#ffc94d', '#1f1b4d'],
+    tags: ['Alegria', 'Flat Illustration', 'Friendly'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget in Corporate Memphis (Alegria) style on a pale lavender background with flat pastel blobs and doodles. On the left, an inline SVG flat illustration of a person: tiny purple-skinned head with dark hair, a yellow torso, absurdly long navy legs with coral shoes, long purple arms (one waving, which lifts when the session runs) and a white laptop. On the right, a friendly white card with 24px radius: a mint "You’re doing great! 🎉" pill, bold title, a purple progress bar, a coral switch and a dark navy CTA "Let’s get started →" that turns coral ("Take a break") while running.',
+    code: `.card { background: #fff; border-radius: 24px; box-shadow: 0 16px 40px rgba(91,87,134,.15); }\n.pill { background: #c9f2e3; color: #0f7a55; border-radius: 999px; }\n.cta { background: #1f1b4d; color: #fff; border-radius: 14px; }\n/* Illustration: flat SVG shapes, no outlines, oversized limbs, non-realistic skin (#7b6cf6) */`,
+    usage: 'Tech marketing, onboarding, HR and fintech explainers. Pair with real photography to avoid feeling generic.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
