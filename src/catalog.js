@@ -76,6 +76,9 @@ const MagneticButton = lazy(() => import('./components/MagneticButton'));
 const RetroTerminal = lazy(() => import('./components/RetroTerminal'));
 const CodeBlockTabs = lazy(() => import('./components/CodeBlockTabs'));
 const StatusPage = lazy(() => import('./components/StatusPage'));
+const MobileAppScreen = lazy(() => import('./components/MobileAppScreen'));
+const OnboardingFlow = lazy(() => import('./components/OnboardingFlow'));
+const WeatherWidget = lazy(() => import('./components/WeatherWidget'));
 const ArticleDetail = lazy(() => import('./components/ArticleDetail'));
 
 // Display order of the category filter. Every entry's `category` must be listed here.
@@ -878,6 +881,38 @@ const ENTRIES = [
     prompt: 'Build a public status page on white. Top banner: green #ecfdf5 card with a pinging live dot (expanding ring animation), "All systems operational", last-updated time and a Subscribe button. Then one row per service (API, Dashboard, Webhooks, CDN) with its name and "99.98% uptime" in DM Mono, above a 90-day bar strip: 90 thin rounded bars that are green for healthy days, amber for degraded and red for outages. Hovering a bar enlarges it and shows "Service · n days ago · status" in a caption between "90 days ago" and "Today".',
     code: `.ping { animation: ping 1.6s ease-out infinite; } @keyframes ping { to { transform: scale(2.6); opacity: 0; } }\n.uptime { display: flex; gap: 2px; height: 26px; }\n.uptime span { flex: 1; border-radius: 2px; background: #10b981; }\n.uptime .degraded { background: #f59e0b; } .uptime .outage { background: #ef4444; }`,
     usage: 'SaaS status pages, internal service dashboards and incident communication.',
+  },
+
+  // ─── Mobile ───────────────────────────────────────────────
+  {
+    title: 'Habit Tracker App Screen', category: 'Mobile', component: MobileAppScreen,
+    accent: '#f97316',
+    palette: ['#faf9f7', '#1c1917', '#f97316', '#8b5cf6', '#0ea5e9'],
+    tags: ['iOS', 'Tab Bar', 'Mobile App'],
+    fonts: ['Inter'],
+    prompt: 'Design a mobile habit tracker inside a 200px phone frame (dark bezel, 28px inner radius, notch pill and status bar) on a pastel gradient. Content: date, "Hi, Sam 👋", a dark progress card showing done/total habits with an amber-to-orange bar that animates as habits are ticked, and tappable habit rows with a color checkbox tile, name (strikethrough when done) and "🔥 n day streak". Bottom: a frosted tab bar with Home, Explore, a raised dark center "+" button, Alerts (red badge dot) and Profile; the active tab is orange.',
+    code: `.phone { width: 200px; border-radius: 34px; padding: 7px; background: #111; }\n.tabbar { display: flex; justify-content: space-around; background: rgba(255,255,255,.9); backdrop-filter: blur(10px); }\n.tab.active { color: #f97316; }\n.fab { margin-top: -14px; border-radius: 12px; background: #1c1917; box-shadow: 0 6px 14px rgba(28,25,23,.3); }`,
+    usage: 'Mobile app mockups, PWA layouts and app-store marketing screens.',
+  },
+  {
+    title: 'Onboarding Carousel', category: 'Mobile', component: OnboardingFlow,
+    accent: '#6366f1',
+    palette: ['#f8f7ff', '#6366f1', '#db2777', '#16a34a', '#18181b'],
+    tags: ['Onboarding', 'Pagination Dots', 'Mobile'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a 3-screen mobile onboarding flow inside a phone frame on #f8f7ff. Each screen: a large rounded gradient icon tile with a rotated ghost tile behind it, a bold title and one-line body. Each step has its own color (indigo, pink, green) that tints the illustration, active pagination dot (which stretches to a 20px pill) and the primary button. Includes Skip (hidden on the last step), Next / Get started, and content that slides up on every change. Beside the phone, a step list mirrors progress and lets you jump to any step.',
+    code: `.dot { width: 6px; height: 6px; border-radius: 3px; background: #e4e4e7; transition: all .3s; }\n.dot.active { width: 20px; background: var(--accent); }\n.illustration { border-radius: 30px; background: linear-gradient(135deg, var(--from), var(--to)); box-shadow: 0 16px 30px color-mix(in srgb, var(--to) 35%, transparent); }`,
+    usage: 'First-run tours for mobile apps and feature announcements.',
+  },
+  {
+    title: 'Weather Widget', category: 'Mobile', component: WeatherWidget,
+    accent: '#0ea5e9',
+    palette: ['#38bdf8', '#0ea5e9', '#f59e0b', '#312e81', '#e2e8f0'],
+    tags: ['Widget', 'Weather', 'Glass'],
+    fonts: ['Inter'],
+    prompt: 'Design an iOS-style weather widget (300px, 26px radius) next to a city switcher (Lisbon, Oslo, Kyoto). The card background is a sky gradient that changes per city and condition (sunny blue/amber, cloudy slate, night indigo) with a large faint condition icon in the corner. Content: city with pin icon, a huge 64px thin temperature that animates on change, condition, high/low, an hourly forecast strip in a frosted rgba(255,255,255,0.15) panel, and two glass tiles for wind and humidity.',
+    code: `.weather { border-radius: 26px; color: #fff; background: linear-gradient(160deg, var(--sky1), var(--sky2) 60%, var(--sky3)); transition: background .6s; }\n.temp { font-size: 64px; font-weight: 200; letter-spacing: -3px; }\n.glass { background: rgba(255,255,255,.15); backdrop-filter: blur(10px); border-radius: 14px; }`,
+    usage: 'Dashboard widgets, travel apps and home-screen style interfaces.',
   },
 
   // ─── Content ──────────────────────────────────────────────
