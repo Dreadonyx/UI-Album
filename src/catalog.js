@@ -28,6 +28,7 @@ const ThemeGrainy = lazy(() => import('./components/ThemeGrainy'));
 const ThemeCorporateMemphis = lazy(() => import('./components/ThemeCorporateMemphis'));
 const ThemePsychedelic = lazy(() => import('./components/ThemePsychedelic'));
 const ThemeSynthwave = lazy(() => import('./components/ThemeSynthwave'));
+const ThemeSteampunk = lazy(() => import('./components/ThemeSteampunk'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -399,6 +400,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in synthwave / outrun style. A midnight purple sky with tiny stars, a wireframe mountain range (SVG polygon with a cyan stroke) and pink horizon lines at the bottom. The card is a neon tube: 2px hot pink (#ff2a6d) border with layered pink glows outside and inside. Content: a cyan "NIGHT DRIVE" eyebrow with neon glow, an uppercase italic chrome-gradient title (white to pink with a hard horizon split), a flickering cyan VT323 percentage, a glowing cyan progress bar, an outlined toggle that lights up cyan, and a pink neon "PRESS PLAY" button that switches to cyan while running.',
     code: `.neon-pink { border: 2px solid #ff2a6d; box-shadow: 0 0 4px #ff2a6d, 0 0 12px #ff2a6d, 0 0 28px #ff2a6d, inset 0 0 18px rgba(255,42,109,.35); }\n.chrome { background: linear-gradient(180deg, #fff, #ffd1e8 45%, #ff2a6d 55%, #ffb3d1); -webkit-background-clip: text; color: transparent; }\n.flicker { animation: flicker 4s infinite; } @keyframes flicker { 20%, 61% { opacity: .55; } }`,
     usage: 'Music, gaming, night-time and retro-futurist brands, event and festival sites.',
+  },
+  {
+    title: 'Steampunk', category: 'Themes', component: ThemeSteampunk,
+    accent: '#d6a94c',
+    palette: ['#1e120a', '#b8862b', '#b5562c', '#fbf1d6', '#7a1f1f'],
+    tags: ['Brass', 'Gears', 'Victorian'],
+    fonts: ['Playfair Display', 'Libre Baskerville'],
+    prompt: 'Design a "Deep Work" focus widget as a Victorian steampunk machine. Dark leather-brown background with brass gears (repeating-conic-gradient teeth around a brass hub) cropped at the corners that rotate while the session runs. The panel is dark wood framed by a double brass/bronze border with a riveted brass dot in each corner. The progress is shown on a round pressure gauge: brass bezel, cream dial with tick marks, a red needle that swings to the value with a springy ease and a copper hub. Controls: a brass lever toggle that tilts left/right for the silence setting, and a brass "Engage the Engine" button that turns copper ("Release the Steam") while running.',
+    code: `.brass { background: linear-gradient(145deg, #f3d38a, #b8862b 40%, #7a5418 70%, #d6a94c); }\n.gear { border-radius: 50%; background: repeating-conic-gradient(#8a6420 0 15deg, transparent 15deg 30deg); animation: cog 6s linear infinite; }\n.needle { transform-origin: 50% 100%; transform: translateY(-100%) rotate(calc(-120deg + var(--p) * 2.4deg)); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }\n.rivet { border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff2c4, #9a6b1e 60%, #4a300a); }`,
+    usage: 'Games, escape rooms, craft breweries, maker brands and fantasy storytelling.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
