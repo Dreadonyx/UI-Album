@@ -38,6 +38,11 @@ const LoginCard = lazy(() => import('./components/LoginCard'));
 const PasswordStrength = lazy(() => import('./components/PasswordStrength'));
 const OTPVerify = lazy(() => import('./components/OTPVerify'));
 const DashboardWidget = lazy(() => import('./components/DashboardWidget'));
+const AreaChart = lazy(() => import('./components/AreaChart'));
+const ProgressRings = lazy(() => import('./components/ProgressRings'));
+const DataTable = lazy(() => import('./components/DataTable'));
+const KanbanBoard = lazy(() => import('./components/KanbanBoard'));
+const WeekSchedule = lazy(() => import('./components/WeekSchedule'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
 const TypeSpecimen = lazy(() => import('./components/TypeSpecimen'));
@@ -452,6 +457,56 @@ const ENTRIES = [
     prompt: 'Design a dark dashboard widget with a top row of 3 KPI stat cards (Revenue, Users, Orders) in DM Mono. Each card has a label in 10px uppercase, a large value in 20px, and a colored percentage badge. Below, render a 7-bar chart labeled "Weekly Performance" with bars using linear-gradient from solid to 30% opacity. Bars have border-radius: 6px 6px 2px 2px. The highest bar uses green (#10b981), others use purple (#8b5cf6). Animate bars with staggered fadeSlideUp. Day labels below in 9px uppercase.',
     code: `.stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; }\n.bar { background: linear-gradient(180deg, #8b5cf6, rgba(139,92,246,0.3)); border-radius: 6px 6px 2px 2px; transition: height 0.6s cubic-bezier(0.16,1,0.3,1); }\n.bar.max { background: linear-gradient(180deg, #10b981, rgba(16,185,129,0.3)); }`,
     usage: 'Use for analytical interfaces where key performance indicators need to be summarized visually.',
+  },
+  {
+    title: 'Interactive Area Chart', category: 'Dashboard', component: AreaChart,
+    accent: '#38bdf8',
+    palette: ['#0b0f17', '#38bdf8', '#34d399', '#1e2633', '#f8fafc'],
+    tags: ['SVG Chart', 'Crosshair', 'Range Toggle'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Build a dark (#0b0f17) MRR chart card with no chart library: hand-written SVG. Header shows "Monthly recurring revenue", a large tabular-number value that updates with the hovered point, and a green "▲ x%" delta pill. A 7D / 30D / 90D segmented toggle swaps the dataset. The chart is a smooth cubic-bezier line (#38bdf8, 2.5px) over an area filled with a vertical sky-blue gradient fading to transparent, on dashed #1e2633 gridlines. Hovering moves a vertical crosshair and a ringed dot to the nearest point.',
+    code: `svg { overflow: visible; cursor: crosshair; }\n.line { fill: none; stroke: #38bdf8; stroke-width: 2.5; stroke-linecap: round; }\n.area { fill: url(#fill); } /* <linearGradient id="fill"> #38bdf8 35% → 0% */\n.grid { stroke: #1e2633; stroke-dasharray: 3 5; }`,
+    usage: 'Revenue, traffic and usage trends in analytics dashboards.',
+  },
+  {
+    title: 'Activity Progress Rings', category: 'Dashboard', component: ProgressRings,
+    accent: '#fb7185',
+    palette: ['#000000', '#fb7185', '#a3e635', '#22d3ee', '#71717a'],
+    tags: ['Rings', 'SVG', 'Goals'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create fitness-style concentric progress rings on pure black. Three SVG circles (Move #fb7185, Exercise #a3e635, Stand #22d3ee) with 16px rounded strokes, 15%-opacity tracks and a soft colored drop-shadow glow. Progress is drawn with stroke-dasharray / stroke-dashoffset and animates in from empty with a staggered keyframe (rotate the SVG -90° so it starts at 12 o’clock). The center shows "79% Daily goal". A legend on the right lists each ring’s label in its color, the percentage and the goal in DM Mono (e.g. "520 / 640 kcal").',
+    code: `.ring { fill: none; stroke-width: 16; stroke-linecap: round; stroke-dasharray: var(--circ); stroke-dashoffset: calc(var(--circ) * (1 - var(--p))); animation: fill 1.4s cubic-bezier(.16,1,.3,1) both; }\n@keyframes fill { from { stroke-dashoffset: var(--circ); } }\nsvg { transform: rotate(-90deg); }`,
+    usage: 'Health and fitness apps, goal tracking, quota and storage usage.',
+  },
+  {
+    title: 'Sortable Data Table', category: 'Dashboard', component: DataTable,
+    accent: '#4f46e5',
+    palette: ['#ffffff', '#4f46e5', '#eef2ff', '#10b981', '#0f172a'],
+    tags: ['Table', 'Sort', 'Bulk Select'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Design an invoices data table on white. Toolbar: title with "n selected" count, a compact search input that filters rows, and an indigo Export button. Table inside a 12px-rounded bordered container: a select-all checkbox, sortable column headers (Invoice, Customer, Status, Date, Amount) with arrow icons and aria-sort, invoice IDs in DM Mono, status pills with colored dots (Paid green, Pending amber, Overdue red), right-aligned tabular-number amounts, and selected rows highlighted #eef2ff. Show an empty-state row when the search has no matches.',
+    code: `th button { display: inline-flex; gap: 4px; background: none; border: 0; font: inherit; }\ntr.selected { background: #eef2ff; }\n.status { display: inline-flex; gap: 5px; padding: 2px 8px; border-radius: 999px; }\n.amount { text-align: right; font-variant-numeric: tabular-nums; }`,
+    usage: 'Admin panels, billing pages, CRMs and anywhere users scan and act on records.',
+  },
+  {
+    title: 'Drag & Drop Kanban', category: 'Dashboard', component: KanbanBoard,
+    accent: '#818cf8',
+    palette: ['#f1f5f9', '#e8edf3', '#818cf8', '#f59e0b', '#22c55e'],
+    tags: ['Kanban', 'Drag and Drop', 'Tasks'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Build a three-column kanban board (To do, In progress, Done) on #f1f5f9 using native HTML5 drag and drop. Columns are #e8edf3 rounded panels with a colored status dot, title and count badge; while a card hovers over a column it turns light indigo with a dashed #818cf8 outline. Cards are white with a colored label chip (Design/Bug/Feature/Docs), title, ticket ID in DM Mono and an assignee dot. The dragged card tilts 2°, fades and gets a lifted shadow. Done cards get a strikethrough. Empty columns show "Drop cards here".',
+    code: `.column.over { background: #e0e7ff; outline: 2px dashed #818cf8; }\n.card { background: #fff; border-radius: 10px; cursor: grab; box-shadow: 0 1px 2px rgba(15,23,42,.06); }\n.card.dragging { opacity: .6; transform: rotate(2deg); box-shadow: 0 12px 24px rgba(15,23,42,.18); }`,
+    usage: 'Project management, sprint boards, hiring pipelines and content calendars.',
+  },
+  {
+    title: 'Week Calendar View', category: 'Dashboard', component: WeekSchedule,
+    accent: '#7c3aed',
+    palette: ['#ffffff', '#7c3aed', '#ef4444', '#0ea5e9', '#10b981'],
+    tags: ['Calendar', 'Schedule', 'Time Grid'],
+    fonts: ['Inter', 'Fraunces'],
+    prompt: 'Create a Monday–Friday week calendar on white. Header: "October 2026" in Fraunces and an event summary that updates on hover. Day headers show weekday and date, with today in a violet (#7c3aed) circle and today’s column faintly tinted. A 9am–5pm time grid uses repeating-linear-gradient hour lines. Events are absolutely positioned by start/end time: tinted backgrounds (color at ~12% alpha) with a 3px solid left border, title and time; hover lifts them with a colored shadow. A red "now" line with a dot marks the current time in today’s column.',
+    code: `.day-col { position: relative; background-image: repeating-linear-gradient(180deg, #f3f4f6 0 1px, transparent 1px 34px); }\n.event { position: absolute; top: calc((var(--start) - 9) * 34px); height: calc((var(--end) - var(--start)) * 34px); border-left: 3px solid var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); border-radius: 7px; }\n.now { height: 2px; background: #ef4444; }`,
+    usage: 'Scheduling apps, booking tools, team availability and productivity planners.',
   },
 
   // ─── Commerce ─────────────────────────────────────────────
