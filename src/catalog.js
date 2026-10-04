@@ -24,6 +24,7 @@ const ThemeLiquidGlass = lazy(() => import('./components/ThemeLiquidGlass'));
 const ThemeAurora = lazy(() => import('./components/ThemeAurora'));
 const ThemeDarkAcademia = lazy(() => import('./components/ThemeDarkAcademia'));
 const ThemeMonochrome = lazy(() => import('./components/ThemeMonochrome'));
+const ThemeGrainy = lazy(() => import('./components/ThemeGrainy'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -355,6 +356,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in strict monochrome: only black, white and grays. Split the canvas into two halves. Left (black): JetBrains Mono status labels, the percentage as a 96px extra-bold numeral with a gray "%", and a 20-segment white meter. Right (white): the title, a gray description, a Do not disturb row between 1px black rules with a segmented ON/OFF control that swaps black and white, and a full-width uppercase button that inverts from solid black to outlined white while running. Hierarchy comes only from scale, weight and inversion.',
     code: `.dark { background: #000; color: #fff; } .light { background: #fff; color: #000; }\n.numeral { font: 800 96px/0.85 Inter, sans-serif; letter-spacing: -5px; }\n.segmented span.on { background: #000; color: #fff; }\n.btn { border: 2px solid #000; background: #000; color: #fff; } .btn.active { background: #fff; color: #000; }`,
     usage: 'Photography, fashion, architecture portfolios and timeless brand systems.',
+  },
+  {
+    title: 'Grainy Gradient', category: 'Themes', component: ThemeGrainy,
+    accent: '#c2457a',
+    palette: ['#ff8a5c', '#c2457a', '#ffb36b', '#fff1e6', '#2a0f1c'],
+    tags: ['Noise', 'Film Grain', 'Warm'],
+    fonts: ['Fraunces', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget in the grainy-gradient style. Background: warm orange-to-magenta radial gradients covered with an SVG feTurbulence fractal-noise texture (inline data URI) at 45% opacity using mix-blend-mode: overlay. The card is a peach gradient with its own noise layer (multiply) and 24px radius. Typography in Fraunces: a semibold title and a huge light-italic percentage. The progress fill and the dark button also blend the noise texture into their colors with background-blend-mode: overlay, so every surface feels like printed film.',
+    code: `.grain::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,...feTurbulence type='fractalNoise' baseFrequency='0.85'..."); opacity: .45; mix-blend-mode: overlay; pointer-events: none; }\n.fill { background: var(--noise), linear-gradient(90deg, #ff8a5c, #c2457a); background-blend-mode: overlay; }`,
+    usage: 'Editorial sites, music artists, lifestyle brands and posters wanting an analog feel.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
