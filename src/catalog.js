@@ -11,6 +11,7 @@ const ThemeNeoBrutalism = lazy(() => import('./components/ThemeNeoBrutalism'));
 const ThemeSwiss = lazy(() => import('./components/ThemeSwiss'));
 const ThemeBauhaus = lazy(() => import('./components/ThemeBauhaus'));
 const ThemeMemphis = lazy(() => import('./components/ThemeMemphis'));
+const ThemeArtDeco = lazy(() => import('./components/ThemeArtDeco'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -212,6 +213,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in the Memphis Group style on a warm cream background scattered with SVG confetti: black and pink squiggles, a cyan circle, a yellow triangle, an outlined rotated square, a row of dots and a green zigzag, all with thick black strokes. The white card has a 4px black border and a hard pink (#ff71ce) offset shadow, with a tilted yellow "FOCUS!" sticker. Show the percentage as a conic-gradient pie with a black outline next to a big Bungee number, a striped progress track with a mint fill, a switch row that turns cyan when on, and a yellow (pink while running) Bungee button with a black offset shadow.',
     code: `.card { background: #fff; border: 4px solid #111; box-shadow: 10px 10px 0 #ff71ce; }\n.pie { border: 4px solid #111; border-radius: 50%; background: conic-gradient(#01cdfe calc(var(--p) * 3.6deg), #fff 0); }\n.title { font-family: 'Bungee', sans-serif; }\n.track { background: repeating-linear-gradient(135deg, #111 0 3px, transparent 3px 9px); border: 3px solid #111; }`,
     usage: 'Youth brands, music and events, playful marketing pages and anything that should feel loud and fun.',
+  },
+  {
+    title: 'Art Deco', category: 'Themes', component: ThemeArtDeco,
+    accent: '#d4af37',
+    palette: ['#0b0b0b', '#d4af37', '#0f2a2a', '#f3d77a', '#c9b37a'],
+    tags: ['1920s', 'Gold', 'Sunburst'],
+    fonts: ['Poiret One', 'Playfair Display', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget in Art Deco style. Background: a deep teal sunburst made with repeating-conic-gradient rays radiating from below. The card is black with a gold (#d4af37) double frame (outer 2px, inner 1px) and diamond ornaments at the inner corners. Content is centered and symmetrical: "✦ DAILY FOCUS ✦" in widely letterspaced Poiret One, "DEEP WORK", a fading gold rule, the percentage in Playfair Display, a stepped bar meter of 20 gold columns, a Do not disturb row with ◆/◇ indicators between thin gold lines, and a gold metallic gradient button labelled "COMMENCE" that turns outlined while running.',
+    code: `.stage { background: repeating-conic-gradient(from 0deg at 50% 115%, #0f2a2a 0 6deg, #0b1f1f 6deg 12deg); }\n.frame { background: #0b0b0b; border: 2px solid #d4af37; padding: 6px; } .frame > div { border: 1px solid #d4af37; }\n.deco { font-family: 'Poiret One', serif; letter-spacing: 6px; color: #d4af37; }\n.gold-btn { background: linear-gradient(180deg, #f3d77a, #d4af37 50%, #a8862a); }`,
+    usage: 'Luxury, hospitality, jazz and cocktail bars, weddings and premium event invitations.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
