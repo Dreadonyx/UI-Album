@@ -5,6 +5,7 @@ const ThemeClaymorphism = lazy(() => import('./components/ThemeClaymorphism'));
 const ThemeGlassmorphism = lazy(() => import('./components/ThemeGlassmorphism'));
 const ThemeSkeuomorphism = lazy(() => import('./components/ThemeSkeuomorphism'));
 const ThemeFlat = lazy(() => import('./components/ThemeFlat'));
+const ThemeMaterial = lazy(() => import('./components/ThemeMaterial'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -146,6 +147,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in classic flat design on a solid #3498db background. Absolutely no gradients, shadows or textures. The card has a dark #2c3e50 header with an orange circular check icon, then an #ecf0f1 body: a big bold percentage, a square-ended progress bar (#2ecc71 on #bdc3c7), a simple pill switch, and an uppercase orange (#e67e22) button that turns red (#e74c3c) while running. Small 4–6px radii, bold Inter. Show the flat palette as five square swatches next to the card.',
     code: `.card { background: #ecf0f1; border-radius: 6px; }\n.card-header { background: #2c3e50; color: #fff; }\n.progress { background: #bdc3c7; } .progress > span { background: #2ecc71; }\n.btn { background: #e67e22; color: #fff; border: 0; border-radius: 4px; text-transform: uppercase; }`,
     usage: 'Fast-loading interfaces, infographics, icon systems and products that need maximum clarity.',
+  },
+  {
+    title: 'Material Design', category: 'Themes', component: ThemeMaterial,
+    accent: '#6750a4',
+    palette: ['#6750a4', '#eaddff', '#f3edf7', '#625b71', '#7d5260'],
+    tags: ['Material 3', 'Ripple', 'Tonal'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget following Material Design 3. Surface #fef7ff, an elevated card in surface-container #f3edf7 with level-1 elevation and 16px radius. Leading tonal avatar (#eaddff / #21005d), title and supporting text. A linear progress indicator with the M3 gap between active (#6750a4) and track (#e8def8) segments. An M3 switch: outlined track with a small grey handle when off; filled primary track with a larger white handle containing a check icon when on. A filled pill button that shows a touch ripple from the exact click point and switches to the tonal secondary style while running, plus an outlined icon button.',
+    code: `.card { background: #f3edf7; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.15), 0 4px 8px 3px rgba(0,0,0,.06); }\n.btn-filled { height: 40px; border-radius: 20px; background: #6750a4; color: #fff; position: relative; overflow: hidden; }\n.ripple { position: absolute; border-radius: 50%; background: currentColor; animation: ripple .6s ease-out forwards; }\n@keyframes ripple { from { transform: translate(-50%,-50%) scale(0); opacity: .35; } to { transform: translate(-50%,-50%) scale(1); opacity: 0; } }`,
+    usage: 'Android apps, Google-ecosystem tools and teams that want a complete, documented design language.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
