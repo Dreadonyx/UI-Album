@@ -8,6 +8,8 @@ const BreadcrumbPagination = lazy(() => import('./components/BreadcrumbPaginatio
 const MorphingTabs = lazy(() => import('./components/MorphingTabs'));
 const GlassHero = lazy(() => import('./components/GlassHero'));
 const SplitHero = lazy(() => import('./components/SplitHero'));
+const AuroraHero = lazy(() => import('./components/AuroraHero'));
+const LaunchHero = lazy(() => import('./components/LaunchHero'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
 const EditorialGrid = lazy(() => import('./components/EditorialGrid'));
@@ -116,6 +118,26 @@ const ENTRIES = [
     prompt: 'Design a high-contrast split hero section. Left side: white background with elegant serif typography (Fraunces), a small uppercase label, and a primary CTA. Right side: light gray background with an abstract geometric shape or product placeholder with subtle shadows and gradients.',
     code: `.hero { display: flex; }\n.title { font-family: 'Fraunces', serif; }\n.right-pane { background: #f3f4f6; position: relative; }`,
     usage: 'Perfect for lifestyle brands, fashion, or modern e-commerce homepages.',
+  },
+  {
+    title: 'Aurora Gradient Hero', category: 'Hero', component: AuroraHero,
+    accent: '#a855f7',
+    palette: ['#030712', '#22d3ee', '#a855f7', '#ec4899', '#22c55e'],
+    tags: ['Aurora', 'Grid', 'Gradient Text'],
+    fonts: ['Syne', 'Inter'],
+    prompt: 'Create a dark SaaS hero on #030712 with a slowly drifting aurora: an oversized conic-gradient (cyan, violet, pink, green at ~30% alpha) blurred 60px and animated with a 14s translate/rotate/scale loop. Overlay a 40px line grid masked by a radial gradient so it fades at the edges. Centered content: an announcement pill ("New" gradient badge + "Realtime sync is live →"), a two-line headline in Syne 46px bold with a white-to-transparent vertical text gradient, a muted subheading, and two buttons: solid white "Start building" with a violet glow and a ghost "Book a demo".',
+    code: `.aurora { position: absolute; inset: -40%; background: conic-gradient(from 180deg, #22d3ee33, #a855f755, #ec489944, #22c55e33, #22d3ee33); filter: blur(60px); animation: drift 14s ease-in-out infinite; }\n.grid { background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 40px 40px; mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000 30%, transparent 75%); }\nh1 { background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,.45)); -webkit-background-clip: text; color: transparent; }`,
+    usage: 'Product launches and AI/dev-tool homepages that need instant wow-factor.',
+  },
+  {
+    title: 'Waitlist Launch Hero', category: 'Hero', component: LaunchHero,
+    accent: '#ea580c',
+    palette: ['#fffbf5', '#ea580c', '#1c1917', '#fed7aa', '#78716c'],
+    tags: ['Waitlist', 'Email Capture', 'Social Proof'],
+    fonts: ['Instrument Serif', 'Inter', 'DM Mono'],
+    prompt: 'Design a warm, editorial waitlist hero on #fffbf5 with a soft peach radial glow in the top-right. Headline in Instrument Serif 52px: "Your inbox, finally quiet." with "finally" in italic orange (#ea580c). Short supporting copy in Inter. An inline email form inside a white rounded container: borderless input + "Join waitlist" orange button that stays disabled until the email is valid. On submit, swap the form for a green success pill "You’re #1,284 on the list". Below: overlapping colored avatar circles, five amber stars and "Loved by 1,200+ early users".',
+    code: `.form { display: flex; padding: 5px; border-radius: 14px; background: #fff; border: 1px solid #e7e5e4; box-shadow: 0 10px 30px rgba(234,88,12,.08); }\n.submit:disabled { background: #fdba74; cursor: not-allowed; }\n.avatar + .avatar { margin-left: -8px; border: 2px solid #fffbf5; }`,
+    usage: 'Pre-launch pages, beta signups and lead capture for new products.',
   },
 
   // ─── Landing ──────────────────────────────────────────────
