@@ -63,6 +63,9 @@ const CommentThread = lazy(() => import('./components/CommentThread'));
 const NotificationCenter = lazy(() => import('./components/NotificationCenter'));
 const SocialPost = lazy(() => import('./components/SocialPost'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
+const VideoPlayer = lazy(() => import('./components/VideoPlayer'));
+const ImageCarousel = lazy(() => import('./components/ImageCarousel'));
+const AudioWaveform = lazy(() => import('./components/AudioWaveform'));
 const TypeSpecimen = lazy(() => import('./components/TypeSpecimen'));
 const CyberpunkText = lazy(() => import('./components/CyberpunkText'));
 const MacOSDock = lazy(() => import('./components/MacOSDock'));
@@ -735,6 +738,36 @@ const ENTRIES = [
     prompt: 'Build a glassmorphic music player widget. Use backdrop-filter: blur(30px) and a thin white border. Feature a square album art with a gradient that rotates when playing. Title in Playfair Display, artist in DM Mono. Controls (Prev, Play/Pause, Next) with simple glyphs.',
     code: `.player { background: rgba(255,255,255,0.05); backdrop-filter: blur(30px); border-radius: 32px; }\n.album-art { animation: spinVinyl 8s linear infinite; }\n.controls { color: #f472b6; cursor: pointer; }`,
     usage: 'Ideal for community sidebars or as a persistent floating entertainment element.',
+  },
+  {
+    title: 'Video Player Controls', category: 'Media', component: VideoPlayer,
+    accent: '#ef4444',
+    palette: ['#000000', '#ef4444', '#0e7490', '#f97316', '#ffffff'],
+    tags: ['Video', 'Scrubber', 'Chapters'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Design a custom video player (600×400) with a cinematic gradient poster. Top overlay: title, chapter subtitle and a "4K" glass badge. A centered frosted round play button shows while paused. Bottom gradient overlay holds the scrubber: a track with a buffered segment, red played progress, chapter gaps, a red thumb with a halo, and a timestamp tooltip that follows the cursor; the track thickens on hover and clicking seeks. Control row: play/pause, +10s, volume, "1:13 / 3:34" in DM Mono, a cycling playback-speed pill (0.5×–2×) and fullscreen.',
+    code: `.scrubber { height: 4px; background: rgba(255,255,255,.2); transition: height .15s; }\n.scrubber:hover { height: 6px; }\n.buffered { background: rgba(255,255,255,.3); }\n.played { background: #ef4444; }\n.thumb { width: 12px; height: 12px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,.3); }`,
+    usage: 'Course platforms, product demos, streaming and marketing videos.',
+  },
+  {
+    title: 'Ken Burns Carousel', category: 'Media', component: ImageCarousel,
+    accent: '#a855f7',
+    palette: ['#0c0a09', '#f97316', '#0891b2', '#4d7c0f', '#a855f7'],
+    tags: ['Carousel', 'Autoplay', 'Progress'],
+    fonts: ['Instrument Serif', 'Inter'],
+    prompt: 'Build a full-bleed travel carousel with four gradient "photo" slides (Desert Bloom, Northern Glass, Moss Cathedral, Violet Hour). Slides move with translateX and a cubic-bezier(0.77,0,0.18,1) ease, and the active slide does a slow Ken Burns zoom from scale(1.12) to 1. Each slide has a location eyebrow with a pin icon and a large Instrument Serif title over a bottom gradient. Glassy round prev/next arrows sit on the sides. Story-style progress bars along the bottom fill over 3.5s and drive autoplay; hovering pauses.',
+    code: `.track { display: flex; transform: translateX(calc(var(--i) * -100%)); transition: transform .8s cubic-bezier(.77,0,.18,1); }\n.slide.active .bg { animation: kenBurns 4s ease-out both; } @keyframes kenBurns { from { transform: scale(1.12); } }\n.progress.active > span { animation: fill 3.5s linear forwards; }`,
+    usage: 'Hero galleries, portfolios, travel and real-estate showcases.',
+  },
+  {
+    title: 'Podcast Waveform Player', category: 'Media', component: AudioWaveform,
+    accent: '#f97316',
+    palette: ['#f5f0e8', '#1c1917', '#f97316', '#db2777', '#44403c'],
+    tags: ['Audio', 'Waveform', 'Podcast'],
+    fonts: ['Fraunces', 'Instrument Serif', 'Inter', 'DM Mono'],
+    prompt: 'Create a podcast player card (#1c1917, 22px radius) on warm beige. Header: gradient cover tile, orange episode eyebrow and the title in Fraunces. A 64-bar waveform acts as the scrubber: played bars use an orange-to-pink gradient, upcoming bars are #44403c; clicking seeks and arrow keys nudge (role="slider" with aria-value attributes). Elapsed and remaining time in DM Mono below. Controls: −15 and +30 skip buttons in outlined circles around a large cream play/pause button.',
+    code: `.wave { display: flex; align-items: center; gap: 3px; height: 64px; cursor: pointer; }\n.wave span { flex: 1; border-radius: 2px; background: #44403c; }\n.wave span.played { background: linear-gradient(180deg, #fb923c, #db2777); }`,
+    usage: 'Podcast sites, voice notes, audio courses and music previews.',
   },
 
   // ─── Typography ───────────────────────────────────────────
