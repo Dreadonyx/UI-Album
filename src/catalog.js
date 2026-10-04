@@ -23,6 +23,7 @@ const ThemeRetroOS = lazy(() => import('./components/ThemeRetroOS'));
 const ThemeLiquidGlass = lazy(() => import('./components/ThemeLiquidGlass'));
 const ThemeAurora = lazy(() => import('./components/ThemeAurora'));
 const ThemeDarkAcademia = lazy(() => import('./components/ThemeDarkAcademia'));
+const ThemeMonochrome = lazy(() => import('./components/ThemeMonochrome'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -344,6 +345,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in Dark Academia style. Background: a dark bookshelf made of repeating vertical brown spine stripes. The card is aged parchment (cream gradient with a warm inner vignette and a deep drop shadow, nearly square corners). Content is centered and literary: "CHAPTER IV · MMXXVI" (roman numeral grows with progress), an italic Playfair Display title, a ❦ fleuron, an italic quotation describing progress, a thin ink-outlined progress bar, a small-caps "Silence the bells — Yes/No" row between sepia rules, and an oxblood wax-seal round button (Ω, or II while running) beside an italic caption.',
     code: `.shelf { background: repeating-linear-gradient(90deg, #3b2a1e 0 22px, #4a3424 22px 26px, #2e2118 26px 46px, #5a3f2b 46px 50px); }\n.parchment { background: linear-gradient(#efe3c8, #e3d2ae); box-shadow: 0 18px 40px rgba(0,0,0,.6), inset 0 0 40px rgba(120,80,30,.25); }\n.seal { border-radius: 50%; background: radial-gradient(circle at 35% 35%, #b23a3a, #7a1f1f 60%, #4d1010); }`,
     usage: 'Reading and writing apps, journals, universities, bookshops and literary brands.',
+  },
+  {
+    title: 'Monochrome', category: 'Themes', component: ThemeMonochrome,
+    accent: '#ffffff',
+    palette: ['#000000', '#ffffff', '#222222', '#555555', '#888888'],
+    tags: ['Black & White', 'Inversion', 'Grayscale'],
+    fonts: ['Inter', 'JetBrains Mono'],
+    prompt: 'Design a "Deep Work" focus widget in strict monochrome: only black, white and grays. Split the canvas into two halves. Left (black): JetBrains Mono status labels, the percentage as a 96px extra-bold numeral with a gray "%", and a 20-segment white meter. Right (white): the title, a gray description, a Do not disturb row between 1px black rules with a segmented ON/OFF control that swaps black and white, and a full-width uppercase button that inverts from solid black to outlined white while running. Hierarchy comes only from scale, weight and inversion.',
+    code: `.dark { background: #000; color: #fff; } .light { background: #fff; color: #000; }\n.numeral { font: 800 96px/0.85 Inter, sans-serif; letter-spacing: -5px; }\n.segmented span.on { background: #000; color: #fff; }\n.btn { border: 2px solid #000; background: #000; color: #fff; } .btn.active { background: #fff; color: #000; }`,
+    usage: 'Photography, fashion, architecture portfolios and timeless brand systems.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
