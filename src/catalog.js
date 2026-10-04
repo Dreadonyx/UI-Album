@@ -10,6 +10,7 @@ const ThemeMinimalism = lazy(() => import('./components/ThemeMinimalism'));
 const ThemeNeoBrutalism = lazy(() => import('./components/ThemeNeoBrutalism'));
 const ThemeSwiss = lazy(() => import('./components/ThemeSwiss'));
 const ThemeBauhaus = lazy(() => import('./components/ThemeBauhaus'));
+const ThemeMemphis = lazy(() => import('./components/ThemeMemphis'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -201,6 +202,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget inspired by the Bauhaus. Cream (#efe6d2) background with a big yellow circle cropped in the top-left corner and a blue triangle in the bottom-right. The card is white with 4px black rules dividing it into blocks: a header with uppercase Syne title and a red square holding the percentage; a two-color progress band (blue filled part, yellow remainder, black divider); a Do not disturb row whose indicator morphs from a black square to a red circle when on; and a full-width yellow (red while running) button with a black triangular play arrow. Only primary colors, black and geometry.',
     code: `.card { background: #fff; border: 4px solid #111; }\n.block + .block { border-top: 4px solid #111; }\n.indicator { width: 24px; height: 24px; background: #111; transition: border-radius .3s; } .on .indicator { border-radius: 50%; background: #d62828; }\n.play { border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 16px solid #111; }`,
     usage: 'Art and architecture brands, museums, posters and bold geometric product marketing.',
+  },
+  {
+    title: 'Memphis', category: 'Themes', component: ThemeMemphis,
+    accent: '#ff71ce',
+    palette: ['#ff71ce', '#01cdfe', '#05ffa1', '#fffb96', '#111111'],
+    tags: ['80s', 'Squiggles', 'Confetti'],
+    fonts: ['Bungee', 'Space Grotesk'],
+    prompt: 'Design a "Deep Work" focus widget in the Memphis Group style on a warm cream background scattered with SVG confetti: black and pink squiggles, a cyan circle, a yellow triangle, an outlined rotated square, a row of dots and a green zigzag, all with thick black strokes. The white card has a 4px black border and a hard pink (#ff71ce) offset shadow, with a tilted yellow "FOCUS!" sticker. Show the percentage as a conic-gradient pie with a black outline next to a big Bungee number, a striped progress track with a mint fill, a switch row that turns cyan when on, and a yellow (pink while running) Bungee button with a black offset shadow.',
+    code: `.card { background: #fff; border: 4px solid #111; box-shadow: 10px 10px 0 #ff71ce; }\n.pie { border: 4px solid #111; border-radius: 50%; background: conic-gradient(#01cdfe calc(var(--p) * 3.6deg), #fff 0); }\n.title { font-family: 'Bungee', sans-serif; }\n.track { background: repeating-linear-gradient(135deg, #111 0 3px, transparent 3px 9px); border: 3px solid #111; }`,
+    usage: 'Youth brands, music and events, playful marketing pages and anything that should feel loud and fun.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
