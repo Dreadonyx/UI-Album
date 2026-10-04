@@ -14,6 +14,7 @@ const ThemeMemphis = lazy(() => import('./components/ThemeMemphis'));
 const ThemeArtDeco = lazy(() => import('./components/ThemeArtDeco'));
 const ThemeY2K = lazy(() => import('./components/ThemeY2K'));
 const ThemeVaporwave = lazy(() => import('./components/ThemeVaporwave'));
+const ThemePixel = lazy(() => import('./components/ThemePixel'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -245,6 +246,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in vaporwave aesthetic. Background: a purple-to-pink-to-peach sunset, a striped retro sun (yellow → orange → pink, with horizontal gaps cut by a mask on its lower half) and a perspective neon pink grid floor that scrolls toward the viewer. The widget is a Windows 95 style window in silver with beveled borders and a pink-to-purple title bar reading "DEEP_WORK.exe". Inside: a cyan percentage with stacked pink/purple text shadows, a widely letter-spaced "aesthetic focus" caption, a sunken progress bar with a cyan-to-pink fill, a [ON]/[OFF] toggle button and a beveled pink "▶ START" button. Font: VT323.',
     code: `.sky { background: linear-gradient(180deg, #1a0033, #4b0a6b 45%, #ff6ec7 70%, #ffb86b); }\n.floor { transform: perspective(260px) rotateX(60deg); background-image: linear-gradient(#ff6ec7 2px, transparent 2px), linear-gradient(90deg, #ff6ec7 2px, transparent 2px); background-size: 40px 40px; animation: grid 1.2s linear infinite; }\n.window { background: #c0c0c0; border: 2px solid; border-color: #fff #404040 #404040 #fff; }`,
     usage: 'Music, streetwear, art projects and retro-themed events or games.',
+  },
+  {
+    title: 'Pixel Art', category: 'Themes', component: ThemePixel,
+    accent: '#fcbc3c',
+    palette: ['#5c94fc', '#000000', '#fcbc3c', '#00e436', '#ff004d'],
+    tags: ['8-bit', 'Retro Game', 'Pixel Font'],
+    fonts: ['Press Start 2P'],
+    prompt: 'Design a "Deep Work" focus widget as an 8-bit game menu. Sky-blue (#5c94fc) background with blocky pixel clouds made from box-shadows and a brick ground strip with a green grass edge. The black dialog box has a stepped pixel border built from four box-shadows (no border-radius anywhere). Use Press Start 2P: a "WORLD 1-1 · FOCUS" subtitle in gold, "DEEP WORK", an HP bar of 10 green blocks with darker bevel insets, a 6-digit SCORE counter, a "▶ MUTE ALERTS ON/OFF" menu row, and a gold "PRESS START" button whose label blinks with steps(1) (red "PAUSE" while running). Set image-rendering: pixelated.',
+    code: `.pixel-box { box-shadow: 0 -4px 0 0 #000, 0 4px 0 0 #000, -4px 0 0 0 #000, 4px 0 0 0 #000, 0 8px 0 0 rgba(0,0,0,.35); }\n.hp > span { width: 14px; height: 14px; background: #00e436; box-shadow: inset -3px -3px 0 #008751; }\n.blink { animation: blink 1s steps(1) infinite; } @keyframes blink { 50% { opacity: 0; } }\nbody { font-family: 'Press Start 2P', monospace; image-rendering: pixelated; }`,
+    usage: 'Games, gamified habit apps, hackathon pages and nostalgic easter eggs.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
