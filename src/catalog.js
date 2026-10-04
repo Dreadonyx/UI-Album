@@ -18,6 +18,7 @@ const ThemePixel = lazy(() => import('./components/ThemePixel'));
 const ThemeCyberpunk = lazy(() => import('./components/ThemeCyberpunk'));
 const ThemeMaximalism = lazy(() => import('./components/ThemeMaximalism'));
 const ThemeOrganic = lazy(() => import('./components/ThemeOrganic'));
+const ThemeFrutigerAero = lazy(() => import('./components/ThemeFrutigerAero'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -289,6 +290,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in an organic, biomorphic style on warm sand (#f1ebe0). Large sage and clay blobs drift in the corners, morphing continuously by animating multi-value border-radius (e.g. 62% 38% 46% 54% / 55% 44% 56% 45%). The card is off-white with a leaf-like radius (48px 48px 48px 12px) and a soft olive-tinted shadow. Include a morphing sage blob icon with a 🌿, the title in Fraunces, "72% grown today", a wavy SVG vine as the progress indicator (stroke-dasharray with pathLength 100), a rounded "Quiet mode" pill toggle, and a deep olive button with a leaf-shaped radius ("Begin to grow" / "Rest a moment").',
     code: `@keyframes morph { 0%,100% { border-radius: 62% 38% 46% 54% / 55% 44% 56% 45%; } 33% { border-radius: 40% 60% 63% 37% / 42% 61% 39% 58%; } 66% { border-radius: 55% 45% 35% 65% / 62% 38% 62% 38%; } }\n.blob { background: #c9d6b3; animation: morph 12s ease-in-out infinite; }\n.card { border-radius: 48px 48px 48px 12px; background: #fbf8f2; }\n.vine { stroke: #7a9a5e; stroke-dasharray: var(--p) 100; }`,
     usage: 'Wellness, sustainability, food, skincare and mindfulness products.',
+  },
+  {
+    title: 'Frutiger Aero', category: 'Themes', component: ThemeFrutigerAero,
+    accent: '#1a9fe0',
+    palette: ['#4fb6ff', '#b8e6ff', '#1a9fe0', '#7fd63b', '#06385c'],
+    tags: ['Aqua', 'Glossy', 'Mid-2000s'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget in Frutiger Aero, the glossy optimism of mid-2000s Windows Vista era UI. Sky gradient background with a rolling green hill and translucent soap bubbles floating upward. The card is a white-to-ice-blue glass panel with a white border and a curved glossy highlight across its top half. Include a glossy green orb icon with a check, an aqua gel progress bar (light top, saturated bottom, split at 50%) in a pale bevelled track, a standard checkbox for Do not disturb, and a rounded aqua gel button with white shadowed text that turns grass-green while running.',
+    code: `.gel-aqua { background: linear-gradient(180deg, #c9f1ff, #5ccbf5 48%, #1a9fe0 52%, #6fd6ff); border-radius: 21px; text-shadow: 0 1px 2px rgba(0,0,0,.35); box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 4px 10px rgba(6,56,92,.3); }\n.gloss::before { content: ''; position: absolute; inset: 1px 1px 50% 1px; border-radius: 17px 17px 40% 40% / 17px 17px 20px 20px; background: linear-gradient(rgba(255,255,255,.7), transparent); }`,
+    usage: 'Nostalgic product sites, wellness and eco brands, playful tech marketing.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
