@@ -56,6 +56,8 @@ const DrawerSheet = lazy(() => import('./components/DrawerSheet'));
 const DropdownMenu = lazy(() => import('./components/DropdownMenu'));
 const CookieConsent = lazy(() => import('./components/CookieConsent'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
+const ProductDetail = lazy(() => import('./components/ProductDetail'));
+const CheckoutCard = lazy(() => import('./components/CheckoutCard'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
 const TypeSpecimen = lazy(() => import('./components/TypeSpecimen'));
 const CyberpunkText = lazy(() => import('./components/CyberpunkText'));
@@ -655,6 +657,26 @@ const ENTRIES = [
     prompt: 'Design a minimal light-themed product grid. Each product card has a subtle border, rounded corners (24px), and a gray background. On hover, the card translates up 8px. Center an icon/glyph, followed by the product name and price. Include a simple black pill-shaped "Buy" button.',
     code: `.product-card { background: #f8f9fa; border-radius: 24px; transition: transform 0.3s ease; }\n.product-card:hover { transform: translateY(-8px); }\n.buy-btn { background: #1a1a1a; color: #fff; border-radius: 20px; }`,
     usage: 'Clean aesthetic for high-end boutique e-commerce stores.',
+  },
+  {
+    title: 'Product Detail Panel', category: 'Commerce', component: ProductDetail,
+    accent: '#c2703d',
+    palette: ['#fffdf9', '#c2703d', '#5f7a4a', '#27303f', '#1c1917'],
+    tags: ['PDP', 'Variants', 'Add to Cart'],
+    fonts: ['Fraunces', 'Inter'],
+    prompt: 'Build a product detail view for a sneaker on #fffdf9. Left: a 270px media panel whose gradient background and CSS shoe silhouette recolor when a color variant is chosen, with a "NEW" tag, a wishlist heart toggle and gallery dots. Right: category eyebrow, "Terra Runner" in Fraunces, star rating with review count, price with strikethrough original and a green discount, color swatches (Clay, Moss, Ink) with a ring on the selected one, a 6-column EU size grid with a crossed-out sold-out size, a full-width "Add to cart" that turns green with "Added · size 41", and a delivery estimate.',
+    code: `.swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--c); border: 2px solid #fffdf9; }\n.size:disabled { color: #d6d3d1; text-decoration: line-through; cursor: not-allowed; }\n.size.selected { background: #1c1917; color: #fff; }\n.media { transition: background .4s; }`,
+    usage: 'Product pages for fashion, footwear and any item with variants.',
+  },
+  {
+    title: 'Live Credit Card Checkout', category: 'Commerce', component: CheckoutCard,
+    accent: '#4338ca',
+    palette: ['#f4f4f5', '#1e1b4b', '#4338ca', '#06b6d4', '#fde68a'],
+    tags: ['Payment', '3D Flip', 'Input Masking'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a payment form beside a live credit card preview. The 250×158 card has an indigo-to-cyan gradient, a gold chip, an auto-detected brand (VISA/MASTERCARD/AMEX), the number masked as you type in DM Mono, cardholder name and expiry. Focusing the CVC field flips the card in 3D (perspective 1000px, rotateY 180°, backface-visibility hidden) to show the magnetic stripe and CVC. Inputs auto-format: number in groups of 4, expiry as MM/YY, uppercase name, digits-only CVC, with proper autocomplete="cc-*" attributes. Finish with a "Pay $128.00" indigo button.',
+    code: `.card-3d { transform-style: preserve-3d; transition: transform .7s cubic-bezier(.16,1,.3,1); }\n.card-3d.flipped { transform: rotateY(180deg); }\n.face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; }\n.back { transform: rotateY(180deg); }`,
+    usage: 'Checkout flows, subscription upgrades and saved payment methods.',
   },
 
   // ─── Media ────────────────────────────────────────────────
