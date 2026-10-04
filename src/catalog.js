@@ -19,6 +19,7 @@ const ThemeCyberpunk = lazy(() => import('./components/ThemeCyberpunk'));
 const ThemeMaximalism = lazy(() => import('./components/ThemeMaximalism'));
 const ThemeOrganic = lazy(() => import('./components/ThemeOrganic'));
 const ThemeFrutigerAero = lazy(() => import('./components/ThemeFrutigerAero'));
+const ThemeRetroOS = lazy(() => import('./components/ThemeRetroOS'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -300,6 +301,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in Frutiger Aero, the glossy optimism of mid-2000s Windows Vista era UI. Sky gradient background with a rolling green hill and translucent soap bubbles floating upward. The card is a white-to-ice-blue glass panel with a white border and a curved glossy highlight across its top half. Include a glossy green orb icon with a check, an aqua gel progress bar (light top, saturated bottom, split at 50%) in a pale bevelled track, a standard checkbox for Do not disturb, and a rounded aqua gel button with white shadowed text that turns grass-green while running.',
     code: `.gel-aqua { background: linear-gradient(180deg, #c9f1ff, #5ccbf5 48%, #1a9fe0 52%, #6fd6ff); border-radius: 21px; text-shadow: 0 1px 2px rgba(0,0,0,.35); box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 4px 10px rgba(6,56,92,.3); }\n.gloss::before { content: ''; position: absolute; inset: 1px 1px 50% 1px; border-radius: 17px 17px 40% 40% / 17px 17px 20px 20px; background: linear-gradient(rgba(255,255,255,.7), transparent); }`,
     usage: 'Nostalgic product sites, wellness and eco brands, playful tech marketing.',
+  },
+  {
+    title: 'Retro OS (Win95)', category: 'Themes', component: ThemeRetroOS,
+    accent: '#000080',
+    palette: ['#008080', '#c0c0c0', '#000080', '#1084d0', '#ffffe1'],
+    tags: ['Windows 95', 'Bevels', 'Desktop'],
+    fonts: ['Tahoma'],
+    prompt: 'Design a "Deep Work" focus widget as a Windows 95 desktop app. Teal (#008080) desktop with "My Computer" and "Recycle Bin" icons, a gray taskbar with a Start button, an active task and a clock. The window is #c0c0c0 with classic 2px bevels (white/dark-gray outer, light/mid-gray inner shadows), a navy-to-blue gradient title bar with _ □ × buttons, and a menu bar with underlined access keys. Inside: a fieldset "Today’s progress" with a sunken progress bar made of navy blocks, a square beveled checkbox for "Do not disturb", and Start (pressed/inset while running, with a default-button outline) and Cancel buttons. Add a yellow tooltip explaining the style. Font: Tahoma 12px.',
+    code: `.raised { border: 2px solid; border-color: #fff #404040 #404040 #fff; box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf; background: #c0c0c0; }\n.sunken { border: 2px solid; border-color: #808080 #fff #fff #808080; box-shadow: inset 1px 1px 0 #404040; }\n.title-bar { background: linear-gradient(90deg, #000080, #1084d0); color: #fff; font-weight: 700; }`,
+    usage: 'Retro portfolios, games, April-fools modes and nostalgic product launches.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
