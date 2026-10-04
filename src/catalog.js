@@ -39,7 +39,7 @@ const MorphingTabs = lazy(() => import('./components/MorphingTabs'));
 const HeroProductShot = lazy(() => import('./components/HeroProductShot'));
 const HeroEditorial = lazy(() => import('./components/HeroEditorial'));
 const HeroDeveloper = lazy(() => import('./components/HeroDeveloper'));
-const LaunchHero = lazy(() => import('./components/LaunchHero'));
+const HeroWaitlist = lazy(() => import('./components/HeroWaitlist'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
 const TestimonialWall = lazy(() => import('./components/TestimonialWall'));
@@ -517,14 +517,14 @@ const ENTRIES = [
     usage: 'APIs, infrastructure, CLIs and developer tools where proof beats adjectives.',
   },
   {
-    title: 'Waitlist Launch Hero', category: 'Hero', component: LaunchHero,
-    accent: '#ea580c',
-    palette: ['#fffbf5', '#ea580c', '#1c1917', '#fed7aa', '#78716c'],
-    tags: ['Waitlist', 'Email Capture', 'Social Proof'],
-    fonts: ['Instrument Serif', 'Inter', 'DM Mono'],
-    prompt: 'Design a warm, editorial waitlist hero on #fffbf5 with a soft peach radial glow in the top-right. Headline in Instrument Serif 52px: "Your inbox, finally quiet." with "finally" in italic orange (#ea580c). Short supporting copy in Inter. An inline email form inside a white rounded container: borderless input + "Join waitlist" orange button that stays disabled until the email is valid. On submit, swap the form for a green success pill "You’re #1,284 on the list". Below: overlapping colored avatar circles, five amber stars and "Loved by 1,200+ early users".',
-    code: `.form { display: flex; padding: 5px; border-radius: 14px; background: #fff; border: 1px solid #e7e5e4; box-shadow: 0 10px 30px rgba(234,88,12,.08); }\n.submit:disabled { background: #fdba74; cursor: not-allowed; }\n.avatar + .avatar { margin-left: -8px; border: 2px solid #fffbf5; }`,
-    usage: 'Pre-launch pages, beta signups and lead capture for new products.',
+    title: 'Waitlist Launch Hero', category: 'Hero', component: HeroWaitlist,
+    accent: '#171717',
+    palette: ['#fbfaf9', '#171717', '#525252', '#d4d4d4', '#166534'],
+    tags: ['Waitlist', 'Email Capture', 'Product Teaser'],
+    fonts: ['Instrument Serif', 'Inter'],
+    prompt: 'Design a calm pre-launch waitlist hero for "Tern", an AI email client, on off-white #fbfaf9. Top bar: a small bird-mark logo and "Launching spring 2027" in gray. Centered: a 50px Instrument Serif headline ("Email, minus the anxiety."), a two-line Inter description, and an inline form with a "Work email" input and a black "Request access" button that stays disabled until the email is valid; on submit it becomes a green confirmation that repeats the address. A small gray line under it states queue size and the no-spam promise. Below, a cropped white product preview card (a "Morning brief" with three summarized emails, initials avatars and Action/FYI/Reply tags) that fades into the background at the bottom edge. Monochrome palette, no stock gradients or sparkles.',
+    code: `h1 { font: 400 50px/1 'Instrument Serif', serif; letter-spacing: -1px; text-align: center; }\n.input { height: 38px; border: 1px solid #d4d4d4; border-radius: 8px; }\n.submit { background: #171717; color: #fff; border-radius: 8px; } .submit:disabled { opacity: .45; }\n.preview { border: 1px solid #e5e5e5; border-bottom: 0; border-radius: 12px 12px 0 0; box-shadow: 0 -10px 40px rgba(23,23,23,.06); }`,
+    usage: 'Pre-launch pages and private betas where trust and restraint convert better than hype.',
   },
 
   // ─── Landing ──────────────────────────────────────────────
