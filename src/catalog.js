@@ -72,6 +72,7 @@ const KineticText = lazy(() => import('./components/KineticText'));
 const MacOSDock = lazy(() => import('./components/MacOSDock'));
 const InteractiveTimeline = lazy(() => import('./components/InteractiveTimeline'));
 const ExpandableFAB = lazy(() => import('./components/ExpandableFAB'));
+const MagneticButton = lazy(() => import('./components/MagneticButton'));
 const RetroTerminal = lazy(() => import('./components/RetroTerminal'));
 const ArticleDetail = lazy(() => import('./components/ArticleDetail'));
 
@@ -833,6 +834,16 @@ const ENTRIES = [
     prompt: 'Build an expandable Floating Action Button (FAB). The main button should rotate 45 degrees on click to become a "close" icon, while a vertical list of secondary actions slides up with a staggered animation. Each action includes a labeled tooltip and a colored circular icon.',
     code: `.fab { border-radius: 50%; transition: transform 0.3s ease; }\n.menu { display: flex; flex-direction: column; gap: 12px; }`,
     usage: 'Use in mobile-first web apps or dashboards to consolidate secondary actions.',
+  },
+  {
+    title: 'Magnetic Cursor Button', category: 'Motion', component: MagneticButton,
+    accent: '#bef264',
+    palette: ['#0a0a0a', '#bef264', '#f5f5f5', '#1a1a1a', '#ffffff'],
+    tags: ['Magnetic', 'Cursor', 'Spotlight'],
+    fonts: ['Space Grotesk', 'DM Mono'],
+    prompt: 'Create a magnetic call-to-action on #0a0a0a. A 130px round "Let’s talk ↗" button sits in the center inside a faint dashed 110px-radius field. When the cursor enters that radius the button is pulled toward it (offset = distance × 0.4), scales to 1.08, turns lime (#bef264) and glows; its label moves at a lower factor for a parallax feel. A soft lime radial spotlight follows the cursor across the whole canvas. Leaving the field springs the button back with cubic-bezier(0.22,1,0.36,1).',
+    code: `.magnetic { transform: translate(var(--x), var(--y)) scale(var(--s)); transition: transform .35s cubic-bezier(.22,1,.36,1), background .3s; }\n.magnetic.active { background: #bef264; box-shadow: 0 0 60px rgba(190,242,100,.35); }\n.spotlight { background: radial-gradient(260px circle at var(--mx) var(--my), rgba(190,242,100,.10), transparent 70%); }`,
+    usage: 'Portfolio and agency CTAs, contact sections and playful interactive moments.',
   },
 
   // ─── Developer ────────────────────────────────────────────
