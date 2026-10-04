@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 
 const ThemeNeumorphism = lazy(() => import('./components/ThemeNeumorphism'));
+const ThemeClaymorphism = lazy(() => import('./components/ThemeClaymorphism'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -102,6 +103,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in neumorphism (soft UI) on a single flat surface color #e0e5ec. Every element is the same color as the background and gets its form only from paired shadows: raised elements use 9px 9px 16px #a3b1c6 and -9px -9px 16px #ffffff; pressed elements use the inset version. Card radius 28px. Include an inset circular percentage dial, an inset progress track with a violet (#6d5dfc) gradient fill, an inset switch track with a raised knob that turns violet when on, and a full-width button that looks raised at rest and becomes inset (pressed) while the session runs. Text #44476a in Inter.',
     code: `body { background: #e0e5ec; }\n.raised { background: #e0e5ec; box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff; border-radius: 28px; }\n.inset { box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff; }\n.btn:active, .btn[aria-pressed="true"] { box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff; color: #6d5dfc; }`,
     usage: 'Calm dashboards, smart-home and music controls. Keep contrast in check: add color for states and focus.',
+  },
+  {
+    title: 'Claymorphism', category: 'Themes', component: ThemeClaymorphism,
+    accent: '#9b7cff',
+    palette: ['#c8b6ff', '#ffd6a5', '#a0e7e5', '#9bf6c5', '#ffadad'],
+    tags: ['Clay', '3D', 'Pastel'],
+    fonts: ['Space Grotesk'],
+    prompt: 'Design a "Deep Work" focus widget in claymorphism on a pink-to-periwinkle pastel gradient. Elements look like inflated clay: very large radii (38px card, 20–24px inner pieces), pastel fills (#c8b6ff card, #ffd6a5 icon tile, #a0e7e5 button, #9bf6c5 progress, #ffadad active toggle) and a triple shadow on each piece: a soft colored outer drop shadow (0 18px 30px -10px) plus an inner dark shadow bottom-right and an inner white highlight top-left. Include an emoji icon tile, a white clay panel with the progress bar, a square clay toggle button (🔕/🔔) and a chunky "Start session" button that squishes (scale 0.97) while running. Space Grotesk bold, deep purple text #3b2f63.',
+    code: `.clay { border-radius: 38px; background: #c8b6ff; box-shadow: 0 18px 30px -10px rgba(124,92,230,.45), inset -6px -8px 14px rgba(0,0,0,.12), inset 6px 8px 14px rgba(255,255,255,.65); }\n.clay-btn { border-radius: 20px; background: #a0e7e5; }\n.clay-btn:active { transform: scale(.97); }`,
+    usage: 'Playful consumer apps, kids and education products, onboarding illustrations and 3D-ish landing pages.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
