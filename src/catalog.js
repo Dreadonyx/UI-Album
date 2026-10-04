@@ -7,6 +7,7 @@ const ThemeSkeuomorphism = lazy(() => import('./components/ThemeSkeuomorphism'))
 const ThemeFlat = lazy(() => import('./components/ThemeFlat'));
 const ThemeMaterial = lazy(() => import('./components/ThemeMaterial'));
 const ThemeMinimalism = lazy(() => import('./components/ThemeMinimalism'));
+const ThemeNeoBrutalism = lazy(() => import('./components/ThemeNeoBrutalism'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -168,6 +169,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in pure minimalism on #fafaf8. Remove every box: no cards, no fills, no shadows. A tiny grey label, then the percentage as an 84px Instrument Serif numeral with a lighter "%" sign. A 1px hairline progress line (black fill over #e5e5e5). The switch is just a text row "Do not disturb … On/Off" separated by a hairline. The action is underlined text "Start session →". A thin vertical rule separates a short caption. Generous whitespace, black text only.',
     code: `body { background: #fafaf8; color: #111; }\n.stat { font: 84px/0.9 'Instrument Serif', serif; letter-spacing: -3px; }\n.rule { height: 1px; background: #e5e5e5; } .rule > span { background: #111; height: 1px; }\n.link-btn { background: none; border: 0; border-bottom: 1px solid #111; padding: 0 0 3px; }`,
     usage: 'Portfolios, editorial products, luxury brands and focus or meditation apps.',
+  },
+  {
+    title: 'Neo-Brutalism', category: 'Themes', component: ThemeNeoBrutalism,
+    accent: '#a3e635',
+    palette: ['#a3e635', '#ffde59', '#ff6b6b', '#fdf6e3', '#000000'],
+    tags: ['Hard Shadow', 'Thick Borders', 'Bold'],
+    fonts: ['Space Grotesk'],
+    prompt: 'Design a "Deep Work" focus widget in neo-brutalism on a cream dot-grid background (#fdf6e3, 1px black dots every 18px). The lime (#a3e635) card has a 3px solid black border, 10px radius and a hard 5px 5px 0 black offset shadow. Include a white "DAILY FOCUS" sticker label, a tilted red percentage badge, a progress bar with black/yellow hazard stripes, a white switch row with an ON/OFF chip, and a yellow button that physically presses in (translate 5px, shadow collapses to 0) on mouse down. Space Grotesk bold. Add a rotated white caption card.',
+    code: `.nb { border: 3px solid #000; border-radius: 10px; box-shadow: 5px 5px 0 #000; }\n.nb-btn { background: #ffde59; border: 3px solid #000; box-shadow: 5px 5px 0 #000; transition: transform .08s, box-shadow .08s; }\n.nb-btn:active { transform: translate(5px,5px); box-shadow: 0 0 0 #000; }\n.hazard { background: repeating-linear-gradient(45deg, #000 0 6px, #ffde59 6px 12px); }`,
+    usage: 'Indie SaaS, creator tools and landing pages that want personality and instant recognisability.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
