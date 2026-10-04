@@ -13,6 +13,7 @@ const ThemeBauhaus = lazy(() => import('./components/ThemeBauhaus'));
 const ThemeMemphis = lazy(() => import('./components/ThemeMemphis'));
 const ThemeArtDeco = lazy(() => import('./components/ThemeArtDeco'));
 const ThemeY2K = lazy(() => import('./components/ThemeY2K'));
+const ThemeVaporwave = lazy(() => import('./components/ThemeVaporwave'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -234,6 +235,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in Y2K style on a lilac background with pink and baby-blue radial glows and twinkling white sparkle stars. The card has a 3px iridescent border (pink → aqua → lavender gradient) around a frosted white body with 30px radii. The title uses liquid-chrome gradient text (white/silver/steel stops) with a thin stroke, plus a pink-to-violet "★ FOCUS" pill. The percentage is a big pink-violet-aqua gradient number, the progress bar is a glossy two-tone aqua gel, and the buttons are bubbly chrome pills that turn pink when active, with lowercase italic labels and ✧ symbols.',
     code: `.chrome-text { background: linear-gradient(180deg, #fff, #c9d1dc 35%, #7d8897 50%, #e8edf3 65%, #9aa4b3); -webkit-background-clip: text; color: transparent; -webkit-text-stroke: 1px #6b6f8a; }\n.iridescent { padding: 3px; border-radius: 30px; background: linear-gradient(135deg, #ff9ce6, #9be7ff, #c3a6ff); }\n.pill { border-radius: 24px; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), 0 6px 14px rgba(43,27,90,.25); }`,
     usage: 'Fashion, beauty, music drops and Gen-Z campaigns that lean into nostalgia.',
+  },
+  {
+    title: 'Vaporwave', category: 'Themes', component: ThemeVaporwave,
+    accent: '#ff6ec7',
+    palette: ['#1a0033', '#ff6ec7', '#01cdfe', '#7b2cbf', '#fff275'],
+    tags: ['Synthwave', 'Retro Grid', 'Aesthetic'],
+    fonts: ['VT323'],
+    prompt: 'Design a "Deep Work" focus widget in vaporwave aesthetic. Background: a purple-to-pink-to-peach sunset, a striped retro sun (yellow → orange → pink, with horizontal gaps cut by a mask on its lower half) and a perspective neon pink grid floor that scrolls toward the viewer. The widget is a Windows 95 style window in silver with beveled borders and a pink-to-purple title bar reading "DEEP_WORK.exe". Inside: a cyan percentage with stacked pink/purple text shadows, a widely letter-spaced "aesthetic focus" caption, a sunken progress bar with a cyan-to-pink fill, a [ON]/[OFF] toggle button and a beveled pink "▶ START" button. Font: VT323.',
+    code: `.sky { background: linear-gradient(180deg, #1a0033, #4b0a6b 45%, #ff6ec7 70%, #ffb86b); }\n.floor { transform: perspective(260px) rotateX(60deg); background-image: linear-gradient(#ff6ec7 2px, transparent 2px), linear-gradient(90deg, #ff6ec7 2px, transparent 2px); background-size: 40px 40px; animation: grid 1.2s linear infinite; }\n.window { background: #c0c0c0; border: 2px solid; border-color: #fff #404040 #404040 #fff; }`,
+    usage: 'Music, streetwear, art projects and retro-themed events or games.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
