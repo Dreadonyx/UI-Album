@@ -37,7 +37,7 @@ const CommandPalette = lazy(() => import('./components/CommandPalette'));
 const BreadcrumbPagination = lazy(() => import('./components/BreadcrumbPagination'));
 const MorphingTabs = lazy(() => import('./components/MorphingTabs'));
 const HeroProductShot = lazy(() => import('./components/HeroProductShot'));
-const SplitHero = lazy(() => import('./components/SplitHero'));
+const HeroEditorial = lazy(() => import('./components/HeroEditorial'));
 const AuroraHero = lazy(() => import('./components/AuroraHero'));
 const LaunchHero = lazy(() => import('./components/LaunchHero'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
@@ -497,14 +497,14 @@ const ENTRIES = [
     usage: 'B2B SaaS homepages where the product itself is the strongest selling point.',
   },
   {
-    title: 'Minimal Split Hero', category: 'Hero', component: SplitHero,
-    accent: '#8b5cf6',
-    palette: ['#ffffff', '#1a1a1a', '#8b5cf6', '#ec4899', '#f3f4f6'],
-    tags: ['Hero', 'Minimal', 'Split'],
-    fonts: ['Fraunces', 'Inter', 'Space Grotesk'],
-    prompt: 'Design a high-contrast split hero section. Left side: white background with elegant serif typography (Fraunces), a small uppercase label, and a primary CTA. Right side: light gray background with an abstract geometric shape or product placeholder with subtle shadows and gradients.',
-    code: `.hero { display: flex; }\n.title { font-family: 'Fraunces', serif; }\n.right-pane { background: #f3f4f6; position: relative; }`,
-    usage: 'Perfect for lifestyle brands, fashion, or modern e-commerce homepages.',
+    title: 'Editorial Magazine Hero', category: 'Hero', component: HeroEditorial,
+    accent: '#b4532a',
+    palette: ['#f3efe6', '#1d1a16', '#b4532a', '#e3a44a', '#6b6357'],
+    tags: ['Editorial', 'Serif', 'Illustration'],
+    fonts: ['Instrument Serif', 'Lora', 'Inter'],
+    prompt: 'Design an editorial magazine hero for "The Atlas" on warm paper (#f3efe6) with ink-colored text (#1d1a16). A masthead with the title in Instrument Serif, small uppercase Inter section links and an outlined Subscribe button that toggles to filled, underlined by a 1px ink rule; below it a dateline row (Issue 12 · Autumn 2026 · cities). Left column: a terracotta (#b4532a) section kicker, a 48px Instrument Serif headline with one italic word ("Quiet buildings for loud cities"), a Lora deck paragraph, a byline with read time and an underlined "Read the story" link. Right column: a flat, print-style SVG illustration of an arcaded colonnade under a low ochre sun in a limited terracotta/ochre/sand palette, with a figure caption beneath. Generous margins, real copy, no gradients.',
+    code: `.masthead { border-bottom: 1px solid #1d1a16; font-family: 'Instrument Serif', serif; }\n.kicker { font: 600 10px Inter, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; color: #b4532a; }\nh1 { font: 400 48px/0.98 'Instrument Serif', serif; }\n.deck { font: 12px/1.6 Lora, serif; color: #4a443b; }\n.read-more { border-bottom: 1.5px solid currentColor; }`,
+    usage: 'Publications, journals, studio blogs and brands that lead with storytelling.',
   },
   {
     title: 'Aurora Gradient Hero', category: 'Hero', component: AuroraHero,
