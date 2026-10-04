@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 
+const ThemeNeumorphism = lazy(() => import('./components/ThemeNeumorphism'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -85,12 +86,24 @@ const Changelog = lazy(() => import('./components/Changelog'));
 
 // Display order of the category filter. Every entry's `category` must be listed here.
 export const CATEGORIES = [
-  'Navigation', 'Hero', 'Landing', 'Cards', 'Buttons', 'Forms', 'Inputs', 'Auth',
+  'Themes', 'Navigation', 'Hero', 'Landing', 'Cards', 'Buttons', 'Forms', 'Inputs', 'Auth',
   'Dashboard', 'Feedback', 'Overlays', 'Commerce', 'Social', 'Media',
   'Typography', 'Motion', 'Developer', 'Mobile', 'Content',
 ];
 
 const ENTRIES = [
+  // ─── Themes ───────────────────────────────────────────────
+  {
+    title: 'Neumorphism', category: 'Themes', component: ThemeNeumorphism,
+    accent: '#6d5dfc',
+    palette: ['#e0e5ec', '#a3b1c6', '#ffffff', '#6d5dfc', '#44476a'],
+    tags: ['Soft UI', 'Extruded', 'Light'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget in neumorphism (soft UI) on a single flat surface color #e0e5ec. Every element is the same color as the background and gets its form only from paired shadows: raised elements use 9px 9px 16px #a3b1c6 and -9px -9px 16px #ffffff; pressed elements use the inset version. Card radius 28px. Include an inset circular percentage dial, an inset progress track with a violet (#6d5dfc) gradient fill, an inset switch track with a raised knob that turns violet when on, and a full-width button that looks raised at rest and becomes inset (pressed) while the session runs. Text #44476a in Inter.',
+    code: `body { background: #e0e5ec; }\n.raised { background: #e0e5ec; box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff; border-radius: 28px; }\n.inset { box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff; }\n.btn:active, .btn[aria-pressed="true"] { box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff; color: #6d5dfc; }`,
+    usage: 'Calm dashboards, smart-home and music controls. Keep contrast in check: add color for states and focus.',
+  },
+
   // ─── Navigation ───────────────────────────────────────────
   {
     title: 'Neon Navigation Bar', category: 'Navigation', component: NeonNavbar,
