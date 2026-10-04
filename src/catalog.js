@@ -58,6 +58,10 @@ const CookieConsent = lazy(() => import('./components/CookieConsent'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
 const ProductDetail = lazy(() => import('./components/ProductDetail'));
 const CheckoutCard = lazy(() => import('./components/CheckoutCard'));
+const ChatInterface = lazy(() => import('./components/ChatInterface'));
+const CommentThread = lazy(() => import('./components/CommentThread'));
+const NotificationCenter = lazy(() => import('./components/NotificationCenter'));
+const SocialPost = lazy(() => import('./components/SocialPost'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
 const TypeSpecimen = lazy(() => import('./components/TypeSpecimen'));
 const CyberpunkText = lazy(() => import('./components/CyberpunkText'));
@@ -677,6 +681,48 @@ const ENTRIES = [
     prompt: 'Create a payment form beside a live credit card preview. The 250×158 card has an indigo-to-cyan gradient, a gold chip, an auto-detected brand (VISA/MASTERCARD/AMEX), the number masked as you type in DM Mono, cardholder name and expiry. Focusing the CVC field flips the card in 3D (perspective 1000px, rotateY 180°, backface-visibility hidden) to show the magnetic stripe and CVC. Inputs auto-format: number in groups of 4, expiry as MM/YY, uppercase name, digits-only CVC, with proper autocomplete="cc-*" attributes. Finish with a "Pay $128.00" indigo button.',
     code: `.card-3d { transform-style: preserve-3d; transition: transform .7s cubic-bezier(.16,1,.3,1); }\n.card-3d.flipped { transform: rotateY(180deg); }\n.face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 16px; }\n.back { transform: rotateY(180deg); }`,
     usage: 'Checkout flows, subscription upgrades and saved payment methods.',
+  },
+
+  // ─── Social ───────────────────────────────────────────────
+  {
+    title: 'Messenger Chat', category: 'Social', component: ChatInterface,
+    accent: '#3b82f6',
+    palette: ['#eef0f5', '#3b82f6', '#6366f1', '#f1f3f8', '#22c55e'],
+    tags: ['Chat', 'Typing Indicator', 'Bubbles'],
+    fonts: ['Inter'],
+    prompt: 'Build a messenger window (360×360, white, 20px radius) on #eef0f5. Header: avatar with a green presence dot, name, and status that flips to "typing…" in blue. The message log (role="log", aria-live) shows grouped bubbles: incoming #f1f3f8, outgoing blue-to-indigo gradient; the corner nearest the sender squares off only on the last bubble of a group. New messages slide in and the list auto-scrolls. Sending shows a three-dot bouncing typing indicator, then an auto-reply. Composer: paperclip button, pill input and a round send button that is disabled until there is text.',
+    code: `.bubble.me { align-self: flex-end; background: linear-gradient(135deg, #3b82f6, #6366f1); color: #fff; border-radius: 16px 16px 4px 16px; }\n.bubble.them { background: #f1f3f8; border-radius: 16px 16px 16px 4px; }\n.typing span { animation: typing 1.2s infinite; } @keyframes typing { 30% { transform: translateY(-4px); opacity: 1; } }`,
+    usage: 'Support widgets, team chat, marketplaces and AI assistant interfaces.',
+  },
+  {
+    title: 'Threaded Comments', category: 'Social', component: CommentThread,
+    accent: '#e11d48',
+    palette: ['#ffffff', '#0f172a', '#e11d48', '#4338ca', '#f1f5f9'],
+    tags: ['Comments', 'Replies', 'Likes'],
+    fonts: ['Inter'],
+    prompt: 'Design a discussion thread on white. Header: "Discussion · n" total count. A composer row with your avatar, a bordered input and a "Post" button that activates when text is entered. Comments show a colored initial avatar, bold name, optional indigo "AUTHOR" badge, relative time, body text and actions (heart like toggle with count that turns rose #e11d48, Reply). Replies are indented under their parent with smaller avatars and a 2px #f1f5f9 left thread line. New comments animate in at the bottom.',
+    code: `.replies { margin-left: 15px; padding-left: 25px; border-left: 2px solid #f1f5f9; }\n.badge-author { font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 4px; background: #e0e7ff; color: #4338ca; }\n.like[aria-pressed="true"] { color: #e11d48; }`,
+    usage: 'Blogs, docs feedback, design review tools and community forums.',
+  },
+  {
+    title: 'Notification Center', category: 'Social', component: NotificationCenter,
+    accent: '#4f46e5',
+    palette: ['#0f172a', '#ffffff', '#4f46e5', '#f8faff', '#94a3b8'],
+    tags: ['Notifications', 'Inbox', 'Unread'],
+    fonts: ['Inter'],
+    prompt: 'Create a notifications popover (380px white card) on a dark slate gradient. Header: "Notifications" and a "Mark all as read" link that disables when nothing is unread. Tabs: All (with an indigo unread count pill) and Mentions, underlined in indigo. Rows show an avatar or icon tile (deploy bolt, security shield), a sentence with bold actor and target, relative time, and an indigo unread dot; unread rows have a #f8faff background. Clicking a row marks it read. An invite row includes inline Accept / Decline buttons. Empty tabs show "You’re all caught up ✨".',
+    code: `.row.unread { background: #f8faff; }\n.unread-dot { width: 8px; height: 8px; border-radius: 50%; background: #4f46e5; }\n.tab[aria-selected="true"] { color: #0f172a; border-bottom: 2px solid #4f46e5; }`,
+    usage: 'App headers, activity inboxes and collaboration tools.',
+  },
+  {
+    title: 'Social Media Post', category: 'Social', component: SocialPost,
+    accent: '#ef4444',
+    palette: ['#fafafa', '#f59e0b', '#ec4899', '#8b5cf6', '#ef4444'],
+    tags: ['Feed', 'Double-tap Like', 'Story Ring'],
+    fonts: ['Inter'],
+    prompt: 'Build an Instagram-style post card (320px). Header: avatar inside a gradient story ring (amber → pink → violet), username, location and a more icon. Media: a sunset gradient image; double-clicking it likes the post and pops a big white heart in the center (scale 0 → 1.3 → fade). Action row: heart (bumps and fills red when liked), comment, share, and a bookmark that fills when saved. Then the like count (updates live), caption with bold username and an uppercase timestamp.',
+    code: `.story-ring { padding: 2px; border-radius: 50%; background: linear-gradient(45deg, #f59e0b, #ec4899, #8b5cf6); }\n.heart-pop { animation: heartPop .9s ease forwards; }\n@keyframes heartPop { 0% { transform: scale(0); opacity: 0; } 40% { transform: scale(1.3); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }`,
+    usage: 'Social feeds, community galleries and UGC showcases.',
   },
 
   // ─── Media ────────────────────────────────────────────────
