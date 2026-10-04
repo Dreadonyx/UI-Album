@@ -17,6 +17,7 @@ const ThemeVaporwave = lazy(() => import('./components/ThemeVaporwave'));
 const ThemePixel = lazy(() => import('./components/ThemePixel'));
 const ThemeCyberpunk = lazy(() => import('./components/ThemeCyberpunk'));
 const ThemeMaximalism = lazy(() => import('./components/ThemeMaximalism'));
+const ThemeOrganic = lazy(() => import('./components/ThemeOrganic'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -278,6 +279,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in maximalism: more is more. Background of bold pink/orange vertical stripes with a blue polka-dot circle and a rotated black-and-white checkerboard square cropped at the corners. The card is cream with asymmetric radii (30px/4px alternating), a 5px double border and two stacked offset shadows (blue then yellow). Mix typefaces deliberately: Fraunces black italic, Bungee, Instrument Serif and Syne. Add a tilted green "WOW!" sticker, a huge blue numeral beside a candy-striped progress track with a rainbow fill, a dashed pill toggle with italic serif answers ("yes, please" / "nope"), and a gradient Bungee button.',
     code: `.stage { background: repeating-linear-gradient(90deg, #ff3d7f 0 30px, #ff8c42 30px 60px); }\n.card { border: 5px double #1b0a3c; border-radius: 30px 4px 30px 4px; box-shadow: 12px 12px 0 #2b59ff, 24px 24px 0 #ffe14d; }\n.dots { background: radial-gradient(#ffe14d 30%, transparent 31%) 0 0 / 20px 20px, #2b59ff; }\n.checker { background: conic-gradient(#000 25%, #fff 0 50%, #000 0 75%, #fff 0) 0 0 / 30px 30px; }`,
     usage: 'Fashion, editorial campaigns, creative agencies and brands that want to be unforgettable.',
+  },
+  {
+    title: 'Organic Biomorphism', category: 'Themes', component: ThemeOrganic,
+    accent: '#7a9a5e',
+    palette: ['#f1ebe0', '#7a9a5e', '#3d4a33', '#e8c7a8', '#c47a52'],
+    tags: ['Blobs', 'Earthy', 'Natural'],
+    fonts: ['Fraunces', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget in an organic, biomorphic style on warm sand (#f1ebe0). Large sage and clay blobs drift in the corners, morphing continuously by animating multi-value border-radius (e.g. 62% 38% 46% 54% / 55% 44% 56% 45%). The card is off-white with a leaf-like radius (48px 48px 48px 12px) and a soft olive-tinted shadow. Include a morphing sage blob icon with a 🌿, the title in Fraunces, "72% grown today", a wavy SVG vine as the progress indicator (stroke-dasharray with pathLength 100), a rounded "Quiet mode" pill toggle, and a deep olive button with a leaf-shaped radius ("Begin to grow" / "Rest a moment").',
+    code: `@keyframes morph { 0%,100% { border-radius: 62% 38% 46% 54% / 55% 44% 56% 45%; } 33% { border-radius: 40% 60% 63% 37% / 42% 61% 39% 58%; } 66% { border-radius: 55% 45% 35% 65% / 62% 38% 62% 38%; } }\n.blob { background: #c9d6b3; animation: morph 12s ease-in-out infinite; }\n.card { border-radius: 48px 48px 48px 12px; background: #fbf8f2; }\n.vine { stroke: #7a9a5e; stroke-dasharray: var(--p) 100; }`,
+    usage: 'Wellness, sustainability, food, skincare and mindfulness products.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
