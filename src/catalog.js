@@ -12,6 +12,7 @@ const ThemeSwiss = lazy(() => import('./components/ThemeSwiss'));
 const ThemeBauhaus = lazy(() => import('./components/ThemeBauhaus'));
 const ThemeMemphis = lazy(() => import('./components/ThemeMemphis'));
 const ThemeArtDeco = lazy(() => import('./components/ThemeArtDeco'));
+const ThemeY2K = lazy(() => import('./components/ThemeY2K'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -223,6 +224,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in Art Deco style. Background: a deep teal sunburst made with repeating-conic-gradient rays radiating from below. The card is black with a gold (#d4af37) double frame (outer 2px, inner 1px) and diamond ornaments at the inner corners. Content is centered and symmetrical: "✦ DAILY FOCUS ✦" in widely letterspaced Poiret One, "DEEP WORK", a fading gold rule, the percentage in Playfair Display, a stepped bar meter of 20 gold columns, a Do not disturb row with ◆/◇ indicators between thin gold lines, and a gold metallic gradient button labelled "COMMENCE" that turns outlined while running.',
     code: `.stage { background: repeating-conic-gradient(from 0deg at 50% 115%, #0f2a2a 0 6deg, #0b1f1f 6deg 12deg); }\n.frame { background: #0b0b0b; border: 2px solid #d4af37; padding: 6px; } .frame > div { border: 1px solid #d4af37; }\n.deco { font-family: 'Poiret One', serif; letter-spacing: 6px; color: #d4af37; }\n.gold-btn { background: linear-gradient(180deg, #f3d77a, #d4af37 50%, #a8862a); }`,
     usage: 'Luxury, hospitality, jazz and cocktail bars, weddings and premium event invitations.',
+  },
+  {
+    title: 'Y2K Chrome', category: 'Themes', component: ThemeY2K,
+    accent: '#ff6ad5',
+    palette: ['#ff6ad5', '#8c6bff', '#3fd0ff', '#e9e4ff', '#c9d1dc'],
+    tags: ['Y2K', 'Chrome', 'Iridescent'],
+    fonts: ['Syne', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget in Y2K style on a lilac background with pink and baby-blue radial glows and twinkling white sparkle stars. The card has a 3px iridescent border (pink → aqua → lavender gradient) around a frosted white body with 30px radii. The title uses liquid-chrome gradient text (white/silver/steel stops) with a thin stroke, plus a pink-to-violet "★ FOCUS" pill. The percentage is a big pink-violet-aqua gradient number, the progress bar is a glossy two-tone aqua gel, and the buttons are bubbly chrome pills that turn pink when active, with lowercase italic labels and ✧ symbols.',
+    code: `.chrome-text { background: linear-gradient(180deg, #fff, #c9d1dc 35%, #7d8897 50%, #e8edf3 65%, #9aa4b3); -webkit-background-clip: text; color: transparent; -webkit-text-stroke: 1px #6b6f8a; }\n.iridescent { padding: 3px; border-radius: 30px; background: linear-gradient(135deg, #ff9ce6, #9be7ff, #c3a6ff); }\n.pill { border-radius: 24px; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), 0 6px 14px rgba(43,27,90,.25); }`,
+    usage: 'Fashion, beauty, music drops and Gen-Z campaigns that lean into nostalgia.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
