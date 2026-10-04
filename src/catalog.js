@@ -40,6 +40,7 @@ const HeroProductShot = lazy(() => import('./components/HeroProductShot'));
 const HeroEditorial = lazy(() => import('./components/HeroEditorial'));
 const HeroDeveloper = lazy(() => import('./components/HeroDeveloper'));
 const HeroWaitlist = lazy(() => import('./components/HeroWaitlist'));
+const HeroHardware = lazy(() => import('./components/HeroHardware'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
 const TestimonialWall = lazy(() => import('./components/TestimonialWall'));
@@ -525,6 +526,16 @@ const ENTRIES = [
     prompt: 'Design a calm pre-launch waitlist hero for "Tern", an AI email client, on off-white #fbfaf9. Top bar: a small bird-mark logo and "Launching spring 2027" in gray. Centered: a 50px Instrument Serif headline ("Email, minus the anxiety."), a two-line Inter description, and an inline form with a "Work email" input and a black "Request access" button that stays disabled until the email is valid; on submit it becomes a green confirmation that repeats the address. A small gray line under it states queue size and the no-spam promise. Below, a cropped white product preview card (a "Morning brief" with three summarized emails, initials avatars and Action/FYI/Reply tags) that fades into the background at the bottom edge. Monochrome palette, no stock gradients or sparkles.',
     code: `h1 { font: 400 50px/1 'Instrument Serif', serif; letter-spacing: -1px; text-align: center; }\n.input { height: 38px; border: 1px solid #d4d4d4; border-radius: 8px; }\n.submit { background: #171717; color: #fff; border-radius: 8px; } .submit:disabled { opacity: .45; }\n.preview { border: 1px solid #e5e5e5; border-bottom: 0; border-radius: 12px 12px 0 0; box-shadow: 0 -10px 40px rgba(23,23,23,.06); }`,
     usage: 'Pre-launch pages and private betas where trust and restraint convert better than hype.',
+  },
+  {
+    title: 'Hardware Product Hero', category: 'Hero', component: HeroHardware,
+    accent: '#ff5a1f',
+    palette: ['#ecebe7', '#1a1a1a', '#ff5a1f', '#d9d9d6', '#2b2b2c'],
+    tags: ['Hardware', 'Specs', 'Pre-order'],
+    fonts: ['Space Grotesk', 'DM Mono', 'Inter'],
+    prompt: 'Design a hardware product hero for "OKTAV OK-1", a pocket field recorder, in an industrial-design style on warm gray #ecebe7. Nav in uppercase DM Mono with a letterspaced Space Grotesk wordmark and a live "Cart (n)" counter. Left: a mono model line ("OK-1 / FIELD RECORDER"), a two-line 40px Space Grotesk headline ("Pocket-sized. Studio-grade."), a spec definition list in DM Mono under a hairline (recording format, tracks, battery, weight), finish swatches (Aluminium, Graphite) with a ring on the selected one, and a flat signal-orange (#ff5a1f) "Pre-order · $449" button with a shipping date. Right: a flat SVG illustration of the device: rounded body with an offset edge shadow, black screen with a waveform, a big orange knob, four square keys and a dot speaker grille. The finish swatches recolor the body; tapping the device starts a demo recording (orange animated waveform, REC timer, knob rotates).',
+    code: `nav, .specs { font: 10px 'DM Mono', monospace; text-transform: uppercase; }\nh1 { font: 600 40px/1 'Space Grotesk', sans-serif; letter-spacing: -1.5px; }\n.specs { display: grid; grid-template-columns: auto 1fr; gap: 5px 18px; border-top: 1px solid #c9c8c3; }\n.preorder { background: #ff5a1f; color: #fff; border-radius: 4px; font-family: 'DM Mono', monospace; }`,
+    usage: 'Physical products, consumer electronics and anything with specs worth showing off.',
   },
 
   // ─── Landing ──────────────────────────────────────────────
