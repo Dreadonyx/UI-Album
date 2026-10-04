@@ -12,6 +12,10 @@ const AuroraHero = lazy(() => import('./components/AuroraHero'));
 const LaunchHero = lazy(() => import('./components/LaunchHero'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
+const TestimonialWall = lazy(() => import('./components/TestimonialWall'));
+const FeatureComparison = lazy(() => import('./components/FeatureComparison'));
+const LogoMarquee = lazy(() => import('./components/LogoMarquee'));
+const FAQAccordion = lazy(() => import('./components/FAQAccordion'));
 const EditorialGrid = lazy(() => import('./components/EditorialGrid'));
 const BentoGrid = lazy(() => import('./components/BentoGrid'));
 const GradientButtons = lazy(() => import('./components/GradientButtons'));
@@ -160,6 +164,46 @@ const ENTRIES = [
     prompt: 'Design a 3-tier SaaS pricing block (Hobby, Pro, Team). Hobby and Team have a dark #0d1117 background with thin white borders. The center Pro tier is slightly scaled up (scale 1.05) with a deeper background (#161b22) and features an animated glowing conic gradient border that slowly rotates around the card using a pseudo-element behind a 1px masked inset. Include a giant price in serif font.',
     code: `.card-pro { transform: scale(1.05); }\n.card-pro::before { content: ""; background: conic-gradient(from 0deg, transparent, #8b5cf6); animation: rotateBorder 3s linear infinite; }\n@keyframes rotateBorder { 100% { transform: rotate(1turn); } }`,
     usage: 'Essential for SaaS landing pages; provides clear focus on the recommended subscription tier.',
+  },
+  {
+    title: 'Infinite Testimonial Wall', category: 'Landing', component: TestimonialWall,
+    accent: '#fbbf24',
+    palette: ['#0b0b10', '#fbbf24', '#f472b6', '#60a5fa', '#34d399'],
+    tags: ['Testimonials', 'Marquee', 'Social Proof'],
+    fonts: ['Inter', 'Lora', 'Instrument Serif'],
+    prompt: 'Build a dark (#0b0b10) testimonial wall with three columns of quote cards that scroll upward infinitely at different speeds (18s, 24s, 30s). Duplicate each column’s list and animate translateY(0 → -50%) for a seamless loop. Each card: rgba(255,255,255,0.03) background, 1px faint border, five amber stars, the quote in Lora italic-feel 12px, and an author row with a colored initial avatar, name and role. Fade the top and bottom with a background-colored gradient overlay, and anchor a centered "Loved by builders" title in Instrument Serif at the bottom.',
+    code: `.column { overflow: hidden; }\n.column-track { animation: scrollUp 24s linear infinite; }\n@keyframes scrollUp { to { transform: translateY(-50%); } }\n.fade { position: absolute; inset: 0; background: linear-gradient(180deg, #0b0b10, transparent 22%, transparent 70%, #0b0b10); pointer-events: none; }`,
+    usage: 'Social proof sections on landing pages; works with dozens of reviews without pagination.',
+  },
+  {
+    title: 'Plan Comparison Table', category: 'Landing', component: FeatureComparison,
+    accent: '#6d28d9',
+    palette: ['#ffffff', '#6d28d9', '#f5f3ff', '#16a34a', '#18181b'],
+    tags: ['Table', 'Pricing', 'Hover Column'],
+    fonts: ['Inter', 'Fraunces'],
+    prompt: 'Design a white feature comparison table for three plans (Starter $0, Growth $24, Scale $79). The header row has "Compare plans" in Fraunces 18px and each plan name with its monthly price. Rows list features (Projects, Team seats, Custom domains, Analytics, SSO / SAML, Audit logs, Support). Booleans render as a green check inside a #dcfce7 circle or a light em dash; text values render inline. Hovering any cell highlights the whole plan column in #f5f3ff with rounded top and bottom corners and makes the plan name violet (#6d28d9).',
+    code: `table { border-collapse: separate; border-spacing: 0; }\ntd, th { border-top: 1px solid #f4f4f5; transition: background .2s; }\n.col-active { background: #f5f3ff; }\n.check { width: 20px; height: 20px; border-radius: 50%; background: #dcfce7; color: #16a34a; }`,
+    usage: 'Pricing pages where buyers need to compare plans feature by feature.',
+  },
+  {
+    title: 'Logo Cloud Marquee', category: 'Landing', component: LogoMarquee,
+    accent: '#71717a',
+    palette: ['#fafafa', '#18181b', '#71717a', '#a1a1aa', '#e4e4e7'],
+    tags: ['Logos', 'Marquee', 'Trust'],
+    fonts: ['Space Grotesk', 'Fraunces', 'DM Mono'],
+    prompt: 'Create a "Trusted by 4,000+ teams" logo cloud on #fafafa. Title: tiny uppercase DM Mono eyebrow plus "From startups to the Fortune 500" in Fraunces 26px. Below, two rows of grey wordmark logos (glyph + name in Space Grotesk 20px semibold, #71717a) that scroll horizontally forever in opposite directions at different speeds. Duplicate each row and animate translateX(0 → -50%). Mask both edges with a linear-gradient mask-image so logos fade in and out, and pause a row on hover.',
+    code: `.row { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }\n.track { display: flex; width: max-content; animation: scroll 28s linear infinite; }\n.row:hover .track { animation-play-state: paused; }\n@keyframes scroll { to { transform: translateX(-50%); } }`,
+    usage: 'Customer logo sections directly below a hero to build instant credibility.',
+  },
+  {
+    title: 'FAQ Accordion', category: 'Landing', component: FAQAccordion,
+    accent: '#d9f99d',
+    palette: ['#0c0c0c', '#d9f99d', '#fafafa', '#262626', '#8a8a8a'],
+    tags: ['Accordion', 'FAQ', 'Grid Animation'],
+    fonts: ['Instrument Serif', 'Inter', 'DM Mono'],
+    prompt: 'Design a dark (#0c0c0c) FAQ section in two columns. Left: a lime (#d9f99d) "FAQ" eyebrow, "Questions, answered." in Instrument Serif 34px and a small "Talk to us →" link. Right: four accordion items separated by #262626 lines. Each trigger shows a numbered index (01–04) in DM Mono, the question, and a circular plus icon that rotates 45° and fills lime when open. Animate the answer panel height with grid-template-rows: 0fr → 1fr so it expands smoothly without measuring. Only one item open at a time; use aria-expanded.',
+    code: `.panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s cubic-bezier(.16,1,.3,1); }\n.panel.open { grid-template-rows: 1fr; }\n.panel > div { overflow: hidden; }\n.icon.open { transform: rotate(45deg); background: #d9f99d; color: #0c0c0c; }`,
+    usage: 'Pricing and product pages to handle objections before users contact support.',
   },
 
   // ─── Cards ────────────────────────────────────────────────
