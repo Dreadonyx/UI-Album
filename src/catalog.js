@@ -15,6 +15,7 @@ const ThemeArtDeco = lazy(() => import('./components/ThemeArtDeco'));
 const ThemeY2K = lazy(() => import('./components/ThemeY2K'));
 const ThemeVaporwave = lazy(() => import('./components/ThemeVaporwave'));
 const ThemePixel = lazy(() => import('./components/ThemePixel'));
+const ThemeCyberpunk = lazy(() => import('./components/ThemeCyberpunk'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -256,6 +257,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget as an 8-bit game menu. Sky-blue (#5c94fc) background with blocky pixel clouds made from box-shadows and a brick ground strip with a green grass edge. The black dialog box has a stepped pixel border built from four box-shadows (no border-radius anywhere). Use Press Start 2P: a "WORLD 1-1 · FOCUS" subtitle in gold, "DEEP WORK", an HP bar of 10 green blocks with darker bevel insets, a 6-digit SCORE counter, a "▶ MUTE ALERTS ON/OFF" menu row, and a gold "PRESS START" button whose label blinks with steps(1) (red "PAUSE" while running). Set image-rendering: pixelated.',
     code: `.pixel-box { box-shadow: 0 -4px 0 0 #000, 0 4px 0 0 #000, -4px 0 0 0 #000, 4px 0 0 0 #000, 0 8px 0 0 rgba(0,0,0,.35); }\n.hp > span { width: 14px; height: 14px; background: #00e436; box-shadow: inset -3px -3px 0 #008751; }\n.blink { animation: blink 1s steps(1) infinite; } @keyframes blink { 50% { opacity: 0; } }\nbody { font-family: 'Press Start 2P', monospace; image-rendering: pixelated; }`,
     usage: 'Games, gamified habit apps, hackathon pages and nostalgic easter eggs.',
+  },
+  {
+    title: 'Cyberpunk HUD', category: 'Themes', component: ThemeCyberpunk,
+    accent: '#fcee0a',
+    palette: ['#0a0a12', '#fcee0a', '#00f0ff', '#ff003c', '#1c2a35'],
+    tags: ['HUD', 'Clipped Corners', 'Neon'],
+    fonts: ['JetBrains Mono'],
+    prompt: 'Design a "Deep Work" focus widget as a cyberpunk HUD on #0a0a12 with a faint cyan grid and horizontal scanlines. The panel uses clip-path polygons to cut two opposite corners, with a 2px acid-yellow (#fcee0a) frame made by nesting a slightly smaller clipped panel. Content in uppercase JetBrains Mono: "// SYS.FOCUS / NODE_07", a "DEEP_WORK" title with red/cyan chromatic-aberration text shadows, a yellow zero-padded percentage labelled "SYNC RATE", a 25-segment skewed cyan meter with glow, a clipped "> NEURAL_MUTE [ACTIVE]" toggle and a clipped yellow "▶ JACK IN" button that turns red "■ ABORT SESSION" while running.',
+    code: `.cut { clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px)); }\n.frame { padding: 2px; background: #fcee0a; } .frame > div { background: #0d0d18; }\n.glitch { text-shadow: 2px 0 #00f0ff, -2px 0 #ff003c; }\n.scanlines { background: repeating-linear-gradient(180deg, rgba(0,240,255,.04) 0 1px, transparent 1px 3px); }`,
+    usage: 'Games, sci-fi brands, developer tools with attitude and esports overlays.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
