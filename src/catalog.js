@@ -21,6 +21,7 @@ const ThemeOrganic = lazy(() => import('./components/ThemeOrganic'));
 const ThemeFrutigerAero = lazy(() => import('./components/ThemeFrutigerAero'));
 const ThemeRetroOS = lazy(() => import('./components/ThemeRetroOS'));
 const ThemeLiquidGlass = lazy(() => import('./components/ThemeLiquidGlass'));
+const ThemeAurora = lazy(() => import('./components/ThemeAurora'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -322,6 +323,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in Apple’s Liquid Glass style over a vivid wallpaper (orange, red, cyan and violet radial blobs on slate). Panels are barely tinted (rgba(255,255,255,0.08)) with a light blur(8px) saturate(180%) brightness(1.08) backdrop and a specular rim built from inset shadows: a bright 1.5px highlight on the top-left edge, a fainter bottom-right edge and a soft inner glow. Use 34px card radii, a circular glass percentage badge, a recessed glass progress track, an iOS-style capsule switch whose wide pill knob springs across (green when on), and a tinted blue glass capsule button that turns red while running.',
     code: `.liquid { background: rgba(255,255,255,.08); backdrop-filter: blur(8px) saturate(180%) brightness(1.08); border: 1px solid rgba(255,255,255,.18); box-shadow: inset 1.5px 1.5px 0 rgba(255,255,255,.75), inset -1px -1px 0 rgba(255,255,255,.25), inset 0 0 22px rgba(255,255,255,.18), 0 12px 32px rgba(0,0,0,.25); }\n.capsule-knob { width: 36px; height: 24px; border-radius: 24px; transition: left .3s cubic-bezier(.34,1.56,.64,1); }`,
     usage: 'Modern OS-style apps, media controls and overlays on photography or video.',
+  },
+  {
+    title: 'Aurora Mesh Gradient', category: 'Themes', component: ThemeAurora,
+    accent: '#22d3ee',
+    palette: ['#05060f', '#7c3aed', '#06b6d4', '#22c55e', '#ec4899'],
+    tags: ['Mesh Gradient', 'Animated', 'Dark'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget on a living aurora mesh gradient: four large solid circles (violet, cyan, green, pink) on #05060f, blurred together with filter: blur(60px) and each drifting on its own slow translate/scale keyframe loop. The card is a dark translucent panel (rgba(5,6,15,0.55)) with a hairline border. Use a violet-cyan-green gradient for the 54px percentage text, the glowing progress bar and the switch track, and a button with a gradient border painted via padding-box/border-box backgrounds (filled when idle, outlined while running).',
+    code: `.mesh { position: absolute; inset: 0; filter: blur(60px); }\n.mesh span { position: absolute; border-radius: 50%; animation: drift 12s ease-in-out infinite; }\n.grad-text { background: linear-gradient(90deg, #a78bfa, #22d3ee, #4ade80); -webkit-background-clip: text; color: transparent; }\n.grad-border { border: 1px solid transparent; background: linear-gradient(#05060f,#05060f) padding-box, linear-gradient(90deg,#a78bfa,#22d3ee,#4ade80) border-box; }`,
+    usage: 'AI products, fintech and SaaS hero sections that need motion without imagery.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
