@@ -38,7 +38,7 @@ const BreadcrumbPagination = lazy(() => import('./components/BreadcrumbPaginatio
 const MorphingTabs = lazy(() => import('./components/MorphingTabs'));
 const HeroProductShot = lazy(() => import('./components/HeroProductShot'));
 const HeroEditorial = lazy(() => import('./components/HeroEditorial'));
-const AuroraHero = lazy(() => import('./components/AuroraHero'));
+const HeroDeveloper = lazy(() => import('./components/HeroDeveloper'));
 const LaunchHero = lazy(() => import('./components/LaunchHero'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
@@ -507,14 +507,14 @@ const ENTRIES = [
     usage: 'Publications, journals, studio blogs and brands that lead with storytelling.',
   },
   {
-    title: 'Aurora Gradient Hero', category: 'Hero', component: AuroraHero,
-    accent: '#a855f7',
-    palette: ['#030712', '#22d3ee', '#a855f7', '#ec4899', '#22c55e'],
-    tags: ['Aurora', 'Grid', 'Gradient Text'],
-    fonts: ['Syne', 'Inter'],
-    prompt: 'Create a dark SaaS hero on #030712 with a slowly drifting aurora: an oversized conic-gradient (cyan, violet, pink, green at ~30% alpha) blurred 60px and animated with a 14s translate/rotate/scale loop. Overlay a 40px line grid masked by a radial gradient so it fades at the edges. Centered content: an announcement pill ("New" gradient badge + "Realtime sync is live →"), a two-line headline in Syne 46px bold with a white-to-transparent vertical text gradient, a muted subheading, and two buttons: solid white "Start building" with a violet glow and a ghost "Book a demo".',
-    code: `.aurora { position: absolute; inset: -40%; background: conic-gradient(from 180deg, #22d3ee33, #a855f755, #ec489944, #22c55e33, #22d3ee33); filter: blur(60px); animation: drift 14s ease-in-out infinite; }\n.grid { background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 40px 40px; mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000 30%, transparent 75%); }\nh1 { background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,.45)); -webkit-background-clip: text; color: transparent; }`,
-    usage: 'Product launches and AI/dev-tool homepages that need instant wow-factor.',
+    title: 'Developer Platform Hero', category: 'Hero', component: HeroDeveloper,
+    accent: '#0a0a0a',
+    palette: ['#ffffff', '#0a0a0a', '#666666', '#0d1117', '#3fb950'],
+    tags: ['Developer', 'Terminal', 'Metrics'],
+    fonts: ['Inter', 'JetBrains Mono', 'Space Grotesk', 'Instrument Serif'],
+    prompt: 'Design a developer-platform hero for "Forge" (edge functions) on pure white. A 44px nav with a triangle logo, gray links and outlined/black auth buttons above a 1px #eaeaea rule. Left column: a small availability line, a 31px bold headline with tight tracking ("Deploy APIs to 310 cities in one command."), one sentence of gray copy, a black "Start deploying" button and a copyable install command chip ("$ npm i -g forge") whose icon flips to a green check when copied. Right column: a GitHub-dark terminal window that types out a deploy log line by line (dim build steps, green checks, a blue URL, "Ready in 1.8s") with a replay button, and a three-column metrics row (p95 latency, uptime SLA, regions) under a hairline. Footer strip: "Trusted by teams at" with gray wordmarks in different typefaces.',
+    code: `.terminal { background: #0d1117; border-radius: 10px; font: 10.5px/19px 'JetBrains Mono', monospace; }\n.log-ok { color: #3fb950; } .log-url { color: #58a6ff; }\n.cmd-chip { border: 1px solid #eaeaea; background: #fafafa; font-family: 'JetBrains Mono', monospace; border-radius: 7px; }\n.metric { font: 700 17px Inter, sans-serif; letter-spacing: -.5px; }`,
+    usage: 'APIs, infrastructure, CLIs and developer tools where proof beats adjectives.',
   },
   {
     title: 'Waitlist Launch Hero', category: 'Hero', component: LaunchHero,
