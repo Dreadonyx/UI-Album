@@ -51,6 +51,10 @@ const EmptyState = lazy(() => import('./components/EmptyState'));
 const NotFound404 = lazy(() => import('./components/NotFound404'));
 const TooltipShowcase = lazy(() => import('./components/TooltipShowcase'));
 const BadgesAvatars = lazy(() => import('./components/BadgesAvatars'));
+const ModalDialog = lazy(() => import('./components/ModalDialog'));
+const DrawerSheet = lazy(() => import('./components/DrawerSheet'));
+const DropdownMenu = lazy(() => import('./components/DropdownMenu'));
+const CookieConsent = lazy(() => import('./components/CookieConsent'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
 const TypeSpecimen = lazy(() => import('./components/TypeSpecimen'));
@@ -597,6 +601,48 @@ const ENTRIES = [
     prompt: 'Design a white reference sheet of avatars and badges. Row 1: five gradient initial avatars in descending sizes (56 → 22px) with presence dots (online green, away amber, offline grey) scaled to each size, plus a dashed "+" add tile. Row 2: an overlapping avatar group with a "+9" overflow bubble and "13 people are editing". Row 3: status badges — Default, Active (green dot), Pending (amber dot), Failed (red dot), outlined Beta, gradient New — and a bell icon with a red count bubble.',
     code: `.avatar { border-radius: 50%; display: grid; place-items: center; color: #fff; }\n.presence { position: absolute; right: 0; bottom: 0; border: 2px solid #fff; border-radius: 50%; }\n.group .avatar + .avatar { margin-left: -10px; border: 2px solid #fff; }\n.badge { display: inline-flex; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; }`,
     usage: 'Collaboration indicators, user lists, statuses and notification counts.',
+  },
+
+  // ─── Overlays ─────────────────────────────────────────────
+  {
+    title: 'Destructive Confirm Modal', category: 'Overlays', component: ModalDialog,
+    accent: '#dc2626',
+    palette: ['#f8fafc', '#dc2626', '#fee2e2', '#0f172a', '#64748b'],
+    tags: ['Modal', 'Confirm', 'Danger'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a "Delete project?" confirmation modal over a settings page. The backdrop is rgba(15,23,42,0.45) with a 3px blur and fades in; clicking it or pressing Escape closes. The 380px dialog (role="alertdialog", aria-modal, aria-labelledby) scales and slides up into place. It has a red trash icon in a #fee2e2 circle, a title, an explanation naming the project in bold, and a "Type acme-web to confirm" input in DM Mono. The red "Delete project" button stays disabled (light red) until the text matches. Footer: Cancel and Delete on a #f8fafc strip.',
+    code: `.backdrop { position: fixed; inset: 0; background: rgba(15,23,42,.45); backdrop-filter: blur(3px); animation: fade .2s; }\n.dialog { width: 380px; border-radius: 16px; background: #fff; box-shadow: 0 30px 60px rgba(15,23,42,.3); animation: dialogIn .3s cubic-bezier(.16,1,.3,1); }\n@keyframes dialogIn { from { opacity: 0; transform: translateY(12px) scale(.96); } }\n.danger:disabled { background: #fca5a5; cursor: not-allowed; }`,
+    usage: 'Irreversible actions: deleting projects, removing members, cancelling plans.',
+  },
+  {
+    title: 'Cart Drawer', category: 'Overlays', component: DrawerSheet,
+    accent: '#65a30d',
+    palette: ['#f5f2ec', '#1c1917', '#65a30d', '#ffffff', '#a8a29e'],
+    tags: ['Drawer', 'Cart', 'Side Sheet'],
+    fonts: ['Instrument Serif', 'Inter'],
+    prompt: 'Build a slide-in cart drawer for a minimal fashion store (#f5f2ec background, "Atelier" logo in Instrument Serif and a cart pill with item count). The 300px white drawer slides in from the right with cubic-bezier(0.16,1,0.3,1) over a dimmed backdrop. Inside: header with a close button, a free-shipping progress bar ("$x away from free shipping" → "You unlocked free shipping") in olive green, line items with color swatch thumbnails, variant text and a −/+ quantity stepper (0 removes the item), and a sticky footer with subtotal and a full-width dark Checkout button.',
+    code: `.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 300px; background: #fff; transform: translateX(100%); transition: transform .45s cubic-bezier(.16,1,.3,1); }\n.drawer.open { transform: none; }\n.backdrop { background: rgba(28,25,23,.35); opacity: 0; transition: opacity .3s; }\n.ship-progress > span { background: #65a30d; }`,
+    usage: 'E-commerce carts, filter panels, detail views and mobile navigation.',
+  },
+  {
+    title: 'Dropdown Action Menu', category: 'Overlays', component: DropdownMenu,
+    accent: '#f87171',
+    palette: ['#0c0c0f', '#16161b', '#2a2a33', '#e4e4e7', '#f87171'],
+    tags: ['Menu', 'Dropdown', 'Shortcuts'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Design a dark file row (#16161b) with a "more" (⋯) icon button that opens an action menu. The 220px menu (role="menu") uses translucent rgba(28,28,34,0.96) with backdrop blur, a 1px #2e2e36 border and a deep shadow, and scales in from its top-right origin. Items are grouped with hairline separators: Edit (⌘E), Duplicate (⌘D), Share with a submenu chevron; Move to folder, Add to favorites; and a red destructive Delete (⌫). Each row has an icon, label and right-aligned DM Mono shortcut; hover/focus-visible highlights in #2a2a33 (red tint for Delete).',
+    code: `.menu { position: absolute; right: 0; top: calc(100% + 8px); width: 220px; padding: 5px; border-radius: 12px; background: rgba(28,28,34,.96); backdrop-filter: blur(12px); transform-origin: top right; animation: menuIn .18s cubic-bezier(.16,1,.3,1); }\n.item:hover, .item:focus-visible { background: #2a2a33; }\n.item.danger { color: #f87171; }`,
+    usage: 'Row actions in tables and file lists, kebab menus, account menus.',
+  },
+  {
+    title: 'Cookie Consent', category: 'Overlays', component: CookieConsent,
+    accent: '#c2410c',
+    palette: ['#fef7ee', '#c2410c', '#7c2d12', '#ffffff', '#57534e'],
+    tags: ['Consent', 'GDPR', 'Preferences'],
+    fonts: ['Inter', 'Instrument Serif'],
+    prompt: 'Create a cookie consent card for a bakery site on a warm peach gradient. A 340px white card in the bottom-left slides up with a cookie icon and "We use cookies". Three equal buttons: Customize, Reject all, and a burnt-orange (#c2410c) Accept all. "Customize" swaps the body for a preferences list (Essential — always on and disabled, Analytics, Marketing) with orange checkboxes, plus Back / Save choices. After choosing, the card collapses into a small round cookie button in the corner that reopens it.',
+    code: `.consent { position: fixed; left: 20px; bottom: 20px; width: 340px; padding: 18px; border-radius: 18px; background: #fff; box-shadow: 0 20px 50px rgba(124,45,18,.18); }\n.consent .primary { background: #c2410c; color: #fff; }\n.consent-fab { width: 42px; height: 42px; border-radius: 50%; background: #7c2d12; }`,
+    usage: 'GDPR/CCPA-compliant consent on marketing sites and web apps.',
   },
 
   // ─── Commerce ─────────────────────────────────────────────
