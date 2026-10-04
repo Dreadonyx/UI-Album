@@ -20,6 +20,7 @@ const ThemeMaximalism = lazy(() => import('./components/ThemeMaximalism'));
 const ThemeOrganic = lazy(() => import('./components/ThemeOrganic'));
 const ThemeFrutigerAero = lazy(() => import('./components/ThemeFrutigerAero'));
 const ThemeRetroOS = lazy(() => import('./components/ThemeRetroOS'));
+const ThemeLiquidGlass = lazy(() => import('./components/ThemeLiquidGlass'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -311,6 +312,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget as a Windows 95 desktop app. Teal (#008080) desktop with "My Computer" and "Recycle Bin" icons, a gray taskbar with a Start button, an active task and a clock. The window is #c0c0c0 with classic 2px bevels (white/dark-gray outer, light/mid-gray inner shadows), a navy-to-blue gradient title bar with _ □ × buttons, and a menu bar with underlined access keys. Inside: a fieldset "Today’s progress" with a sunken progress bar made of navy blocks, a square beveled checkbox for "Do not disturb", and Start (pressed/inset while running, with a default-button outline) and Cancel buttons. Add a yellow tooltip explaining the style. Font: Tahoma 12px.',
     code: `.raised { border: 2px solid; border-color: #fff #404040 #404040 #fff; box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf; background: #c0c0c0; }\n.sunken { border: 2px solid; border-color: #808080 #fff #fff #808080; box-shadow: inset 1px 1px 0 #404040; }\n.title-bar { background: linear-gradient(90deg, #000080, #1084d0); color: #fff; font-weight: 700; }`,
     usage: 'Retro portfolios, games, April-fools modes and nostalgic product launches.',
+  },
+  {
+    title: 'Liquid Glass', category: 'Themes', component: ThemeLiquidGlass,
+    accent: '#0a84ff',
+    palette: ['#222f3e', '#ff9f43', '#0abde3', '#5f27cd', '#34c759'],
+    tags: ['Apple', 'Specular', 'Capsules'],
+    fonts: ['Inter'],
+    prompt: 'Design a "Deep Work" focus widget in Apple’s Liquid Glass style over a vivid wallpaper (orange, red, cyan and violet radial blobs on slate). Panels are barely tinted (rgba(255,255,255,0.08)) with a light blur(8px) saturate(180%) brightness(1.08) backdrop and a specular rim built from inset shadows: a bright 1.5px highlight on the top-left edge, a fainter bottom-right edge and a soft inner glow. Use 34px card radii, a circular glass percentage badge, a recessed glass progress track, an iOS-style capsule switch whose wide pill knob springs across (green when on), and a tinted blue glass capsule button that turns red while running.',
+    code: `.liquid { background: rgba(255,255,255,.08); backdrop-filter: blur(8px) saturate(180%) brightness(1.08); border: 1px solid rgba(255,255,255,.18); box-shadow: inset 1.5px 1.5px 0 rgba(255,255,255,.75), inset -1px -1px 0 rgba(255,255,255,.25), inset 0 0 22px rgba(255,255,255,.18), 0 12px 32px rgba(0,0,0,.25); }\n.capsule-knob { width: 36px; height: 24px; border-radius: 24px; transition: left .3s cubic-bezier(.34,1.56,.64,1); }`,
+    usage: 'Modern OS-style apps, media controls and overlays on photography or video.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
