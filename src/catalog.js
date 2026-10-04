@@ -74,6 +74,8 @@ const InteractiveTimeline = lazy(() => import('./components/InteractiveTimeline'
 const ExpandableFAB = lazy(() => import('./components/ExpandableFAB'));
 const MagneticButton = lazy(() => import('./components/MagneticButton'));
 const RetroTerminal = lazy(() => import('./components/RetroTerminal'));
+const CodeBlockTabs = lazy(() => import('./components/CodeBlockTabs'));
+const StatusPage = lazy(() => import('./components/StatusPage'));
 const ArticleDetail = lazy(() => import('./components/ArticleDetail'));
 
 // Display order of the category filter. Every entry's `category` must be listed here.
@@ -856,6 +858,26 @@ const ENTRIES = [
     prompt: 'Build a retro terminal emulator with a #0a0a0a background. Top bar: macOS-style traffic light dots (red #ff5f56, yellow #ffbd2e, green #27c93f) at 12px diameter, plus a title "phantom — zsh — 80×24" in DM Mono 11px. Main area: simulated shell session with green command text (#00ff88), purple prompt prefix (#8b5cf6 "~ $"), and dimmed output text at 50% opacity. Include an ASCII art banner in green. End with a glowing block cursor that blinks using a steps(1) opacity animation. All text in DM Mono 12px.',
     code: `.terminal { background: #0a0a0a; font-family: 'DM Mono', monospace; }\n.title-bar { background: #1a1a1a; border-bottom: 1px solid #2a2a2a; }\n.traffic-light { width: 12px; height: 12px; border-radius: 50%; }\n.prompt { color: #00ff88; }\n.prefix { color: #8b5cf6; }\n.output { color: rgba(255,255,255,0.5); }\n.cursor { text-shadow: 0 0 8px #00ff88; animation: blink 1s steps(1) infinite; }\n@keyframes blink { 50% { opacity: 0; } }`,
     usage: 'Add character to tech-focused websites or used as a creative "About Me" section.',
+  },
+  {
+    title: 'Tabbed Code Block', category: 'Developer', component: CodeBlockTabs,
+    accent: '#f78166',
+    palette: ['#0d1117', '#010409', '#f78166', '#c084fc', '#86efac'],
+    tags: ['Code', 'Syntax Highlight', 'Copy'],
+    fonts: ['JetBrains Mono', 'Inter'],
+    prompt: 'Design a GitHub-dark code block (#0d1117) on an indigo gradient. A tab bar (#010409) switches between "npm", "app.ts" and "curl" snippets; the active tab has an orange (#f78166) top border. A Copy button on the right copies the plain text and flips to a green "Copied" check for 1.5s. Code renders in JetBrains Mono 12.5px with line numbers in #484f58 (not selectable), token colors (keywords violet, strings green, functions sky, env vars red, comments grey), and highlighted lines marked with a blue tinted background and a 2px blue left border.',
+    code: `.tab.active { background: #0d1117; color: #e6edf3; border-top: 2px solid #f78166; }\n.line.hl { background: rgba(56,139,253,.1); border-left: 2px solid #388bfd; }\n.ln { color: #484f58; user-select: none; }\n.tok-k { color: #c084fc; } .tok-s { color: #86efac; } .tok-f { color: #7dd3fc; }`,
+    usage: 'Documentation, API references, blog tutorials and README-style landing pages.',
+  },
+  {
+    title: 'Status Page Uptime', category: 'Developer', component: StatusPage,
+    accent: '#10b981',
+    palette: ['#ffffff', '#10b981', '#f59e0b', '#ef4444', '#065f46'],
+    tags: ['Uptime', 'Status', 'Incidents'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Build a public status page on white. Top banner: green #ecfdf5 card with a pinging live dot (expanding ring animation), "All systems operational", last-updated time and a Subscribe button. Then one row per service (API, Dashboard, Webhooks, CDN) with its name and "99.98% uptime" in DM Mono, above a 90-day bar strip: 90 thin rounded bars that are green for healthy days, amber for degraded and red for outages. Hovering a bar enlarges it and shows "Service · n days ago · status" in a caption between "90 days ago" and "Today".',
+    code: `.ping { animation: ping 1.6s ease-out infinite; } @keyframes ping { to { transform: scale(2.6); opacity: 0; } }\n.uptime { display: flex; gap: 2px; height: 26px; }\n.uptime span { flex: 1; border-radius: 2px; background: #10b981; }\n.uptime .degraded { background: #f59e0b; } .uptime .outage { background: #ef4444; }`,
+    usage: 'SaaS status pages, internal service dashboards and incident communication.',
   },
 
   // ─── Content ──────────────────────────────────────────────
