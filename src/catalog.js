@@ -68,6 +68,7 @@ const ImageCarousel = lazy(() => import('./components/ImageCarousel'));
 const AudioWaveform = lazy(() => import('./components/AudioWaveform'));
 const TypeSpecimen = lazy(() => import('./components/TypeSpecimen'));
 const CyberpunkText = lazy(() => import('./components/CyberpunkText'));
+const KineticText = lazy(() => import('./components/KineticText'));
 const MacOSDock = lazy(() => import('./components/MacOSDock'));
 const InteractiveTimeline = lazy(() => import('./components/InteractiveTimeline'));
 const ExpandableFAB = lazy(() => import('./components/ExpandableFAB'));
@@ -790,6 +791,16 @@ const ENTRIES = [
     prompt: 'Build a cyberpunk lock screen with a perspective grid floor. Center a giant CYBER_NET header using CSS glitch effects (two pseudo elements with clip-path and translating animations to create red and cyan chromatic aberration). Add two buttons below: SYSTEM.INIT() with cyan outline + inset shadow, and OVERRIDE with solid magenta background and glow.',
     code: `.glitch::before { text-shadow: -2px 0 red; clip-path: inset(20% 0 80% 0); animation: glitch-1 2s infinite; }\n.btn-cyan { border: 2px solid #0ff; color: #0ff; box-shadow: inset 0 0 10px rgba(0,255,255,0.2); }`,
     usage: 'Hero title for gaming sites or high-impact digital art projects.',
+  },
+  {
+    title: 'Kinetic Headline', category: 'Typography', component: KineticText,
+    accent: '#ff4d1a',
+    palette: ['#f2efe6', '#151515', '#ff4d1a', '#8a857a', '#ffffff'],
+    tags: ['Text Reveal', 'Word Rotator', 'Marquee'],
+    fonts: ['Syne', 'Instrument Serif', 'DM Mono'],
+    prompt: 'Design a kinetic typography hero on cream (#f2efe6). "Make something" in Syne 58px extra-bold reveals letter by letter: each character rises from below a clipping mask with a slight rotation and a 35ms stagger. Beneath it, a rotating word slot cycles "faster. / bolder. / together. / better." in italic Instrument Serif 66px orange (#ff4d1a) using a stepped translateY keyframe with an expressive ease. Clicking replays the reveal. A black ticker tape at the bottom scrolls "DESIGN ✦ BUILD ✦ SHIP ✦ ITERATE" infinitely.',
+    code: `.char { display: inline-block; animation: rise .7s cubic-bezier(.16,1,.3,1) calc(var(--i) * 35ms) both; }\n@keyframes rise { from { transform: translateY(110%) rotate(6deg); } }\n.rotator { height: 62px; overflow: hidden; } .rotator > div { animation: cycle 8s cubic-bezier(.83,0,.17,1) infinite; }\n.ticker { display: flex; width: max-content; animation: marquee 16s linear infinite; }`,
+    usage: 'Agency sites, launch pages and portfolio intros that need personality.',
   },
 
   // ─── Motion ───────────────────────────────────────────────
