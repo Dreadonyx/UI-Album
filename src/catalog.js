@@ -9,6 +9,7 @@ const ThemeMaterial = lazy(() => import('./components/ThemeMaterial'));
 const ThemeMinimalism = lazy(() => import('./components/ThemeMinimalism'));
 const ThemeNeoBrutalism = lazy(() => import('./components/ThemeNeoBrutalism'));
 const ThemeSwiss = lazy(() => import('./components/ThemeSwiss'));
+const ThemeBauhaus = lazy(() => import('./components/ThemeBauhaus'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -190,6 +191,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in the Swiss / International Typographic Style. Use a strict 4-column, 3-row grid on #f2f0eb. The left half is a solid red (#e30613) block with flush-left meta text at the top, the percentage as a giant 150px heavy numeral with tight negative tracking bleeding toward the edge, and a white progress rule at the bottom. The right half holds "Swiss Style" in heavy stacked type, a full-width row for Do not disturb with a large On/Off word in red, and a short descriptive paragraph plus a black rectangular "Start →" button. Separate rows with 2px black rules. Only sans-serif, only red, black and off-white.',
     code: `.layout { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr); }\n.red-block { grid-column: 1 / 3; grid-row: 1 / 4; background: #e30613; color: #fff; }\n.numeral { font: 800 150px/0.8 Inter, Helvetica, sans-serif; letter-spacing: -10px; }\n.row { border-bottom: 2px solid #111; }`,
     usage: 'Posters, event sites, architecture and design studios, data-heavy editorial layouts.',
+  },
+  {
+    title: 'Bauhaus', category: 'Themes', component: ThemeBauhaus,
+    accent: '#d62828',
+    palette: ['#d62828', '#1d3a8a', '#f6bd16', '#efe6d2', '#111111'],
+    tags: ['Geometric', 'Primary Colors', 'Modernism'],
+    fonts: ['Syne', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget inspired by the Bauhaus. Cream (#efe6d2) background with a big yellow circle cropped in the top-left corner and a blue triangle in the bottom-right. The card is white with 4px black rules dividing it into blocks: a header with uppercase Syne title and a red square holding the percentage; a two-color progress band (blue filled part, yellow remainder, black divider); a Do not disturb row whose indicator morphs from a black square to a red circle when on; and a full-width yellow (red while running) button with a black triangular play arrow. Only primary colors, black and geometry.',
+    code: `.card { background: #fff; border: 4px solid #111; }\n.block + .block { border-top: 4px solid #111; }\n.indicator { width: 24px; height: 24px; background: #111; transition: border-radius .3s; } .on .indicator { border-radius: 50%; background: #d62828; }\n.play { border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 16px solid #111; }`,
+    usage: 'Art and architecture brands, museums, posters and bold geometric product marketing.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
