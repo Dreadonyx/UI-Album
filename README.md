@@ -1,6 +1,6 @@
 # UI Album
 
-A curated library of **82 live, interactive UI components** across **19 categories**, presented in a dark editorial gallery. Every component comes with a copy-ready **AI prompt**, a color palette, font pairing, reference CSS and usage notes, so you can recreate it in any stack or hand it straight to an AI coding tool.
+A curated library of **102 live, interactive UI components** across **20 categories**, including a **Themes** collection of 20 design styles, presented in a dark editorial gallery. Every component comes with a copy-ready **AI prompt**, a color palette, font pairing, reference CSS and usage notes, so you can recreate it in any stack or hand it straight to an AI coding tool.
 
 ## Features
 
@@ -16,6 +16,7 @@ A curated library of **82 live, interactive UI components** across **19 categori
 
 | Category | Components |
 | --- | --- |
+| Themes | Neumorphism, claymorphism, glassmorphism, skeuomorphism, flat design, Material Design, minimalism, neo-brutalism, Swiss style, Bauhaus, Memphis, Art Deco, Y2K chrome, vaporwave, pixel art, cyberpunk HUD, maximalism, organic biomorphism, Frutiger Aero, retro OS (Win95). All render the same focus widget so the styles can be compared side by side. |
 | Navigation | Neon navbar, minimal footer, collapsible sidebar, ⌘K command palette, breadcrumbs & pagination, morphing pill tabs |
 | Hero | Glassmorphism, minimal split, aurora gradient, waitlist launch |
 | Landing | Brutalist landing, SaaS pricing, infinite testimonial wall, plan comparison table, logo cloud marquee, FAQ accordion |
@@ -50,7 +51,7 @@ npm run lint     # ESLint
 1. Create `src/components/MyComponent.jsx`. It should render a self-contained `600×400` root element using inline styles. Prefix any injected class names or keyframes with `ua` to avoid collisions, and use `useId()` for DOM ids.
 2. Register it in `src/catalog.js`: add a `lazy(() => import(...))` line and an entry with `title`, `category` (one of `CATEGORIES`), `accent` (6-digit hex), `palette`, `tags`, `fonts`, `prompt`, `code` and `usage`.
 
-Shared icons live in `src/components/Icon.jsx`.
+Shared icons live in `src/components/Icon.jsx`. Theme components share their demo state through `src/components/useFocusSession.js`.
 
 ## Tech
 
