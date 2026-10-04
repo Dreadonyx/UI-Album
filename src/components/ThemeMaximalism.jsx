@@ -22,7 +22,7 @@ export default function ThemeMaximalism() {
           Do not disturb <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: '18px', fontStyle: 'italic' }}>{dnd ? 'yes!' : 'nope'}</span>
         </button>
         <button onClick={toggleRunning} style={{ width: '100%', height: '48px', borderRadius: '14px', border: '3px solid #1b0a3c', background: running ? '#1b0a3c' : 'linear-gradient(90deg, #ff3d7f, #ff8c42, #ffe14d)', color: running ? '#ffe14d' : '#1b0a3c', cursor: 'pointer', fontFamily: "'Bungee', 'Syne', sans-serif", fontSize: '15px' }}>
-          {running ? 'Pause it ✋' : 'Let’s go!!! ✺'}
+          {running ? 'Pause it!' : 'Let’s go!!! ✺'}
         </button>
       </div>
 

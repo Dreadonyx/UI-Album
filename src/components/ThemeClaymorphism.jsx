@@ -1,3 +1,4 @@
+import Icon from './Icon';
 import useFocusSession from './useFocusSession';
 
 const clay = (color, shadow) => ({
@@ -12,7 +13,7 @@ export default function ThemeClaymorphism() {
     <div style={{ width: '600px', height: '400px', background: 'linear-gradient(135deg, #ffe5ec 0%, #e2ecff 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '40px', fontFamily: "'Space Grotesk', sans-serif", color: '#3b2f63' }}>
       <div style={{ width: '280px', padding: '24px', borderRadius: '38px', ...clay('#c8b6ff', 'rgba(124,92,230,0.45)') }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
-          <div style={{ width: '58px', height: '58px', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '26px', ...clay('#ffd6a5', 'rgba(255,160,80,0.5)') }}>🎯</div>
+          <div style={{ width: '58px', height: '58px', borderRadius: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b2f63', ...clay('#ffd6a5', 'rgba(255,160,80,0.5)') }}><Icon name="clock" size={26} strokeWidth={2.4} /></div>
           <div>
             <div style={{ fontSize: '12px', fontWeight: 600, opacity: 0.7 }}>Daily focus</div>
             <div style={{ fontSize: '22px', fontWeight: 700 }}>Deep Work</div>
@@ -27,7 +28,7 @@ export default function ThemeClaymorphism() {
         </div>
 
         <div style={{ display: 'flex', gap: '10px' }}>
-          <button role="switch" aria-checked={dnd} aria-label="Do not disturb" onClick={toggleDnd} style={{ width: '56px', height: '52px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontSize: '20px', ...clay(dnd ? '#ffadad' : '#fdfcff', dnd ? 'rgba(255,100,100,0.45)' : 'rgba(124,92,230,0.25)'), transition: 'background 0.2s' }}>{dnd ? '🔕' : '🔔'}</button>
+          <button role="switch" aria-checked={dnd} aria-label="Do not disturb" onClick={toggleDnd} style={{ width: '56px', height: '52px', borderRadius: '20px', border: 'none', cursor: 'pointer', color: '#3b2f63', ...clay(dnd ? '#ffadad' : '#fdfcff', dnd ? 'rgba(255,100,100,0.45)' : 'rgba(124,92,230,0.25)'), transition: 'background 0.2s' }}><Icon name={dnd ? 'moon' : 'bell'} size={20} strokeWidth={2.4} style={{ margin: '0 auto' }} /></button>
           <button onClick={toggleRunning} style={{ flex: 1, height: '52px', borderRadius: '20px', border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '15px', fontWeight: 700, color: '#3b2f63', ...clay(running ? '#ffd6a5' : '#a0e7e5', running ? 'rgba(255,160,80,0.5)' : 'rgba(40,180,170,0.45)'), transform: running ? 'scale(0.97)' : 'none', transition: 'transform 0.15s' }}>
             {running ? 'Pause session' : 'Start session'}
           </button>

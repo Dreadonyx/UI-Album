@@ -17,7 +17,7 @@ export default function ThemeOrganic() {
 
       <div style={{ position: 'relative', width: '280px', padding: '28px 26px', background: '#fbf8f2', borderRadius: '48px 48px 48px 12px', boxShadow: '0 20px 40px rgba(61,74,51,0.12)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
-          <div style={{ width: '58px', height: '58px', background: '#7a9a5e', animation: 'uaMorph 8s ease-in-out infinite', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fbf8f2', fontSize: '22px' }}>🌿</div>
+          <div style={{ width: '58px', height: '58px', background: '#7a9a5e', animation: 'uaMorph 8s ease-in-out infinite', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fbf8f2' }}><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C5 10 11 4 20 4c0 9-6 15-15 15Z" fill="#fbf8f2" /><path d="M5 19 14 10" stroke="#7a9a5e" strokeWidth="1.6" strokeLinecap="round" /></svg></div>
           <div>
             <div style={{ fontSize: '12px', color: '#8a7a64' }}>Daily focus</div>
             <div style={{ fontFamily: "'Fraunces', serif", fontSize: '24px', fontWeight: 600 }}>Deep Work</div>

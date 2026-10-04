@@ -30,7 +30,7 @@ export default function ThemeCorporateMemphis() {
     <div style={{ width: '600px', height: '400px', position: 'relative', overflow: 'hidden', background: '#f6f5ff', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', fontFamily: "'Inter', sans-serif", color: '#1f1b4d' }}>
       <div style={{ position: 'absolute', width: '240px', height: '240px', borderRadius: '50%', background: '#ffe3d8', left: '20px', top: '60px' }} />
       <div style={{ position: 'absolute', left: '30px', top: '30px', width: '60px', height: '14px', borderRadius: '7px', background: '#c9f2e3' }} />
-      <span style={{ position: 'absolute', left: '230px', top: '40px', fontSize: '26px', color: '#7b6cf6' }}>✳</span>
+      <svg width="26" height="26" viewBox="0 0 26 26" style={{ position: 'absolute', left: '230px', top: '40px' }} aria-hidden="true"><path d="M13 2v22M2 13h22M5 5l16 16M21 5 5 21" stroke="#7b6cf6" strokeWidth="3" strokeLinecap="round" /></svg>
 
       <div style={{ position: 'relative', width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Person running={running} />
@@ -39,7 +39,7 @@ export default function ThemeCorporateMemphis() {
       </div>
 
       <div style={{ position: 'relative', width: '250px', padding: '22px', borderRadius: '24px', background: '#fff', boxShadow: '0 16px 40px rgba(91,87,134,0.15)' }}>
-        <div style={{ display: 'inline-block', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '999px', background: '#c9f2e3', color: '#0f7a55', marginBottom: '8px' }}>You’re doing great! 🎉</div>
+        <div style={{ display: 'inline-block', fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '999px', background: '#c9f2e3', color: '#0f7a55', marginBottom: '8px' }}>You’re doing great!</div>
         <div style={{ fontSize: '22px', fontWeight: 800, marginBottom: '12px' }}>Deep Work</div>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: '6px' }}>
           <span style={{ fontSize: '13px', color: '#5b5786' }}>Today’s goal</span>

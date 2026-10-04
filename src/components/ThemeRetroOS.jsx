@@ -9,16 +9,16 @@ export default function ThemeRetroOS() {
 
   return (
     <div style={{ width: '600px', height: '400px', position: 'relative', background: '#008080', fontFamily: "Tahoma, 'MS Sans Serif', 'Segoe UI', sans-serif", fontSize: '12px', color: '#000' }}>
-      {[['My Computer', '🖥️', 20], ['Recycle Bin', '🗑️', 100]].map(([label, icon, y]) => (
+      {[['My Computer', 'pc', 20], ['Recycle Bin', 'bin', 100]].map(([label, icon, y]) => (
         <div key={label} style={{ position: 'absolute', left: '16px', top: y, width: '70px', textAlign: 'center', color: '#fff' }}>
-          <div style={{ fontSize: '30px' }}>{icon}</div>
+          {icon === 'pc' ? <svg width="32" height="32" viewBox="0 0 16 16" shapeRendering="crispEdges" aria-hidden="true" style={{ display: 'block', margin: '0 auto 2px' }}><rect x="2" y="2" width="12" height="9" fill="#c0c0c0" /><rect x="3" y="3" width="10" height="7" fill="#000080" /><rect x="5" y="11" width="6" height="1" fill="#808080" /><rect x="3" y="12" width="10" height="2" fill="#c0c0c0" /></svg> : <svg width="32" height="32" viewBox="0 0 16 16" shapeRendering="crispEdges" aria-hidden="true" style={{ display: 'block', margin: '0 auto 2px' }}><rect x="4" y="3" width="8" height="1" fill="#808080" /><rect x="4" y="4" width="8" height="10" fill="#c0c0c0" /><rect x="6" y="5" width="1" height="8" fill="#808080" /><rect x="9" y="5" width="1" height="8" fill="#808080" /></svg>}
           <div style={{ fontSize: '11px' }}>{label}</div>
         </div>
       ))}
 
       <div style={{ position: 'absolute', left: '140px', top: '40px', width: '320px', background: '#c0c0c0', padding: '3px', ...OUT }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '3px 4px', background: 'linear-gradient(90deg, #000080, #1084d0)', color: '#fff', fontWeight: 700 }}>
-          <span>⏱ Deep Work - Focus Timer</span>
+          <span>Deep Work - Focus Timer</span>
           <span style={{ display: 'flex', gap: '2px' }}>
             {['_', '□', '×'].map(c => <span key={c} style={{ width: '16px', height: '14px', background: '#c0c0c0', color: '#000', fontSize: '10px', lineHeight: '10px', textAlign: 'center', ...OUT }}>{c}</span>)}
           </span>
@@ -51,8 +51,8 @@ export default function ThemeRetroOS() {
       </div>
 
       <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '30px', background: '#c0c0c0', borderTop: '2px solid #fff', display: 'flex', alignItems: 'center', padding: '0 3px', gap: '4px' }}>
-        <span style={{ padding: '2px 6px', fontWeight: 700, ...OUT }}>🪟 Start</span>
-        <span style={{ padding: '2px 8px', width: '150px', ...IN }}>⏱ Deep Work</span>
+        <span style={{ padding: '2px 6px', fontWeight: 700, ...OUT, display: 'flex', alignItems: 'center', gap: '4px' }}><svg width="14" height="12" viewBox="0 0 14 12" shapeRendering="crispEdges" aria-hidden="true"><rect width="14" height="12" fill="#008080" /><rect x="2" y="2" width="10" height="8" fill="#c0c0c0" /></svg>Start</span>
+        <span style={{ padding: '2px 8px', width: '150px', ...IN }}>Deep Work</span>
         <span style={{ marginLeft: 'auto', padding: '2px 8px', ...IN }}>12:00 PM</span>
       </div>
     </div>

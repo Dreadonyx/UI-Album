@@ -1,3 +1,4 @@
+import Icon from './Icon';
 import useFocusSession from './useFocusSession';
 
 const CHROME = 'linear-gradient(180deg, #ffffff 0%, #c9d1dc 35%, #7d8897 50%, #e8edf3 65%, #9aa4b3 100%)';
@@ -23,7 +24,7 @@ export default function ThemeY2K() {
             <div style={{ height: '100%', width: `${progress}%`, borderRadius: '16px', background: 'linear-gradient(180deg, #b8f0ff 0%, #3fd0ff 50%, #1aa7e0 51%, #7fe2ff 100%)', transition: 'width 0.4s' }} />
           </div>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <button role="switch" aria-checked={dnd} aria-label="Do not disturb" onClick={toggleDnd} style={{ width: '56px', height: '48px', borderRadius: '24px', border: '1px solid #9aa4b3', background: dnd ? 'linear-gradient(180deg, #ffd1f3, #ff6ad5)' : CHROME, cursor: 'pointer', fontSize: '18px', boxShadow: 'inset 0 2px 0 rgba(255,255,255,0.8), 0 4px 10px rgba(43,27,90,0.2)' }}>{dnd ? '☾' : '☀'}</button>
+            <button role="switch" aria-checked={dnd} aria-label="Do not disturb" onClick={toggleDnd} style={{ width: '56px', height: '48px', borderRadius: '24px', border: '1px solid #9aa4b3', background: dnd ? 'linear-gradient(180deg, #ffd1f3, #ff6ad5)' : CHROME, cursor: 'pointer', fontSize: '18px', boxShadow: 'inset 0 2px 0 rgba(255,255,255,0.8), 0 4px 10px rgba(43,27,90,0.2)' }}><Icon name={dnd ? 'moon' : 'sun'} size={18} color="#2b1b5a" style={{ margin: '0 auto' }} /></button>
             <button onClick={toggleRunning} style={{ flex: 1, height: '48px', borderRadius: '24px', border: '1px solid #6b6f8a', background: running ? 'linear-gradient(180deg, #ffd1f3, #ff6ad5)' : CHROME, cursor: 'pointer', fontFamily: 'inherit', fontSize: '15px', fontWeight: 800, fontStyle: 'italic', color: '#2b1b5a', boxShadow: 'inset 0 2px 0 rgba(255,255,255,0.9), 0 6px 14px rgba(43,27,90,0.25)' }}>
               {running ? 'pause ♥' : 'start session ✧'}
             </button>
