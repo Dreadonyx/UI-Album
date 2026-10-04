@@ -43,6 +43,14 @@ const ProgressRings = lazy(() => import('./components/ProgressRings'));
 const DataTable = lazy(() => import('./components/DataTable'));
 const KanbanBoard = lazy(() => import('./components/KanbanBoard'));
 const WeekSchedule = lazy(() => import('./components/WeekSchedule'));
+const ToastStack = lazy(() => import('./components/ToastStack'));
+const AlertBanners = lazy(() => import('./components/AlertBanners'));
+const SkeletonLoader = lazy(() => import('./components/SkeletonLoader'));
+const LoaderCollection = lazy(() => import('./components/LoaderCollection'));
+const EmptyState = lazy(() => import('./components/EmptyState'));
+const NotFound404 = lazy(() => import('./components/NotFound404'));
+const TooltipShowcase = lazy(() => import('./components/TooltipShowcase'));
+const BadgesAvatars = lazy(() => import('./components/BadgesAvatars'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
 const TypeSpecimen = lazy(() => import('./components/TypeSpecimen'));
@@ -507,6 +515,88 @@ const ENTRIES = [
     prompt: 'Create a Monday–Friday week calendar on white. Header: "October 2026" in Fraunces and an event summary that updates on hover. Day headers show weekday and date, with today in a violet (#7c3aed) circle and today’s column faintly tinted. A 9am–5pm time grid uses repeating-linear-gradient hour lines. Events are absolutely positioned by start/end time: tinted backgrounds (color at ~12% alpha) with a 3px solid left border, title and time; hover lifts them with a colored shadow. A red "now" line with a dot marks the current time in today’s column.',
     code: `.day-col { position: relative; background-image: repeating-linear-gradient(180deg, #f3f4f6 0 1px, transparent 1px 34px); }\n.event { position: absolute; top: calc((var(--start) - 9) * 34px); height: calc((var(--end) - var(--start)) * 34px); border-left: 3px solid var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); border-radius: 7px; }\n.now { height: 2px; background: #ef4444; }`,
     usage: 'Scheduling apps, booking tools, team availability and productivity planners.',
+  },
+
+  // ─── Feedback ─────────────────────────────────────────────
+  {
+    title: 'Stacked Toast Notifications', category: 'Feedback', component: ToastStack,
+    accent: '#3b82f6',
+    palette: ['#f4f5f8', '#22c55e', '#ef4444', '#3b82f6', '#f59e0b'],
+    tags: ['Toast', 'Stack', 'Auto-dismiss'],
+    fonts: ['Inter', 'Fraunces'],
+    prompt: 'Build a Sonner-style toast system on #f4f5f8. Buttons on the left trigger success, error, info and warning toasts. Toasts stack in the bottom-right: the newest sits in front and older ones peek behind it, offset up 12px each and scaled down 5% per level (max 3 visible). Hovering the stack expands it into a full vertical list with spring easing. Each white toast has a colored status icon, title, description and a dismiss ×, enters from below with a scale-up animation, uses role="status" and auto-dismisses after 6 seconds.',
+    code: `.toast { position: absolute; right: 0; bottom: 0; transform: translateY(calc(var(--i) * -12px)) scale(calc(1 - var(--i) * .05)); transition: transform .4s cubic-bezier(.16,1,.3,1); }\n.stack:hover .toast { transform: translateY(calc(var(--i) * -76px)); }\n@keyframes toastIn { from { opacity: 0; transform: translateY(40px) scale(.9); } }`,
+    usage: 'Non-blocking confirmations and errors after user actions in any web app.',
+  },
+  {
+    title: 'Alert Banners', category: 'Feedback', component: AlertBanners,
+    accent: '#d97706',
+    palette: ['#2563eb', '#16a34a', '#d97706', '#dc2626', '#ffffff'],
+    tags: ['Alerts', 'Status', 'Dismissible'],
+    fonts: ['Inter'],
+    prompt: 'Design four inline alert banners on white: info (blue), success (green), warning (amber) and error (red). Each has a tinted background, a matching 1px border with a thicker 4px left accent, a status icon, a bold title with a one-line description, an optional outlined action button in the tone color (View status, Upgrade, View logs) and a dismiss ×. Error uses role="alert", others role="status". Dismissed alerts disappear and a dashed "Restore n dismissed" pill appears at the bottom.',
+    code: `.alert { display: flex; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); border-left: 4px solid var(--tone); }\n.alert .action { border: 1px solid var(--border); color: var(--tone); background: #fff; }`,
+    usage: 'System status, form-level errors, billing warnings and important announcements.',
+  },
+  {
+    title: 'Skeleton Loading Feed', category: 'Feedback', component: SkeletonLoader,
+    accent: '#a78bfa',
+    palette: ['#0e1015', '#14171e', '#1a1d25', '#262a35', '#a78bfa'],
+    tags: ['Skeleton', 'Shimmer', 'Loading'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a dark social feed (#0e1015) that alternates between loading and loaded states. Loading: each post card shows skeleton "bones" — a circular avatar, two short title bars and three text lines of varying width — with a shimmering gradient (#1a1d25 → #262a35 → #1a1d25 at 300% width, animated background-position). Loaded: the real avatar, name, timestamp and post text fade and slide in. A small toggle pill in the header switches states manually; the container sets aria-busy while loading.',
+    code: `.bone { background: linear-gradient(90deg, #1a1d25 0%, #262a35 40%, #1a1d25 80%) 0 0 / 300% 100%; animation: shimmer 1.4s ease-in-out infinite; border-radius: 6px; }\n@keyframes shimmer { from { background-position: 100% 0; } to { background-position: -50% 0; } }`,
+    usage: 'Feeds, dashboards and lists where content loads asynchronously.',
+  },
+  {
+    title: 'Loader Collection', category: 'Feedback', component: LoaderCollection,
+    accent: '#f472b6',
+    palette: ['#0f0d1a', '#a78bfa', '#f472b6', '#22d3ee', '#34d399'],
+    tags: ['Spinner', 'CSS Animation', 'Indeterminate'],
+    fonts: ['DM Mono'],
+    prompt: 'Showcase six pure-CSS loaders in a 3×2 grid on #0f0d1a, each labelled in tiny DM Mono caps: 1) a violet ring spinner (transparent ring with a colored top border), 2) three pink bouncing dots with staggered delays, 3) a cyan 5-bar equalizer scaling on Y, 4) an emerald pulse with two expanding, fading ripples, 5) four colored squares orbiting as a rotating group, 6) an amber indeterminate progress bar with a gradient segment sliding across a track.',
+    code: `.ring { border: 4px solid rgba(167,139,250,.15); border-top-color: #a78bfa; border-radius: 50%; animation: spin .8s linear infinite; }\n.dot { animation: bounce 1.2s infinite ease-in-out both; }\n@keyframes bounce { 0%,80%,100% { transform: scale(.4); opacity: .4; } 40% { transform: scale(1); opacity: 1; } }\n.bar { animation: eq 1s infinite ease-in-out; } @keyframes eq { 50% { transform: scaleY(1); } 0%,100% { transform: scaleY(.35); } }`,
+    usage: 'Pick-and-mix loading indicators for buttons, pages, media and background tasks.',
+  },
+  {
+    title: 'Empty State', category: 'Feedback', component: EmptyState,
+    accent: '#ea580c',
+    palette: ['#fbfaf8', '#1c1917', '#ea580c', '#ffedd5', '#78716c'],
+    tags: ['Empty State', 'Illustration', 'Onboarding'],
+    fonts: ['Fraunces', 'Inter'],
+    prompt: 'Design a friendly empty state on warm off-white (#fbfaf8). A small CSS-only illustration: two stacked white "cards" (one rotated 6°), the front one floating gently up and down with a folder icon tile and two placeholder lines, plus an orange sparkle and a soft elliptical shadow. Below: "No projects yet" in Fraunces 22px, a helpful two-line explanation, and two actions — a dark primary "New project" button with a plus icon and a white secondary "Browse templates".',
+    code: `.illustration .card { background: #fff; border: 1px solid #e7e5e4; border-radius: 14px; box-shadow: 0 14px 30px rgba(28,25,23,.08); animation: float 4s ease-in-out infinite; }\n@keyframes float { 50% { transform: translateY(-8px) rotate(-1deg); } }`,
+    usage: 'First-run experiences, empty lists, cleared inboxes and zero-result searches.',
+  },
+  {
+    title: '404 Parallax Page', category: 'Feedback', component: NotFound404,
+    accent: '#6366f1',
+    palette: ['#05040d', '#1e1b4b', '#6366f1', '#e0e7ff', '#312e81'],
+    tags: ['404', 'Parallax', 'Error Page'],
+    fonts: ['Space Grotesk', 'Inter'],
+    prompt: 'Create a space-themed 404 page on a deep indigo radial gradient. Scatter ~28 tiny white stars at varying opacity. On mousemove, stars drift with layered parallax (three depth speeds) while a giant "404" (Space Grotesk 150px, letter-spacing -8px) moves the opposite way; the number has a vertical #e0e7ff → #6366f1 → #312e81 gradient text fill and an indigo glow. Below: "Lost in space", a playful one-liner, a glowing indigo "Back home" button and an outlined "Report a broken link".',
+    code: `.big { font: 700 150px/0.9 'Space Grotesk'; letter-spacing: -8px; background: linear-gradient(180deg, #e0e7ff, #6366f1 60%, #312e81); -webkit-background-clip: text; color: transparent; transform: translate(calc(var(--mx) * -12px), calc(var(--my) * -8px)); }\n.star { transform: translate(calc(var(--mx) * var(--depth)), calc(var(--my) * var(--depth))); transition: transform .3s ease-out; }`,
+    usage: 'Not-found and error pages that keep users on-brand instead of bouncing.',
+  },
+  {
+    title: 'Tooltips with Arrows', category: 'Feedback', component: TooltipShowcase,
+    accent: '#7c3aed',
+    palette: ['#fafafa', '#18181b', '#7c3aed', '#c4b5fd', '#e4e4e7'],
+    tags: ['Tooltip', 'Placement', 'A11y'],
+    fonts: ['Inter'],
+    prompt: 'Build a tooltip component showcase on #fafafa. A toolbar of four 44px icon buttons (Bold, Link, Image, Code), each with a dark (#18181b) tooltip in a different placement — top, bottom, left, right — complete with a CSS border-triangle arrow. Tooltips use role="tooltip", open on hover and keyboard focus, and fade + slide 4px from the anchor. Below, a paragraph with an inline dashed-underlined violet term that shows its own tooltip, demonstrating inline usage.',
+    code: `.tooltip { position: absolute; padding: 6px 10px; border-radius: 8px; background: #18181b; color: #fafafa; font-size: 11px; opacity: 0; transition: opacity .15s, transform .15s; pointer-events: none; }\n.anchor:hover .tooltip, .anchor:focus-within .tooltip { opacity: 1; }\n.tooltip.top::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #18181b; }`,
+    usage: 'Icon-only toolbars, form hints, glossary terms and keyboard shortcut hints.',
+  },
+  {
+    title: 'Badges & Avatars', category: 'Feedback', component: BadgesAvatars,
+    accent: '#8b5cf6',
+    palette: ['#ffffff', '#f97316', '#8b5cf6', '#0ea5e9', '#ef4444'],
+    tags: ['Avatar', 'Badge', 'Presence'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Design a white reference sheet of avatars and badges. Row 1: five gradient initial avatars in descending sizes (56 → 22px) with presence dots (online green, away amber, offline grey) scaled to each size, plus a dashed "+" add tile. Row 2: an overlapping avatar group with a "+9" overflow bubble and "13 people are editing". Row 3: status badges — Default, Active (green dot), Pending (amber dot), Failed (red dot), outlined Beta, gradient New — and a bell icon with a red count bubble.',
+    code: `.avatar { border-radius: 50%; display: grid; place-items: center; color: #fff; }\n.presence { position: absolute; right: 0; bottom: 0; border: 2px solid #fff; border-radius: 50%; }\n.group .avatar + .avatar { margin-left: -10px; border: 2px solid #fff; }\n.badge { display: inline-flex; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; }`,
+    usage: 'Collaboration indicators, user lists, statuses and notification counts.',
   },
 
   // ─── Commerce ─────────────────────────────────────────────
