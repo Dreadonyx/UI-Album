@@ -6,6 +6,7 @@ const ThemeGlassmorphism = lazy(() => import('./components/ThemeGlassmorphism'))
 const ThemeSkeuomorphism = lazy(() => import('./components/ThemeSkeuomorphism'));
 const ThemeFlat = lazy(() => import('./components/ThemeFlat'));
 const ThemeMaterial = lazy(() => import('./components/ThemeMaterial'));
+const ThemeMinimalism = lazy(() => import('./components/ThemeMinimalism'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -157,6 +158,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget following Material Design 3. Surface #fef7ff, an elevated card in surface-container #f3edf7 with level-1 elevation and 16px radius. Leading tonal avatar (#eaddff / #21005d), title and supporting text. A linear progress indicator with the M3 gap between active (#6750a4) and track (#e8def8) segments. An M3 switch: outlined track with a small grey handle when off; filled primary track with a larger white handle containing a check icon when on. A filled pill button that shows a touch ripple from the exact click point and switches to the tonal secondary style while running, plus an outlined icon button.',
     code: `.card { background: #f3edf7; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.15), 0 4px 8px 3px rgba(0,0,0,.06); }\n.btn-filled { height: 40px; border-radius: 20px; background: #6750a4; color: #fff; position: relative; overflow: hidden; }\n.ripple { position: absolute; border-radius: 50%; background: currentColor; animation: ripple .6s ease-out forwards; }\n@keyframes ripple { from { transform: translate(-50%,-50%) scale(0); opacity: .35; } to { transform: translate(-50%,-50%) scale(1); opacity: 0; } }`,
     usage: 'Android apps, Google-ecosystem tools and teams that want a complete, documented design language.',
+  },
+  {
+    title: 'Minimalism', category: 'Themes', component: ThemeMinimalism,
+    accent: '#111111',
+    palette: ['#fafaf8', '#111111', '#e5e5e5', '#bbbbbb', '#888888'],
+    tags: ['Whitespace', 'Hairlines', 'Serif'],
+    fonts: ['Instrument Serif', 'Inter'],
+    prompt: 'Design a "Deep Work" focus widget in pure minimalism on #fafaf8. Remove every box: no cards, no fills, no shadows. A tiny grey label, then the percentage as an 84px Instrument Serif numeral with a lighter "%" sign. A 1px hairline progress line (black fill over #e5e5e5). The switch is just a text row "Do not disturb … On/Off" separated by a hairline. The action is underlined text "Start session →". A thin vertical rule separates a short caption. Generous whitespace, black text only.',
+    code: `body { background: #fafaf8; color: #111; }\n.stat { font: 84px/0.9 'Instrument Serif', serif; letter-spacing: -3px; }\n.rule { height: 1px; background: #e5e5e5; } .rule > span { background: #111; height: 1px; }\n.link-btn { background: none; border: 0; border-bottom: 1px solid #111; padding: 0 0 3px; }`,
+    usage: 'Portfolios, editorial products, luxury brands and focus or meditation apps.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
