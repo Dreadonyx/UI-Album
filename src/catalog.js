@@ -3,6 +3,7 @@ import { lazy } from 'react';
 const ThemeNeumorphism = lazy(() => import('./components/ThemeNeumorphism'));
 const ThemeClaymorphism = lazy(() => import('./components/ThemeClaymorphism'));
 const ThemeGlassmorphism = lazy(() => import('./components/ThemeGlassmorphism'));
+const ThemeSkeuomorphism = lazy(() => import('./components/ThemeSkeuomorphism'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -124,6 +125,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget in glassmorphism. Background: an indigo-to-sky gradient with bold solid shapes behind the card (a pink circle, a yellow circle, a rotated cyan square) so the blur has something to show. The card is rgba(255,255,255,0.14) with backdrop-filter: blur(18px) saturate(160%), a 1px rgba(255,255,255,0.35) border, a 1px inner top highlight and a soft indigo shadow. White Inter text, a big 40px percentage, a glowing white progress bar, a translucent switch row and a glass button that turns solid white with indigo text while running. Add a second smaller glass panel for the caption.',
     code: `.glass { background: rgba(255,255,255,.14); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid rgba(255,255,255,.35); border-radius: 24px; box-shadow: 0 8px 32px rgba(31,38,135,.25), inset 0 1px 0 rgba(255,255,255,.4); }`,
     usage: 'Overlays on rich imagery: music players, weather, OS-style widgets and hero cards. Ensure text contrast over busy areas.',
+  },
+  {
+    title: 'Skeuomorphism', category: 'Themes', component: ThemeSkeuomorphism,
+    accent: '#3fa521',
+    palette: ['#4a2c1a', '#cfcfcf', '#2d4220', '#9cff6b', '#2b8de0'],
+    tags: ['Realistic', 'Textures', 'Hardware'],
+    fonts: ['Libre Baskerville', 'VT323', 'DM Mono'],
+    prompt: 'Design a "Deep Work" focus widget in skeuomorphism, imitating physical hardware on a leather desk (radial brown gradient with a fine diagonal stitch texture). The device is a brushed-metal panel (vertical silver gradient, beveled edges, inner highlights, deep drop shadow) with: a glowing LED that turns green when running, a recessed LCD screen showing the percentage in green VT323 digits with a glow, a glossy two-tone blue progress bar in a sunken track, an iOS-6-style ON/OFF slider switch with a metal knob, and a glossy gel button (green → red while running) with an embossed label. Next to it, a lined-paper sticky note rotated 2° explaining the style.',
+    code: `.metal { background: linear-gradient(180deg, #f2f2f2, #cfcfcf 45%, #e6e6e6); border: 1px solid #8a8a8a; box-shadow: 0 14px 28px rgba(0,0,0,.55), inset 0 1px 0 #fff; }\n.lcd { background: linear-gradient(#1a2a12, #2d4220); box-shadow: inset 0 3px 8px rgba(0,0,0,.8); color: #9cff6b; text-shadow: 0 0 8px rgba(156,255,107,.7); }\n.gel { background: linear-gradient(180deg, #7ed957, #3fa521 50%, #2e8c14 51%, #4cbb2a); text-shadow: 0 -1px 0 rgba(0,0,0,.5); }`,
+    usage: 'Audio plugins, games, retro tributes and anywhere tactile realism adds delight.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
