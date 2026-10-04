@@ -22,6 +22,7 @@ const ThemeFrutigerAero = lazy(() => import('./components/ThemeFrutigerAero'));
 const ThemeRetroOS = lazy(() => import('./components/ThemeRetroOS'));
 const ThemeLiquidGlass = lazy(() => import('./components/ThemeLiquidGlass'));
 const ThemeAurora = lazy(() => import('./components/ThemeAurora'));
+const ThemeDarkAcademia = lazy(() => import('./components/ThemeDarkAcademia'));
 const NeonNavbar = lazy(() => import('./components/NeonNavbar'));
 const MinimalFooter = lazy(() => import('./components/MinimalFooter'));
 const SidebarNav = lazy(() => import('./components/SidebarNav'));
@@ -333,6 +334,16 @@ const ENTRIES = [
     prompt: 'Design a "Deep Work" focus widget on a living aurora mesh gradient: four large solid circles (violet, cyan, green, pink) on #05060f, blurred together with filter: blur(60px) and each drifting on its own slow translate/scale keyframe loop. The card is a dark translucent panel (rgba(5,6,15,0.55)) with a hairline border. Use a violet-cyan-green gradient for the 54px percentage text, the glowing progress bar and the switch track, and a button with a gradient border painted via padding-box/border-box backgrounds (filled when idle, outlined while running).',
     code: `.mesh { position: absolute; inset: 0; filter: blur(60px); }\n.mesh span { position: absolute; border-radius: 50%; animation: drift 12s ease-in-out infinite; }\n.grad-text { background: linear-gradient(90deg, #a78bfa, #22d3ee, #4ade80); -webkit-background-clip: text; color: transparent; }\n.grad-border { border: 1px solid transparent; background: linear-gradient(#05060f,#05060f) padding-box, linear-gradient(90deg,#a78bfa,#22d3ee,#4ade80) border-box; }`,
     usage: 'AI products, fintech and SaaS hero sections that need motion without imagery.',
+  },
+  {
+    title: 'Dark Academia', category: 'Themes', component: ThemeDarkAcademia,
+    accent: '#a37b4c',
+    palette: ['#2a1d14', '#efe3c8', '#7a1f1f', '#8a6d4b', '#2b2118'],
+    tags: ['Parchment', 'Serif', 'Wax Seal'],
+    fonts: ['Libre Baskerville', 'Playfair Display'],
+    prompt: 'Design a "Deep Work" focus widget in Dark Academia style. Background: a dark bookshelf made of repeating vertical brown spine stripes. The card is aged parchment (cream gradient with a warm inner vignette and a deep drop shadow, nearly square corners). Content is centered and literary: "CHAPTER IV · MMXXVI" (roman numeral grows with progress), an italic Playfair Display title, a ❦ fleuron, an italic quotation describing progress, a thin ink-outlined progress bar, a small-caps "Silence the bells — Yes/No" row between sepia rules, and an oxblood wax-seal round button (Ω, or II while running) beside an italic caption.',
+    code: `.shelf { background: repeating-linear-gradient(90deg, #3b2a1e 0 22px, #4a3424 22px 26px, #2e2118 26px 46px, #5a3f2b 46px 50px); }\n.parchment { background: linear-gradient(#efe3c8, #e3d2ae); box-shadow: 0 18px 40px rgba(0,0,0,.6), inset 0 0 40px rgba(120,80,30,.25); }\n.seal { border-radius: 50%; background: radial-gradient(circle at 35% 35%, #b23a3a, #7a1f1f 60%, #4d1010); }`,
+    usage: 'Reading and writing apps, journals, universities, bookshops and literary brands.',
   },
 
   // ─── Navigation ───────────────────────────────────────────
