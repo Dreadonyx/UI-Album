@@ -27,6 +27,13 @@ const NeumorphicForm = lazy(() => import('./components/NeumorphicForm'));
 const NewsletterCard = lazy(() => import('./components/NewsletterCard'));
 const MultiStepWizard = lazy(() => import('./components/MultiStepWizard'));
 const SettingsPanel = lazy(() => import('./components/SettingsPanel'));
+const ToggleControls = lazy(() => import('./components/ToggleControls'));
+const RangeSlider = lazy(() => import('./components/RangeSlider'));
+const TagInput = lazy(() => import('./components/TagInput'));
+const DatePicker = lazy(() => import('./components/DatePicker'));
+const ColorPicker = lazy(() => import('./components/ColorPicker'));
+const FileDropzone = lazy(() => import('./components/FileDropzone'));
+const StarRating = lazy(() => import('./components/StarRating'));
 const DashboardWidget = lazy(() => import('./components/DashboardWidget'));
 const ProductGrid = lazy(() => import('./components/ProductGrid'));
 const FloatingMusicPlayer = lazy(() => import('./components/FloatingMusicPlayer'));
@@ -326,6 +333,78 @@ const ENTRIES = [
     prompt: 'Design a dark (#0a0c11) settings screen with a 160px left nav (Profile, Security, Notifications, Billing with icons; active item #161b25). The Profile pane has a gradient initial avatar with "Change avatar", a Display name input and a Bio textarea with an 80-character counter, all with #0d1017 fields and #2a2f3a borders. When any field differs from the saved value, a floating "Unsaved changes" bar slides up from the bottom (translateY + opacity) with Reset and a blue Save button; saving or resetting slides it away.',
     code: `.save-bar { position: absolute; bottom: 18px; transform: translate(-50%, 80px); opacity: 0; transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .3s; }\n.save-bar.dirty { transform: translate(-50%, 0); opacity: 1; }\n.field { background: #0d1017; border: 1px solid #2a2f3a; border-radius: 9px; }`,
     usage: 'Account and app settings where accidental navigation should not lose edits.',
+  },
+
+  // ─── Inputs ───────────────────────────────────────────────
+  {
+    title: 'Switches, Checks & Radios', category: 'Inputs', component: ToggleControls,
+    accent: '#10b981',
+    palette: ['#18181b', '#10b981', '#27272a', '#e4e4e7', '#52525b'],
+    tags: ['Switch', 'Checkbox', 'Radio'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Create a dark (#18181b) control kit in two columns. Left: three settings rows (title + description) each with a 46×26 switch using role="switch" and aria-checked; the knob slides with a springy curve and the track turns emerald (#10b981) with a soft glow. Right: custom checkboxes (18px rounded squares that fill emerald with a dark check) built on visually hidden native inputs, and a radio group of two selectable cards (Monthly $12 / Yearly $120) where the selected card gets an emerald border, tinted background and a thick-ring radio dot.',
+    code: `.switch { width: 46px; height: 26px; border-radius: 999px; background: #3f3f46; }\n.switch[aria-checked="true"] { background: #10b981; box-shadow: 0 0 16px rgba(16,185,129,.35); }\n.switch .knob { transition: transform .25s cubic-bezier(.34,1.56,.64,1); }\n.radio.checked { border: 5px solid #10b981; }`,
+    usage: 'Preferences, filters, permission screens and any boolean or single-choice input.',
+  },
+  {
+    title: 'Range Slider with Histogram', category: 'Inputs', component: RangeSlider,
+    accent: '#0d9488',
+    palette: ['#fdfcfb', '#0d9488', '#5eead4', '#e7e5e4', '#1c1917'],
+    tags: ['Slider', 'Dual Range', 'Filter'],
+    fonts: ['Inter', 'Fraunces', 'DM Mono'],
+    prompt: 'Design a price-range filter on #fdfcfb. Header: "Price range" in Fraunces with the live "$180 – $640" value in teal DM Mono. Above the track, a 20-bar histogram where bars inside the selected range turn mint (#5eead4) and others stay grey. The dual-thumb slider overlays two native range inputs (pointer-events only on thumbs) above a 4px track with a teal (#0d9488) filled segment between the thumbs; thumbs are white 22px circles with teal borders. Keep a minimum gap between thumbs. Below: Min/Max value boxes and a single volume slider with a gradient fill and percentage readout.',
+    code: `.range { -webkit-appearance: none; position: absolute; width: 100%; background: transparent; pointer-events: none; }\n.range::-webkit-slider-thumb { -webkit-appearance: none; pointer-events: auto; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 2px solid #0d9488; }\n.fill { position: absolute; left: var(--lo); right: calc(100% - var(--hi)); background: #0d9488; }`,
+    usage: 'E-commerce filters, booking sites and any numeric range selection.',
+  },
+  {
+    title: 'Tag Input with Suggestions', category: 'Inputs', component: TagInput,
+    accent: '#8b5cf6',
+    palette: ['#0f0f14', '#18181f', '#8b5cf6', '#2e2e3a', '#f4f4f5'],
+    tags: ['Chips', 'Autocomplete', 'Keyboard'],
+    fonts: ['Inter'],
+    prompt: 'Build a dark (#0f0f14) multi-tag input. The field (#18181f, 1px #2e2e3a, soft violet focus ring) holds colorful removable chips — each chip gets a different hue tint (hsla background, brighter text, matching border) with a small × button. Enter or comma adds a slugified tag, Backspace on an empty input removes the last one, max 8 tags with a counter in the helper text. Typing shows an autocomplete dropdown with # icons. Under the field, a "Popular:" row of dashed suggestion pills adds tags in one click.',
+    code: `.tag-field { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 10px; border-radius: 12px; background: #18181f; border: 1px solid #2e2e3a; box-shadow: 0 0 0 4px rgba(139,92,246,.08); }\n.chip { padding: 4px 6px 4px 10px; border-radius: 8px; background: hsla(var(--h), 80%, 65%, .12); color: hsl(var(--h), 85%, 75%); }\n.suggestion { border: 1px dashed #3f3f46; border-radius: 999px; }`,
+    usage: 'Topics, skills, recipients, labels — any free-form multi-value field.',
+  },
+  {
+    title: 'Date Range Picker', category: 'Inputs', component: DatePicker,
+    accent: '#4f46e5',
+    palette: ['#eef2f7', '#4f46e5', '#e0e7ff', '#0f172a', '#94a3b8'],
+    tags: ['Calendar', 'Range', 'Booking'],
+    fonts: ['Inter', 'Fraunces', 'DM Mono'],
+    prompt: 'Create a booking-style date range picker on #eef2f7. A white 290px calendar card with month navigation (chevron buttons) and a Monday-first 7-column grid. Click once to set check-in, again to set check-out (reversing if needed). Start and end days are filled indigo (#4f46e5) rounded squares with a glow; days between get a continuous #e0e7ff band; hovering previews the range before the second click. Next to the calendar: "Your stay" with Check-in / Check-out summary cards and a large Fraunces night count.',
+    code: `.day.edge { background: #4f46e5; color: #fff; border-radius: 10px; box-shadow: 0 6px 14px rgba(79,70,229,.35); }\n.day.in-range { background: #e0e7ff; color: #3730a3; border-radius: 0; }\n.grid { display: grid; grid-template-columns: repeat(7, 1fr); }`,
+    usage: 'Hotel and travel booking, analytics date filters and reporting periods.',
+  },
+  {
+    title: 'HSL Color Picker', category: 'Inputs', component: ColorPicker,
+    accent: '#8b5cf6',
+    palette: ['#111113', '#1c1c1f', '#8b5cf6', '#f4f4f5', '#2a2a2e'],
+    tags: ['Color', 'Picker', 'Design Tool'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Build a design-tool color picker on #111113. A 250px #1c1c1f panel contains: a saturation/lightness pad (white-to-hue horizontal gradient under a transparent-to-black vertical gradient) with a draggable white-ringed handle; a rainbow hue slider with a custom white thumb; a row of 8 preset swatches; and a readout showing the swatch, the HEX value in DM Mono and the HSL numbers. Beside the panel, render a generated 7-step tonal scale (100–700) from the selected hue so designers can see the full ramp.',
+    code: `.pad { background: linear-gradient(to top, #000, transparent), linear-gradient(to right, #808080, hsl(var(--h), 100%, 50%)); border-radius: 12px; cursor: crosshair; }\n.hue { background: linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00); -webkit-appearance: none; }\n.handle { border: 3px solid #fff; border-radius: 50%; transform: translate(-50%, -50%); }`,
+    usage: 'Theme customizers, design tools and brand-color settings.',
+  },
+  {
+    title: 'Upload Dropzone', category: 'Inputs', component: FileDropzone,
+    accent: '#7c3aed',
+    palette: ['#f6f7fb', '#7c3aed', '#f3e8ff', '#10b981', '#1e293b'],
+    tags: ['Upload', 'Drag & Drop', 'Progress'],
+    fonts: ['Inter', 'DM Mono'],
+    prompt: 'Design a file upload area on #f6f7fb. A large white dropzone with a 2px dashed #cbd2e1 border, an upload icon in a lilac tile, "Click to upload or drag and drop" (the first part in violet #7c3aed) and a format hint. While dragging over, the border turns violet, the background tints and the zone scales slightly. It wraps a hidden file input. Below, a list of file rows: file icon (turns into a green check when done), name with ellipsis, size or live percentage in DM Mono, a thin progress bar (violet gradient → green when complete) and a trash button.',
+    code: `.dropzone { border: 2px dashed #cbd2e1; border-radius: 18px; background: #fff; transition: all .2s; }\n.dropzone.dragging { border-color: #7c3aed; background: rgba(124,58,237,.06); transform: scale(1.01); }\n.progress > span { background: linear-gradient(90deg, #a78bfa, #7c3aed); transition: width .15s linear; }`,
+    usage: 'Attachments, media libraries, document portals and profile photo uploads.',
+  },
+  {
+    title: 'Star Rating & Breakdown', category: 'Inputs', component: StarRating,
+    accent: '#fbbf24',
+    palette: ['#1a1625', '#fbbf24', '#3d3650', '#f5f3ff', '#8b85a0'],
+    tags: ['Rating', 'Reviews', 'Hover'],
+    fonts: ['Fraunces', 'Inter', 'DM Mono'],
+    prompt: 'Create a review widget on a deep plum background (#1a1625). Left: "Rate your stay" in Fraunces, a hint line, and five 34px star buttons in a radiogroup. Hovering previews the rating (stars fill amber #fbbf24 with a drop-shadow glow) and the hovered star bounces with scale(1.25) rotate(-8deg); a label below changes from "Terrible" to "Amazing!". Right: a summary card with the average "4.6 / 5 · 1,920 reviews" and 5→1 star distribution bars in amber with percentage labels.',
+    code: `.star { transition: transform .2s cubic-bezier(.34,1.56,.64,1); }\n.star:hover { transform: scale(1.25) rotate(-8deg); }\n.star.on svg { fill: #fbbf24; filter: drop-shadow(0 0 10px rgba(251,191,36,.55)); }\n.bar > span { background: #fbbf24; border-radius: 4px; }`,
+    usage: 'Product reviews, post-purchase surveys, app feedback and NPS-style prompts.',
   },
 
   // ─── Dashboard ────────────────────────────────────────────
