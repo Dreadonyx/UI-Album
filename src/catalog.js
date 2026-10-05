@@ -41,6 +41,7 @@ const HeroEditorial = lazy(() => import('./components/HeroEditorial'));
 const HeroDeveloper = lazy(() => import('./components/HeroDeveloper'));
 const HeroWaitlist = lazy(() => import('./components/HeroWaitlist'));
 const HeroHardware = lazy(() => import('./components/HeroHardware'));
+const HeroAnalytics = lazy(() => import('./components/HeroAnalytics'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
 const TestimonialWall = lazy(() => import('./components/TestimonialWall'));
@@ -536,6 +537,16 @@ const ENTRIES = [
     prompt: 'Design a hardware product hero for "OKTAV OK-1", a pocket field recorder, in an industrial-design style on warm gray #ecebe7. Nav in uppercase DM Mono with a letterspaced Space Grotesk wordmark and a live "Cart (n)" counter. Left: a mono model line ("OK-1 / FIELD RECORDER"), a two-line 40px Space Grotesk headline ("Pocket-sized. Studio-grade."), a spec definition list in DM Mono under a hairline (recording format, tracks, battery, weight), finish swatches (Aluminium, Graphite) with a ring on the selected one, and a flat signal-orange (#ff5a1f) "Pre-order · $449" button with a shipping date. Right: a flat SVG illustration of the device: rounded body with an offset edge shadow, black screen with a waveform, a big orange knob, four square keys and a dot speaker grille. The finish swatches recolor the body; tapping the device starts a demo recording (orange animated waveform, REC timer, knob rotates).',
     code: `nav, .specs { font: 10px 'DM Mono', monospace; text-transform: uppercase; }\nh1 { font: 600 40px/1 'Space Grotesk', sans-serif; letter-spacing: -1.5px; }\n.specs { display: grid; grid-template-columns: auto 1fr; gap: 5px 18px; border-top: 1px solid #c9c8c3; }\n.preorder { background: #ff5a1f; color: #fff; border-radius: 4px; font-family: 'DM Mono', monospace; }`,
     usage: 'Physical products, consumer electronics and anything with specs worth showing off.',
+  },
+  {
+    title: 'B2B Split Hero', category: 'Hero', component: HeroAnalytics,
+    accent: '#2453ff',
+    palette: ['#ffffff', '#0b1220', '#2453ff', '#f4f6fa', '#0e9f6e'],
+    tags: ['B2B SaaS', 'Split Layout', 'Dashboard'],
+    fonts: ['Inter', 'Space Grotesk', 'Instrument Serif'],
+    prompt: 'Design the classic B2B SaaS split hero for "Metric", a marketing-attribution tool, on white. Nav: bar-chart logo mark, four gray links, "Sign in" and a dark "Book a demo" button. Left column (about 260px): a small outlined pill ("New · Forecasts for every channel"), a 33px bold three-line headline with tight tracking ("Know which campaigns actually pay off."), one sentence of gray copy, a blue (#2453ff) "Start free trial" button next to an outlined "Watch demo" button with a play icon, and a trust line with five amber stars, rating and "14-day trial, no card". Right column: a light gray (#f4f6fa) stage holding a composed product UI: a white "Revenue attributed" card with a 30d/90d segmented toggle, big tabular number, green delta and a blue SVG line chart; a white "Top channel" card overlapping the stage edge bottom-left with a progress bar; and a dark "Blended ROAS" stat card bottom-right. The toggle updates every number and the chart. Footer row of gray customer wordmarks.',
+    code: `.hero { display: flex; gap: 20px; }\nh1 { font: 700 33px/1.08 Inter, sans-serif; letter-spacing: -1.2px; color: #0b1220; }\n.btn-primary { background: #2453ff; color: #fff; border-radius: 8px; }\n.stage { background: #f4f6fa; border-radius: 14px; position: relative; }\n.ui-card { background: #fff; border: 1px solid #e9ecf2; border-radius: 10px; box-shadow: 0 1px 2px rgba(11,18,32,.04), 0 8px 24px rgba(11,18,32,.06); }`,
+    usage: 'The default for B2B SaaS homepages: clear promise on the left, believable product proof on the right.',
   },
 
   // ─── Landing ──────────────────────────────────────────────
