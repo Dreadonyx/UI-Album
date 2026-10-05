@@ -42,6 +42,7 @@ const HeroDeveloper = lazy(() => import('./components/HeroDeveloper'));
 const HeroWaitlist = lazy(() => import('./components/HeroWaitlist'));
 const HeroHardware = lazy(() => import('./components/HeroHardware'));
 const HeroAnalytics = lazy(() => import('./components/HeroAnalytics'));
+const HeroMobileApp = lazy(() => import('./components/HeroMobileApp'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
 const TestimonialWall = lazy(() => import('./components/TestimonialWall'));
@@ -547,6 +548,16 @@ const ENTRIES = [
     prompt: 'Design the classic B2B SaaS split hero for "Metric", a marketing-attribution tool, on white. Nav: bar-chart logo mark, four gray links, "Sign in" and a dark "Book a demo" button. Left column (about 260px): a small outlined pill ("New · Forecasts for every channel"), a 33px bold three-line headline with tight tracking ("Know which campaigns actually pay off."), one sentence of gray copy, a blue (#2453ff) "Start free trial" button next to an outlined "Watch demo" button with a play icon, and a trust line with five amber stars, rating and "14-day trial, no card". Right column: a light gray (#f4f6fa) stage holding a composed product UI: a white "Revenue attributed" card with a 30d/90d segmented toggle, big tabular number, green delta and a blue SVG line chart; a white "Top channel" card overlapping the stage edge bottom-left with a progress bar; and a dark "Blended ROAS" stat card bottom-right. The toggle updates every number and the chart. Footer row of gray customer wordmarks.',
     code: `.hero { display: flex; gap: 20px; }\nh1 { font: 700 33px/1.08 Inter, sans-serif; letter-spacing: -1.2px; color: #0b1220; }\n.btn-primary { background: #2453ff; color: #fff; border-radius: 8px; }\n.stage { background: #f4f6fa; border-radius: 14px; position: relative; }\n.ui-card { background: #fff; border: 1px solid #e9ecf2; border-radius: 10px; box-shadow: 0 1px 2px rgba(11,18,32,.04), 0 8px 24px rgba(11,18,32,.06); }`,
     usage: 'The default for B2B SaaS homepages: clear promise on the left, believable product proof on the right.',
+  },
+  {
+    title: 'Mobile App Hero', category: 'Hero', component: HeroMobileApp,
+    accent: '#0f5132',
+    palette: ['#f3efe7', '#14211a', '#0f5132', '#c8f169', '#fbfaf7'],
+    tags: ['App Landing', 'Phone Mockup', 'Store Badges'],
+    fonts: ['Fraunces', 'Inter'],
+    prompt: 'Design a mobile app landing hero for "Penny", a budgeting app, on warm cream (#f3efe7) with deep green (#0f5132) as the brand color. Nav: rounded-square logo and four links on the right. Left: "Free on iOS and Android" eyebrow in green, a 40px Fraunces headline ("Money that sorts itself out."), a short benefit paragraph, two black store badges (App Store, Google Play) with small icons and two-line labels, and a ratings line (five stars, 4.9 from 38,000 ratings). Right: a realistic phone mockup (dark bezel, notch, status bar) showing the app: available balance in Fraunces, an Overview/Spending segmented control that swaps the list below, a green "Saved automatically this month" card with a lime progress bar, and transaction rows with initial tiles and tabular amounts. A white notification card overlaps the phone edge ("Subscription paused … You save $15.99/mo") with a green check tile. No emoji, no gradients.',
+    code: `.phone { width: 180px; border-radius: 30px; background: #14211a; padding: 6px; box-shadow: 0 30px 60px rgba(20,33,26,.25); }\n.screen { border-radius: 25px; background: #fbfaf7; }\n.store-badge { display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 12px; border-radius: 8px; background: #111; color: #fff; }\nh1 { font: 600 40px/1.02 Fraunces, serif; letter-spacing: -1px; }`,
+    usage: 'App landing pages and product sites where downloads are the primary conversion.',
   },
 
   // ─── Landing ──────────────────────────────────────────────
