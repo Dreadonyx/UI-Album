@@ -43,6 +43,7 @@ const HeroWaitlist = lazy(() => import('./components/HeroWaitlist'));
 const HeroHardware = lazy(() => import('./components/HeroHardware'));
 const HeroAnalytics = lazy(() => import('./components/HeroAnalytics'));
 const HeroMobileApp = lazy(() => import('./components/HeroMobileApp'));
+const HeroJobSearch = lazy(() => import('./components/HeroJobSearch'));
 const BrutalistLanding = lazy(() => import('./components/BrutalistLanding'));
 const SaaSPricing = lazy(() => import('./components/SaaSPricing'));
 const TestimonialWall = lazy(() => import('./components/TestimonialWall'));
@@ -558,6 +559,16 @@ const ENTRIES = [
     prompt: 'Design a mobile app landing hero for "Penny", a budgeting app, on warm cream (#f3efe7) with deep green (#0f5132) as the brand color. Nav: rounded-square logo and four links on the right. Left: "Free on iOS and Android" eyebrow in green, a 40px Fraunces headline ("Money that sorts itself out."), a short benefit paragraph, two black store badges (App Store, Google Play) with small icons and two-line labels, and a ratings line (five stars, 4.9 from 38,000 ratings). Right: a realistic phone mockup (dark bezel, notch, status bar) showing the app: available balance in Fraunces, an Overview/Spending segmented control that swaps the list below, a green "Saved automatically this month" card with a lime progress bar, and transaction rows with initial tiles and tabular amounts. A white notification card overlaps the phone edge ("Subscription paused … You save $15.99/mo") with a green check tile. No emoji, no gradients.',
     code: `.phone { width: 180px; border-radius: 30px; background: #14211a; padding: 6px; box-shadow: 0 30px 60px rgba(20,33,26,.25); }\n.screen { border-radius: 25px; background: #fbfaf7; }\n.store-badge { display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 12px; border-radius: 8px; background: #111; color: #fff; }\nh1 { font: 600 40px/1.02 Fraunces, serif; letter-spacing: -1px; }`,
     usage: 'App landing pages and product sites where downloads are the primary conversion.',
+  },
+  {
+    title: 'Marketplace Search Hero', category: 'Hero', component: HeroJobSearch,
+    accent: '#16181d',
+    palette: ['#f6f5f1', '#16181d', '#ffffff', '#5c616b', '#2b8a3e'],
+    tags: ['Search', 'Marketplace', 'Listings'],
+    fonts: ['Inter'],
+    prompt: 'Design a search-first marketplace hero for "Shortlist", a startup job board. A soft #f6f5f1 top band holds the nav (check-mark logo, Jobs/Companies/Salaries links, "Post a job" and an outlined "Sign in"), a centered 32px bold headline ("Find work at companies that move fast."), a one-line stat sentence, and a large white search bar with two labeled fields separated by a hairline (search icon + "Role, skill or company", pin icon + "City or remote") and a black Search button, followed by "Popular:" chips that fill the query. Below the band on white, a results header ("n matching roles", "Sorted by newest") and a three-column grid of listing cards (colored company initial tile, optional green "New" tag, role, company and location, salary range). Typing in either field filters the cards live, with an empty state message.',
+    code: `.search { display: flex; align-items: center; padding: 5px; border-radius: 12px; background: #fff; border: 1px solid #e2e1db; box-shadow: 0 6px 20px rgba(22,24,29,.06); }\n.search input { border: 0; outline: 0; height: 34px; }\n.search .divider { width: 1px; height: 22px; background: #e2e1db; }\n.listing { padding: 11px; border: 1px solid #ecebe6; border-radius: 10px; }`,
+    usage: 'Marketplaces, job boards, booking and real-estate sites where search is the main action.',
   },
 
   // ─── Landing ──────────────────────────────────────────────
